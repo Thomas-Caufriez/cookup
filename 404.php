@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('2'); ?>
 
 <h1>Page introuvable</h1>
    

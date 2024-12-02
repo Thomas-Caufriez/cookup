@@ -14,26 +14,28 @@
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a 
-                class="navbar-brand"
+                class="navbar-brand" 
                 href="<?php echo home_url('/'); ?>"
-            >   
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-                    alt="Cookup" 
-                    width="30" 
-                    height="24"
-                >
+            >
+                <div class="container text-center">
+                    <img 
+                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                        alt="Retour" 
+                        width="30" 
+                        height="24"
+                    >
+                    <p>
+                        Retour
+                    </p>
+                </div>
             </a>
-            <div class="d-flex">
-                <?php echo get_search_form(); ?>
-            </div>
             <a 
                 class="navbar-brand" 
-                href="<?php echo home_url('/creer-recette'); ?>"
+                href="<?php echo home_url('/'); ?>"
             >
                 <img 
                     src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-                    alt="Créer" 
+                    alt="Cookup" 
                     width="30" 
                     height="24"
                 >
