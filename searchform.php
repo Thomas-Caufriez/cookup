@@ -9,7 +9,7 @@
     >
         <img 
             src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-            alt="Créer recette" 
+            alt="Rechercher" 
             width="30" 
             height="24"
         >

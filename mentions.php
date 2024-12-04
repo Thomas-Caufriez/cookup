@@ -4,8 +4,8 @@
  */
 ?>
 
-<?php get_header('2'); ?>
+<?php get_header('bis'); ?>
 
 <h1>Mentions légales</h1>
 
-<?php get_footer(); ?>
+<?php get_footer('bis'); ?>

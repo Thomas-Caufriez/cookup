@@ -4,8 +4,79 @@
  */
 ?>
 
-<?php get_header('2'); ?>
+<?php get_header('bis'); ?>
 
 <h1>Créer recette</h1>
 
-<?php get_footer(); ?>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+<p>la</p>
+
+<?php get_footer('bis'); ?>

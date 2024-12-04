@@ -1,25 +1,73 @@
-    <footer class="container text-center">
-        <div class="row">
-            <div class="col">
-                <?php wp_nav_menu([
-                    'theme_location' => 'footer',
-                    'container' => false,
-                    'menu_class' => 'navbar-nav me-auto'
-                ]); ?>
-            </div>
-            <div class="col">
-                <address><a href="mailto:cookup@hotmail.com">cookup@hotmail.com</a></address>
-            </div>
-            <div class="col">
-                <address><a href="tel:+32123456789">+32 123 45 67 89</a></address>
-            </div>
+    <nav class="nav fixed-bottom">
+        <div class="container-fluid">
+            <ul class="nav justify-content-evenly accordion accordion-flush" id="accordeon">
+                <li class="nav-item text-center accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="nav-link accordion-button collapsed"
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapseOne" 
+                            aria-expanded="false" 
+                            aria-controls="collapseOne" 
+                            type="button"
+                        >
+                            <img 
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                                alt="Icones carrote steak et feuille" 
+                                width="30" 
+                                height="24"
+                            >
+                            <p>Ingrédients</p>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordeon">
+                        <div class="accordion-body">
+                            Test1
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item text-center accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="nav-link accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                            type="button" 
+                        >
+                            <img 
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                                alt="Icone assiettes et cuillère" 
+                                width="30" 
+                                height="24"
+                            >
+                            <p>Plats</p>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordeon">
+                        <div class="accordion-body">
+                            Test2
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item text-center">
+                    <a
+                        class="nav-link" 
+                        href="<?php echo home_url('/profil'); ?>"
+                    >
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                            alt="Icone personne" 
+                            width="30" 
+                            height="24"
+                        >
+                        <p>Se connecter</p>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="row">
-            <div class="container text-center">
-                <p>Tous droits réservés à Cookup.be  ©2024</p>
-            </div>
-        </div>
-    </footer>
+    </nav>
     
     <?php wp_footer(); ?>
 </body>
