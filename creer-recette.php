@@ -1,13 +1,12 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: Page Créer Recette
+ */
+?>
 
-<h1>Index</h1>
+<?php get_header('bis'); ?>
 
-<?php if (get_search_query()!== ''): ?>
-    <h2>
-        Recherche pour :
-        <strong><?php echo get_search_query(); ?></strong>
-    </h2>
-<?php endif ?>
+<h1>Créer recette</h1>
 
 <p>la</p>
 <p>la</p>
@@ -80,4 +79,4 @@
 <p>la</p>
 <p>la</p>
 
-<?php get_footer(); ?>
+<?php get_footer('bis'); ?>
