@@ -7,6 +7,10 @@
         content="width=device-width, initial-scale=1.0"
     >
     <?php wp_head(); ?>
+
+    <!-- pour changer le logo devant l'url sans avoir besoin d'installer de plugin wordpress (ne fonctionne pas sur tous les navigateurs) -->
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.png" media="(prefers-color-scheme: dark)">
 </head>
 
 <body <?php body_class(); ?>>
@@ -19,10 +23,10 @@
                     href="<?php echo home_url('/'); ?>"
                 >   
                     <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                        src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
                         alt="Logo" 
-                        width="30" 
-                        height="24"
+                        width="60" 
+                        height="60"
                     >
                 </a>
                 <div class="d-flex">

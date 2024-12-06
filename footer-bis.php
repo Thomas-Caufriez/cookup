@@ -1,4 +1,4 @@
-<footer class="container-fluid position-sticky bottom-0">
+<footer class="container-fluid position-sticky bottom-0 text-center">
         <div class="row navbar">
             <ul class="nav justify-content-around">
                 <?php  wp_nav_menu_no_ul(); ?>
@@ -20,7 +20,7 @@
                 </li>
             </ul>
         </div>
-        <div class="row text-center">
+        <div class="row">
             <p>Tous droits réservés à Cookup.be  ©2024</p>
         </div>
     </footer>

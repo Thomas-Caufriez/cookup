@@ -7,6 +7,10 @@
         content="width=device-width, initial-scale=1.0"
     >
     <?php wp_head(); ?>
+
+    <!-- pour changer le logo devant l'url sans avoir besoin d'installer de plugin wordpress -->
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.png" media="(prefers-color-scheme: dark)">
 </head>
 
 <body <?php body_class(); ?>>
