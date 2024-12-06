@@ -64,4 +64,33 @@ function wp_nav_menu_no_ul()
     ), '', $menu);
 }
 
+function create_account(){
+	//You may need some data validation here
+	$user = ( isset($_POST['uname']) ? $_POST['uname'] : '' );
+	$pass = ( isset($_POST['upass']) ? $_POST['upass'] : '' );
+	$email = ( isset($_POST['uemail']) ? $_POST['uemail'] : '' );
+
+	if ( !username_exists( $user )  && !email_exists( $email ) ) {
+		$user_login = wp_slash( $user );
+		$user_email = wp_slash( $email );
+		$user_pass = $pass;
+
+		$userdata = compact('user_login', 'user_email', 'user_pass');
+		$user_id = wp_insert_user($userdata);
+
+		if( !is_wp_error($user_id) ) {
+			// user has been created
+			$user = new WP_User( $user_id );
+			$user->set_role( 'contributor' ); // type d'user que je veux a ce moment la 
+			// redirection après connexion
+			wp_redirect(esc_url(home_url('/')));
+			exit;
+		} else {
+			//$user_id is a WP_Error object. Manage the error
+		}
+	}
+}
+
+add_action('init', 'create_account');
+
 ?>

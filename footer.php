@@ -54,7 +54,7 @@
                 <li class="nav-item text-center">
                     <a
                         class="nav-link" 
-                        href="<?php echo home_url('/profil'); ?>"
+                        href="<?php echo home_url('/connexion'); ?>"
                     >
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/" 

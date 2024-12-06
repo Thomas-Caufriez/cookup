@@ -36,7 +36,7 @@
                     href="<?php echo home_url('/'); ?>"
                 >
                     <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                        src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
                         alt="Logo" 
                         width="30" 
                         height="24"

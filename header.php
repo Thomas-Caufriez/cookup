@@ -25,8 +25,8 @@
                     <img 
                         src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
                         alt="Logo" 
-                        width="60" 
-                        height="60"
+                        width="30" 
+                        height="24"
                     >
                 </a>
                 <div class="d-flex">
