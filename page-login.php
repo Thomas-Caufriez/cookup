@@ -3,10 +3,10 @@
 Template Name: Page Connexion
 */
 
-/*if (is_user_logged_in()) {
+if (is_user_logged_in()) {
     wp_redirect( home_url('/profil') );
       exit;
-  }*/
+  }
 
 get_header('bis'); 
 ?>
@@ -21,10 +21,18 @@ get_header('bis');
 		<input type="password" name="pwd" id="pwd">
 		
     <input type="submit" name="submit" value="Se connecter">
-		<input type="hidden" name="redirect_to" value="<?php echo esc_url( home_url('/') ); ?>">
+		<input type="hidden" name="redirect_to" value="<?php echo esc_url( home_url('/profil') ); ?>">
 	</form>
 
 </div>
+
+<form method="post">
+  User <input type="text"  name="uname" />
+  Email  <input id="email" type="text" name="uemail" />
+  Password  <input type="password"  name="upass" />
+  <input type="submit" value="Submit" />
+  <input type="hidden" name="redirect_to" value="<?php echo esc_url( home_url('/profil') ); ?>">
+</form>
 
 
 <?php get_footer('bis'); ?>
