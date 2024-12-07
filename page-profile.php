@@ -3,6 +3,11 @@
 Template Name: Page Profil
 */
 
+if (!is_user_logged_in()) {
+    wp_redirect( home_url('/connexion'));
+	    exit;
+    }
+
 get_header('bis'); 
 ?>
 

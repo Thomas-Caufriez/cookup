@@ -48,8 +48,8 @@ register_nav_menu('footer', 'footer');
   }
   add_filter('nav_menu_link_attributes', 'footer_menu_link_class');
 
-// fonction trouvée sur https://wordpress.stackexchange.com/questions/7968/how-do-i-remove-ul-on-wp-nav-menu //
-// permet d'enlever les balises ul afin de les mettre moi-même et de les fermer quand je veux //
+// fonction trouvée sur https://wordpress.stackexchange.com/questions/7968/how-do-i-remove-ul-on-wp-nav-menu
+// permet d'enlever les balises ul afin de les mettre moi-même et de les fermer quand je veux
   function wp_nav_menu_no_ul()
   {
       $options = array(
@@ -94,7 +94,7 @@ add_action('init', 'create_account');
 
 
 // vérifie le role puis enlève la barre si pas admin
-  function tf_check_user_role( $roles ) {
+  function check_user_role( $roles ) {
     if ( !is_user_logged_in() ) {
       return;
     }
@@ -111,8 +111,8 @@ add_action('init', 'create_account');
     return $response;
   }
   $roles = [ 'author' ]; // uniquement auteur pour économiser des lignes de code (car tous les utilisateurs ont/auront ce rôle pour le moment)
-  if ( tf_check_user_role($roles) ) {
+  if ( check_user_role($roles) ) {
     add_filter('show_admin_bar', '__return_false');
   }
-
+  
 ?>
