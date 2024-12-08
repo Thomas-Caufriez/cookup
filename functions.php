@@ -114,5 +114,5 @@ add_action('init', 'create_account');
   if ( check_user_role($roles) ) {
     add_filter('show_admin_bar', '__return_false');
   }
-  
+
 ?>

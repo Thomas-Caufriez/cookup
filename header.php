@@ -15,34 +15,37 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a 
-                    class="navbar-brand"
-                    href="<?php echo home_url('/'); ?>"
-                >   
-                    <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                        alt="Logo" 
-                        width="30" 
-                        height="24"
-                    >
-                </a>
-                <div class="d-flex">
+    
+    <header class="sticky-top bg-secondary">
+        <nav class="navbar navbar-expand">
+            <div class="container">
+                <div class="col-1">
+                    <a 
+                        class="navbar-brand"
+                        href="<?php echo home_url('/'); ?>"
+                    >   
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                            alt="Logo" 
+                            class="img-fluid"
+                        >
+                    </a>
+                </div>
+                <div class="col-6">
                     <?php echo get_search_form(); ?>
                 </div>
-                <a 
-                    class="nav-link" 
-                    href="<?php echo home_url('/creer-recette'); ?>"
-                >
-                    <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-                        alt="Créer" 
-                        width="30" 
-                        height="24"
+                <div class="col-1">
+                    <a 
+                        class="nav-link" 
+                        href="<?php echo home_url('/creer-recette'); ?>"
                     >
-                </a>
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                            alt="Créer" 
+                            class="img-fluid"
+                        >
+                    </a>
+                </div>
             </div>
         </nav>
     </header>

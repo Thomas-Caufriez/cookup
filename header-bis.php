@@ -15,33 +15,34 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg">
+    <header class="sticky-top bg-secondary">
+        <nav class="navbar navbar-expand">
             <div class="container-fluid">
-                <a 
-                    class="nav-link active" 
-                    href="<?php echo home_url('/'); ?>"
-                >
-                    <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-                        alt="Retour" 
-                        width="30" 
-                        height="24"
-                        class="d-inline-block align-text-top"
+                <div class="col-1">
+                    <a 
+                        class="nav-link active" 
+                        href="<?php echo home_url('/'); ?>"
                     >
-                    Retour
-                </a>
-                <a 
-                    class="navbar-brand" 
-                    href="<?php echo home_url('/'); ?>"
-                >
-                    <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                        alt="Logo" 
-                        width="30" 
-                        height="24"
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                            alt="Retour" 
+                            class="img-fluid"
+                        >
+                        Retour
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a 
+                        class="navbar-brand" 
+                        href="<?php echo home_url('/'); ?>"
                     >
-                </a>
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                            alt="Logo" 
+                            class="img-fluid"
+                        >
+                    </a>
+                </div>
             </div>
         </nav>
     </header>

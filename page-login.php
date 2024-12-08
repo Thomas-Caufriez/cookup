@@ -10,7 +10,6 @@ if (is_user_logged_in()) {
 
 get_header('bis'); 
 ?>
-<h1 class="text-center">Se connecter / S'inscrire</h1>
 
 <div class="container">
   <h2 class="text-center">Se connecter</h2>
@@ -21,15 +20,13 @@ get_header('bis');
     action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>"
     method="post"
   >
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <label 
-          for="log" 
-          class="form-label"
-        >
-          Email ou nom d'utilisateur
-        </label>
-      </span>
+    <div class="mb-3">
+      <label 
+        for="log" 
+        class="form-label"
+      >
+        Email ou nom d'utilisateur
+      </label>
       <input 
         type="text" 
         name="log"
@@ -40,15 +37,13 @@ get_header('bis');
         value="<?php echo esc_attr( $user_login ); ?>"
       >
     </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <label 
-          for="pwd" 
-          class="form-label"
-        >
-          Mot de passe
-        </label>
-      </span>
+    <div class="mb-3">
+      <label 
+        for="pwd" 
+        class="form-label"
+      >
+        Mot de passe
+      </label>
       <input 
         type="password" 
         name="pwd"
@@ -60,7 +55,7 @@ get_header('bis');
       >
       </div>
       <div>
-        <a class="small" href="#">Mot de passe oublié ?</a>
+        <a class="small" href="<?php echo esc_url( home_url('/connexion/mot-de-passe-oublie') ); ?>">Mot de passe oublié ?</a>
       </div>
       <div class="text-center">
         <input 
@@ -68,6 +63,10 @@ get_header('bis');
           name="submit" 
           value="Connexion"
           class="btn"
+        >
+        <img 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+          alt="login"
         >
         <input 
           type="hidden" 
@@ -86,15 +85,13 @@ get_header('bis');
 
 <div class="container">
   <form method="post">
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <label 
-          for="name" 
-          class="form-label"
-        >
-          Nom d'utilisateur
-        </label>
-      </span>
+    <div class="mb-3">
+      <label 
+        for="name" 
+        class="form-label"
+      >
+        Nom d'utilisateur
+      </label>
       <input 
         type="text" 
         name="uname"
@@ -104,15 +101,13 @@ get_header('bis');
         required
       >
     </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <label 
-          for="email" 
-          class="form-label"
-        >
-          Email
-        </label>
-      </span>
+    <div class="mb-3">
+      <label 
+        for="email" 
+        class="form-label"
+      >
+        Email
+      </label>
       <input 
         type="text" 
         name="uemail"
@@ -120,18 +115,16 @@ get_header('bis');
         id="email" 
         placeholder="Ex : John@doe.com"
         required
-        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
       >
     </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text">
-        <label 
-          for="pwd" 
-          class="form-label"
-        >
-          Mot de passe
-        </label>
-      </span>
+    <div class="mb-3">
+      <label 
+        for="pwd" 
+        class="form-label"
+      >
+        Mot de passe
+      </label>
       <input 
         type="password" 
         name="upass"
@@ -151,6 +144,10 @@ get_header('bis');
         name="submit" 
         value="Inscription"
         class="btn"
+      >
+      <img 
+        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+        alt="document"
       >
       <input 
         type="hidden" 
