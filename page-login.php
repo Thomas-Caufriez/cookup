@@ -60,16 +60,17 @@ get_header('bis');
       </div>
     </div>
     <div class="text-center">
-      <input 
+      <button
         type="submit" 
         name="submit" 
-        value="Connexion"
-        class="btn"
+        class="btn btn-primary"
       >
-      <img 
-        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-        alt="login"
-      >
+        <span>Connexion</span>
+        <img 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+          alt="login"
+        >
+      </button>
       <input 
         type="hidden" 
         name="redirect_to" 
@@ -145,16 +146,17 @@ get_header('bis');
       </div>
     </div>
     <div class="text-center">
-      <input 
-        type="submit" 
-        name="submit" 
-        value="Inscription"
-        class="btn"
+      <button
+        type="submit"
+        name="submit"
+        class="btn btn-primary"
       >
-      <img 
-        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-        alt="document"
-      >
+      <span>Inscription</span>
+        <img 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+          alt="document"
+        >
+      </button>
       <input 
         type="hidden" 
         name="redirect_to" 
