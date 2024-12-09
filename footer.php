@@ -1,10 +1,10 @@
-    <div class="container-fluid sticky-bottom bg-secondary">
+    <div class="container-fluid sticky-bottom text-center bg-secondary ">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
-                <ul class="navbar-nav d-flex w-100 flex-nowrap justify-content-evenly">
-                    <li class="nav-item text-center">
+                <ul class="navbar-nav row m-0 w-100 row-cols-3">
+                    <li class="nav-item col align-center">
                         <button
-                            class="nav-link"
+                            class="btn"
                             type="button"
                         >
                             <img 
@@ -15,9 +15,9 @@
                             <p class="navbar-text">Ingrédients</p>
                         </button>
                     </li>
-                    <li class="nav-item text-center">
+                    <li class="nav-item col">
                         <button
-                            class="nav-link"
+                            class="btn"
                             type="button" 
                         >
                             <img 
@@ -28,9 +28,9 @@
                             <p class="navbar-text">Plats</p>
                         </button>
                     </li>
-                    <li class="nav-item text-center">
+                    <li class="nav-item col">
                         <a
-                            class="nav-link" 
+                            class="btn" 
                             href="<?php echo home_url('/connexion'); ?>"
                         >
                             <img 

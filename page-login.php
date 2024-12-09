@@ -8,7 +8,7 @@ if (is_user_logged_in()) {
       exit;
     }
 
-get_header('bis'); 
+get_header('bis');
 ?>
 
 <div class="container">

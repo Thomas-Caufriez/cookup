@@ -1,9 +1,9 @@
-    <footer class="container-fluid bg-secondary text-center">
+    <footer class="container-fluid text-center bg-primary">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
-                <ul class="navbar-nav d-flex w-100 flex-wrap justify-content-around">
+                <ul class="navbar-nav row m-0 w-100">
                     <?php  wp_nav_menu_no_ul(); ?>
-                    <li class="nav-item">
+                    <li class="nav-item col">
                         <a 
                             href="mailto:cookup@hotmail.com"
                             class="nav-link"
@@ -11,7 +11,7 @@
                             cookup@hotmail.com
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item col">
                         <a 
                             href="tel:+32123456789"
                             class="nav-link"

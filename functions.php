@@ -36,7 +36,7 @@ register_nav_menu('footer', 'footer');
 
 // ajoute la classe nav-item aux li placés par la fonction wp_nav_menu()
   function footer_menu_class($classes) {
-    $classes[] = 'nav-item';
+    $classes[] = 'nav-item col';
     return $classes;
   }
   add_filter('nav_menu_css_class', 'footer_menu_class');
