@@ -9,8 +9,6 @@ if (!is_user_logged_in()) {
     }
 
 get_header('bis'); 
-
-echo do_shortcode('[wpmem_profile]');
 ?>
 
 <h1>Profil</h1>

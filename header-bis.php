@@ -8,23 +8,27 @@
     >
     <?php wp_head(); ?>
 
-    <!-- pour changer le logo devant l'url sans avoir besoin d'installer de plugin wordpress -->
-    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.png" media="(prefers-color-scheme: light)">
+    <!-- pour changer le logo devant l'url sans avoir besoin d'installer de plugin wordpress (ne fonctionne pas sur tous les navigateurs) -->
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.png" media="(prefers-color-scheme: light)">
 </head>
 
-<body <?php body_class(); ?>>
+<body 
+    class="d-flex flex-column min-vh-100 overflow-x-hidden" 
+    <?php body_class(); ?>
+>
     <?php wp_body_open(); ?>
-    <header class="sticky-top bg-secondary">
+
+    <header class="sticky-top bg-primary">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
                 <div class="col-1">
                     <a 
-                        class="nav-link active" 
+                        class="nav-link" 
                         href="<?php echo home_url('/'); ?>"
                     >
                         <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
                             alt="Retour" 
                             class="img-fluid"
                         >

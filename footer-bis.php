@@ -1,4 +1,4 @@
-    <footer class="container-fluid text-center bg-primary">
+    <footer class="mt-auto mx-0 container-fluid text-center bg-primary">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
                 <ul class="navbar-nav row m-0 w-100">

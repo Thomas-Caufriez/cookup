@@ -13,7 +13,10 @@
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.png" media="(prefers-color-scheme: light)">
 </head>
 
-<body <?php body_class(); ?>>
+<body 
+    class="d-flex flex-column min-vh-100 overflow-x-hidden" 
+    <?php body_class(); ?>
+>
     <?php wp_body_open(); ?>
     
     <header class="sticky-top bg-primary">
@@ -40,7 +43,7 @@
                         href="<?php echo home_url('/creer-recette'); ?>"
                     >
                         <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
                             alt="Créer" 
                             class="img-fluid"
                         >
