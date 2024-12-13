@@ -44,7 +44,7 @@
                     >
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                            alt="Créer" 
+                            alt="Icone créer" 
                             class="img-fluid"
                         >
                     </a>

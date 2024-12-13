@@ -26,7 +26,7 @@ register_nav_menu('footer', 'footer');
       );
       wp_enqueue_script(
         'app-js',
-        get_template_directory_uri() . '/assets/javascript/app.js',
+        get_template_directory_uri() . '/assets/js/app.js',
         ['bootstrap-bundle'],
         1,
         true
@@ -114,5 +114,4 @@ add_action('init', 'create_account');
   if ( check_user_role($roles) ) {
     add_filter('show_admin_bar', '__return_false');
   }
-
 ?>

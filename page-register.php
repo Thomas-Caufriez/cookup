@@ -60,15 +60,18 @@ get_header('bis');
         >
           Mot de passe
         </label>
-        <input 
-          type="password" 
-          name="upass"
-          class="form-control" 
-          id="pwd"
-          placeholder="Ex : lesCr3at3ursDeC0okupSontL3s+Beaux"
-          required
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-        >
+        <div class="input-group">
+            <input 
+            type="password" 
+            name="upass"
+            class="form-control" 
+            id="pwd"
+            placeholder="Ex : lesCr3at3ursDeC0okupSontL3s+Beaux"
+            required
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+            >
+            <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input">Voir</span>
+        </div>
         <div>
           <p class="small">Le mot de passe doit contenir au minimum 6 caractères dont au moins une majuscule, une minuscule et un chiffre</p>
         </div>

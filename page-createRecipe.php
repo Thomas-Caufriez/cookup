@@ -1,12 +1,12 @@
 <?php
 /*
-Template Name: Page createrecipe
+Template Name: Page create recipe
 */
 
 if (!is_user_logged_in()) {
     wp_redirect( home_url('/login') );
-	exit;
-}
+	    exit;
+    }
 
 get_header('bis'); 
 ?>

@@ -44,20 +44,23 @@ get_header('bis');
       >
         Mot de passe
       </label>
-      <input 
-        type="password" 
-        name="pwd"
-        class="form-control" 
-        id="pwd"
-        placeholder="Ex : lesCr3at3ursDeC0okupSontL3s+Beaux"
-        required
-        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-      >
-      <div>
-        <a class="small" href="<?php echo esc_url( home_url('/login/forgot-password') ); ?>">Mot de passe oublié ?</a>
+      <div class="input-group">
+        <input 
+          type="password" 
+          name="pwd"
+          class="form-control" 
+          id="pwd"
+          placeholder="Ex : lesCr3at3ursDeC0okupSontL3s+Beaux"
+          required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+        >
+        <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input">Voir</span>
       </div>
       <div>
-        <a class="small" href="<?php echo esc_url( home_url('/login/register') ); ?>">Pas encore inscrit ?</a>
+        <a class="small" href="<?php echo esc_url( home_url('/forgot-password') ); ?>">Mot de passe oublié ?</a>
+      </div>
+      <div>
+        <a class="small" href="<?php echo esc_url( home_url('/register') ); ?>">Pas encore inscrit ?</a>
       </div>
     </div>
     <div class="text-center">

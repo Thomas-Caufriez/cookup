@@ -41,7 +41,7 @@
                             }
                         else {
                             echo "Se connecter";
-                        }
+                            }
                     ?>
                 </p>
             </a>
