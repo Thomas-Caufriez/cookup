@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page Politique de Confidentialité
+Template Name: Page rgpd
 */
 
 get_header('bis') 

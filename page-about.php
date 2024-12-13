@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page A Propos
+Template Name: Page about
 */
 
 get_header('bis'); 

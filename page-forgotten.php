@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page Mot de Passe Oublié
+Template Name: forgpass
 */
 
 if (is_user_logged_in()) {

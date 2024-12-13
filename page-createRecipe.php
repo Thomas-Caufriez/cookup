@@ -1,10 +1,10 @@
 <?php
 /*
-Template Name: Page Créer Recette
+Template Name: Page createrecipe
 */
 
 if (!is_user_logged_in()) {
-    wp_redirect( home_url('/connexion') );
+    wp_redirect( home_url('/login') );
 	exit;
 }
 

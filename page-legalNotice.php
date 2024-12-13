@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page Mentions Légales
+Template Name: Page legalnotice
 */
 
 get_header('bis'); 

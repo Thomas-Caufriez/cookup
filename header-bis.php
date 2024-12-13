@@ -24,24 +24,11 @@
             <div class="container-fluid">
                 <div class="col-1">
                     <a 
-                        class="nav-link" 
-                        href="<?php echo home_url('/'); ?>"
-                    >
-                        <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
-                            alt="Retour" 
-                            class="img-fluid"
-                        >
-                        Retour
-                    </a>
-                </div>
-                <div class="col-1">
-                    <a 
                         class="navbar-brand" 
                         href="<?php echo home_url('/'); ?>"
                     >
                         <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
                             alt="Logo" 
                             class="img-fluid"
                         >

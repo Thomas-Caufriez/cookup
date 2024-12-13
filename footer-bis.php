@@ -11,14 +11,6 @@
                             cookup@hotmail.com
                         </a>
                     </li>
-                    <li class="nav-item col">
-                        <a 
-                            href="tel:+32123456789"
-                            class="nav-link"
-                        >
-                            +32 123 45 67 89
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>

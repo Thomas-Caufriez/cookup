@@ -40,7 +40,7 @@
                 <div class="col-1">
                     <a 
                         class="nav-link" 
-                        href="<?php echo home_url('/creer-recette'); ?>"
+                        href="<?php echo home_url('/create-recipe'); ?>"
                     >
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
