@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page reset password
+Template Name: Page modify profil
 */
 
 if (!is_user_logged_in()) {

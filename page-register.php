@@ -17,7 +17,7 @@ get_header('bis');
 
 <div class="container">
   <form method="post">
-    <div class="row row-cols-1 row-cols-md-2">
+    <div class="row row-cols-1">
       <div class="mb-3 col">
         <label 
           for="name" 
