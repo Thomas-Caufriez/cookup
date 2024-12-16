@@ -18,33 +18,18 @@
     <?php body_class(); ?>
 >
     <?php wp_body_open(); ?>
-    
+
     <header class="sticky-top bg-primary">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
                 <div class="col-1">
                     <a 
-                        class="navbar-brand"
+                        class="navbar-brand" 
                         href="<?php echo home_url('/'); ?>"
-                    >   
+                    >
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
                             alt="Logo" 
-                            class="img-fluid"
-                        >
-                    </a>
-                </div>
-                <div class="col-6">
-                    <?php echo get_search_form(); ?>
-                </div>
-                <div class="col-1">
-                    <a 
-                        class="nav-link" 
-                        href="<?php echo home_url('/create-recipe'); ?>"
-                    >
-                        <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                            alt="Icone créer" 
                             class="img-fluid"
                         >
                     </a>
