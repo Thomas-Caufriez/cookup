@@ -19,22 +19,22 @@
 >
     <?php wp_body_open(); ?>
     
-    <header class="sticky-top bg-primary">
+    <header class="header sticky-top">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
-                <div class="col-1">
+                <div class="col-2">
                     <a 
                         class="navbar-brand"
                         href="<?php echo home_url('/'); ?>"
                     >   
                         <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logoMobile.svg" 
                             alt="Logo" 
-                            class="img-fluid"
-                        >
+                            
+                         ><!--class="img-fluid" -->
                     </a>
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                     <?php echo get_search_form(); ?>
                 </div>
                 <div class="col-1">
@@ -43,7 +43,7 @@
                         href="<?php echo home_url('/create-recipe'); ?>"
                     >
                         <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecette.svg" 
                             alt="Icone créer" 
                             class="img-fluid"
                         >
