@@ -2,4 +2,4 @@
 
 <h1>Page introuvable</h1>
    
-<?php get_footer('bis'); ?>
+<?php get_footer(); ?>

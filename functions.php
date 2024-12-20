@@ -114,4 +114,85 @@ add_action('init', 'create_account');
   if ( check_user_role($roles) ) {
     add_filter('show_admin_bar', '__return_false');
   }
+
+// page de création de recettes
+function custom_creation_recette() {
+  register_post_type('creation_recette',
+      array(
+          'labels' => array(
+              'name' => __('Recettes'),
+              'singular_name' => __('Recette'),
+              'add_new_item' => __('Ajouter une nouvelle recette'),
+              'edit_item' => __('Modifier une recette'),
+              'new_item' => __('Nouvelle recette'),
+              'view_item' => __('Voir la recette'),
+              'search_items' => __('Rechercher des recettes'),
+          ),
+          'public' => true,
+          'has_archive' => true,
+          'supports' => array('title', 'editor', 'thumbnail'),
+          'rewrite' => array('slug' => 'recettes'),
+          'show_in_rest' => true,
+          'menu_icon'   => 'dashicons-carrot',
+      )
+  );
+}
+add_action('init', 'custom_creation_recette');
+
+// Création d'un hook pour permettre de récupérer les informations du formulaire acf et de l'enregistrer dans recette, je fais cela afin de pouvoir custom le placement du form comme je le souhaite
+function handle_recipe_submission() {
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    $post_title   = sanitize_text_field($_POST['post_title']);
+    $description  = sanitize_textarea_field($_POST['description']);
+    $ptime        = intval($_POST['ptime']);
+    $pdifficulty  = sanitize_text_field($_POST['pdifficulty']);
+
+    // Vérifie si un fichier a été téléchargé sans erreur
+    if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
+        require_once ABSPATH . 'wp-admin/includes/image.php';
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        require_once ABSPATH . 'wp-admin/includes/media.php';
+
+        $attachment_id = media_handle_upload('thumbnail', 0);
+
+        // Vérifie s'il n'y a pas d'erreur lors du téléchargement
+        if (is_wp_error($attachment_id)) {
+            echo 'Erreur lors du téléchargement de l\'image : ' . $attachment_id->get_error_message();
+        } else {
+            $post_id = wp_insert_post(array(
+                'post_type'    => 'creation_recette',
+                'post_title'   => $post_title,
+                'post_content' => $description,
+                'post_status'  => 'publish',
+            ));
+
+            if ($post_id) {
+                set_post_thumbnail($post_id, $attachment_id);
+
+                update_post_meta($post_id, 'ptime', $ptime);
+                update_post_meta($post_id, 'pdifficulty', $pdifficulty);
+
+                wp_redirect(get_permalink($post_id));
+                exit;
+            } else {
+                echo 'Erreur lors de la création de la publication.';
+            }
+        }
+    } else {
+        echo 'Veuillez télécharger une image valide.';
+    }
+}
+}
+add_action('template_redirect', 'handle_recipe_submission');
+
+// Action permettant de display les informations du formulaire dans le back-office pour aider le client
+add_action('add_meta_boxes', function () {
+add_meta_box('recette_details', 'Détails de la recette', function ($post) {
+    $ptime = get_post_meta($post->ID, 'ptime', true);
+    $pdifficulty = get_post_meta($post->ID, 'pdifficulty', true);
+
+    echo 'Difficulté : ' . $pdifficulty;
+}, 'creation_recette');
+});
 ?>

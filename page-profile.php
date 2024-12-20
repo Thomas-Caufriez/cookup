@@ -18,7 +18,7 @@ $curent_user = wp_get_current_user();
         <div class="col">
             <div class="row">
                 <div class="col-6">
-                    <?php echo get_avatar($current_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'rounded-circle'))?>
+                    <?php echo get_avatar($curent_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'rounded-circle'))?>
                 </div>
                 <div class="col-6 text-start">
                     <div>
@@ -97,4 +97,4 @@ $curent_user = wp_get_current_user();
     </div>
 </div>
 
-<?php get_footer('bis'); ?>
+<?php get_footer(); ?>
