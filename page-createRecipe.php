@@ -153,12 +153,14 @@ get_header('bis');
                 ></textarea>
             </div>
             <div class="d-flex gap-2">
-                <label>Nombre de personnes</label>
+                <label for="nbrperson">Nombre de personnes</label>
                 <div>
-                    <input 
+                    <input
                         type="number"
                         class="form-control"
                         required
+                        name="nbrperson"
+                        id="nbrperson"
                     >
                 </div>
             </div>
@@ -167,7 +169,7 @@ get_header('bis');
     <div>
         <label for="preparation">Recette</label>
         <textarea 
-            name="'preparation" 
+            name="preparation" 
             id="preparation"
             required
             placeholder="Ex : Etape 1 : ...."
