@@ -13,6 +13,8 @@ get_header('bis');
 
 <h1 class="text-center">Récupération de mot de passe</h1>
 
+
+
 <form>
   <div class="container mb-3">
       <label 
@@ -40,4 +42,4 @@ get_header('bis');
     </div>
 </form>
 
-<?php get_footer('bis'); ?>
+<?php get_footer(); ?>

@@ -1,24 +1,44 @@
-    <footer class="mt-auto mx-0 container-fluid text-center bg-primary">
-        <nav class="navbar navbar-expand">
-            <div class="container-fluid">
-                <ul class="navbar-nav row m-0 w-100">
-                    <?php  wp_nav_menu_no_ul(); ?>
-                    <li class="nav-item col">
-                        <a 
-                            href="mailto:cookup@hotmail.com"
-                            class="nav-link"
-                        >
-                            cookup@hotmail.com
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="row">
-            <p>Tous droits réservés à Cookup.be  ©2024</p>
-        </div>
-    </footer>
-    
-    <?php wp_footer(); ?>
-</body>
-</html>
+<?php $current_user = wp_get_current_user(); ?>
+<div class="container-fluid sticky-bottom text-center p-0 bg-primary">
+    <div class="d-flex row-cols-3">
+        <button
+            class="btn btn-primary col"
+            type="button"
+        >
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                alt="Icones carrote steak et feuille" 
+                width="60px"
+                height="48px"
+            >
+            <p class="navbar-text">Ingrédients</p>
+        </button>
+        <button
+            class="btn btn-primary col"
+            type="button"
+        >
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                alt="Icones carrote steak et feuille" 
+                width="60px"
+                height="48px"
+            >
+            <p class="navbar-text">Plats</p>
+        </button>
+        <a
+            class="btn btn-primary col" 
+            href="<?php echo home_url('/login'); ?>"
+        >
+            <p class="navbar-text">
+                <?php 
+                    if (is_user_logged_in()) {
+                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
+                        }
+                    else {
+                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
+                        }
+                ?>
+            </p>
+        </a>
+    </div>
+</div>

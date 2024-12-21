@@ -98,4 +98,4 @@ get_header('bis');
   </form>
 </div>
 
-<?php get_footer('bis'); ?>
+<?php get_footer(); ?>

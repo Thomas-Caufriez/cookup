@@ -74,4 +74,4 @@ if ( isset( $_POST['new_password'] ) && !empty( $_POST['new_password'] ) ) {
     </form>
 </div>
 
-<?php get_footer('bis'); ?>
+<?php get_footer(); ?>
