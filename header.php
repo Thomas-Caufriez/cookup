@@ -20,35 +20,59 @@
     <?php wp_body_open(); ?>
     
     <header class="header sticky-top">
-        <nav class="navbar navbar-expand">
-            <div class="container-fluid">
-                <div class="col-2">
-                    <a 
-                        class="navbar-brand"
-                        href="<?php echo home_url('/'); ?>"
-                    >   
-                        <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logoMobile.svg" 
-                            alt="Logo" 
-                            
-                         ><!--class="img-fluid" -->
-                    </a>
-                </div>
-                <div class="col-7">
-                    <?php echo get_search_form(); ?>
-                </div>
-                <div class="col-1">
-                    <a 
-                        class="nav-link" 
-                        href="<?php echo home_url('/create-recipe'); ?>"
-                    >
-                        <img 
-                            src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecette.svg" 
-                            alt="Icone créer" 
-                            class="img-fluid"
+        <nav class="navbar navbar-expand h-100">
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                <div class="row d-flex align-items-center justify-content-between w-100">
+                    <div class="col-2 col-sm-2 col-md-2 d-flex align-items-center justify-content-center">
+                        <a 
+                            class="navbar-brand d-flex align-items-center justify-content-center"
+                            href="<?php echo home_url('/'); ?>"
+                        >   
+                            <img 
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/logoMobile.svg" 
+                                alt="Logo" 
+                                class="logoMobile"
+                            >
+                            <img 
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/logoDeskop.svg" 
+                                alt="Logo" 
+                                class="logoDesktop"
+                            >
+                        </a>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 d-flex align-items-center justify-content-center">
+                        <?php echo get_search_form(); ?>
+                    </div>
+                    <div class="col-2 col-sm-1 col-md-2 d-flex align-items-center justify-content-center">
+                        <button class="btn btnRecette btn-light btn-sm  blockBtnRecetteDesktop">
+                            <a 
+                                class="nav-link" 
+                                href="<?php echo home_url('/create-recipe'); ?>"
+                            >
+                            <div class="d-flex align-items-center ">
+                                <img 
+                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecetteGradient.svg" 
+                                    alt="Icone créer" 
+                                    class="iconRecetteDesktop"
+                                >
+                                <p class="pRecette m-0">Créer une recette</p> 
+                            </div>
+
+                            </a>
+                        </button>
+                        <a 
+                            class="nav-link blockBtnRecetteMobile" 
+                            href="<?php echo home_url('/create-recipe'); ?>"
                         >
-                    </a>
+                        <img 
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecette.svg" 
+                                alt="Icone créer"
+                                class="iconRecetteMobile"
+                            >
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
+</body>

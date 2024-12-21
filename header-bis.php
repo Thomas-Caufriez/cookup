@@ -29,7 +29,12 @@
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/logoMobile.svg" 
                             alt="Logo" 
-                            class="img-fluid"
+                            class="logoMobile"
+                        >
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logoDeskop.svg" 
+                            alt="Logo" 
+                            class="logoDesktop"
                         >
                     </a>
                 </div>
