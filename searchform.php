@@ -3,23 +3,23 @@
     role="search" 
     action="<?php echo esc_url(home_url('/')); ?>"
 >
-    <button 
-        class="btn btn-outline-success" 
+    <!-- <button 
+        class="btn" 
         type="submit"
     >
-        <img 
+     <img 
             src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
             alt="Rechercher" 
-            width="30" 
-            height="24"
-        >
-    </button>
+            class="img-fluid"
+        > 
+    </button> -->
     <input 
-        class="form-control me-2" 
+        class="form-control" 
         type="search" 
         placeholder="Rechercher..." 
         aria-label="Search" 
         name="s" 
+        style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/iconRecherche.svg');"
         value="<?php echo get_search_query(); ?>"
     >
 </form>

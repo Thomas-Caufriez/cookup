@@ -1,0 +1,171 @@
+/*=================================================== Variable / Sélecteur CSS =========================================================*/
+
+/* ------ Polices Google Font -> Salsa & Roboto ------ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,400&family=Salsa&display=swap');
+
+:root {
+    /* Couleurs */
+    /* --primary-color: #FF62C0;
+    --secondary-color: #FFDC69; */
+    --custom-gradient-background-color: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+
+    /* Polices */
+    --font-salsa: "Salsa", cursive;
+    --font-roboto: "Roboto", sans-serif;
+}
+
+/* Classes de police pré-définies */
+[class*="salsa-"] { font-family: var(--font-salsa); }
+[class*="roboto-"] { font-family: var(--font-roboto); }
+
+.salsa-regular { font-weight: 400; font-style: normal; }
+.roboto-regular { font-weight: 400; font-style: normal; }
+.roboto-medium { font-weight: 500; font-style: normal; }
+.roboto-bold { font-weight: 400; font-style: normal; }
+.roboto-thin-italic { font-weight: 100; font-style: italic; }
+.roboto-regular-italic { font-weight: 400; font-style: italic; }
+
+.roboto-regular-desktop { font-weight: 400; font-style: normal; }
+.salsa-regular-desktop { font-weight: 400; font-style: normal; }
+.roboto-regular-desktop { font-weight: 400; font-style: normal; }
+.roboto-bold-desktop { font-weight: 700; font-style: normal; }
+.roboto-thin-italic-desktop { font-weight: 100; font-style: italic; }
+.roboto-regular-italic-desktop { font-weight: 400; font-style: italic; }
+
+/*=================================================== HEADER / HEADERbis =========================================================*/
+.header, .header-bis {
+    background: var(--custom-gradient-background-color);
+    background-size: 150%; /* Agrandit le dégradé pour dépasser le container */
+    background-position: center; /* Centrer le dégradé pour qu’il dépasse uniformément */
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.header .form-control {
+    width: 60vw;
+    height: 5vh;
+    background-repeat: no-repeat; 
+    background-position: left 10px center; 
+    padding-left: 60px; 
+    background-size: 20px;
+    border-radius: 34px;
+    border-style: none;
+    opacity: 0.9;
+    font-family: var(--font-roboto);
+    font-weight: medium;
+    font-size: 15px;
+}
+
+.header img {
+    width: 66px; /* Taille mobile par défaut */
+    height: 100%;
+}
+
+
+.btnRecette {
+    border-radius: 34px;
+    text-decoration: var(--custom-gradient-background-color);
+    width: 100%;
+
+}
+
+.blockBtnRecetteDesktop {
+    display: none !important;
+
+}
+
+.blockBtnRecetteMobile {
+    display: block !important;
+}
+
+.iconRecetteMobile {
+    width: 40px !important;
+    height: 40px !important;
+ }
+ .iconRecetteDesktop {
+     display: block !important;
+ }
+
+
+.logoMobile {
+    width: 66px;
+    height: 100%;
+}
+
+.logoDesktop {
+    display: none;
+}
+
+
+
+
+
+/*=================================================== FOOTER / FOOTERbis =========================================================*/
+
+/*=================================================== MEDIAS QUERIES =========================================================*/
+
+/* Tablette et plus */
+@media screen and (min-width: 768px) {
+    body {
+        background: rgba(119, 119, 212, 0.404);
+    }
+
+    .blockBtnRecetteDesktop {
+        display: flex !important;
+        width: 100vw !important;
+        height: 100% !important;
+    }
+    .iconRecetteDesktop {
+        width: 3vw !important;
+        height: 3vh !important;
+    }
+    
+    .blockBtnRecetteMobile {
+        display: none !important;
+        height: 5vh;
+    }
+
+    .pRecette {
+        color: transparent;
+        background: var(--custom-gradient-background-color);
+        -webkit-background-clip: text; 
+        background-clip: text;
+        white-space: nowrap;
+        font-family: var(--font-roboto);
+        font-weight: bold;
+        font-size: 1.3vw;
+        margin: 0 !important;
+    }
+
+
+    .logoMobile {
+        display: none;
+       
+    }
+    .logoDesktop {
+        display: block;
+        width: 15vw !important;
+        height: 20vh !important;
+     
+    }
+
+
+}
+
+/* PC (min 1512px) */
+@media screen and (min-width: 1512px) {
+    body {
+        background: rgb(143, 204, 143);
+    }
+
+    .header .form-control {
+        background-position: left 20px center; 
+        padding-left: 70px; 
+        background-size: 35px;
+        font-size: 1.5rem;
+    }
+
+}

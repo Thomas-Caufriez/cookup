@@ -7,37 +7,37 @@
         content="width=device-width, initial-scale=1.0"
     >
     <?php wp_head(); ?>
+    <!-- pour changer le logo devant l'url sans avoir besoin d'installer de plugin wordpress (ne fonctionne pas sur tous les navigateurs) -->
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.png" media="(prefers-color-scheme: light)">
 </head>
 
-<body <?php body_class(); ?>>
+<body 
+    class="d-flex flex-column min-vh-100 overflow-x-hidden" 
+    <?php body_class(); ?>
+>
     <?php wp_body_open(); ?>
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg">
+
+    <header class="header-bis sticky-top bg-primary">
+        <nav class="navbar navbar-expand">
             <div class="container-fluid">
-                <a 
-                    class="nav-link active" 
-                    href="<?php echo home_url('/'); ?>"
-                >
-                    <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-                        alt="Retour" 
-                        width="30" 
-                        height="24"
-                        class="d-inline-block align-text-top"
+                <div class="col-12 d-flex align-items-center">
+                    <a 
+                        class="navbar-brand" 
+                        href="<?php echo home_url('/'); ?>"
                     >
-                    Retour
-                </a>
-                <a 
-                    class="navbar-brand" 
-                    href="<?php echo home_url('/'); ?>"
-                >
-                    <img 
-                        src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-                        alt="Logo" 
-                        width="30" 
-                        height="24"
-                    >
-                </a>
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logoMobile.svg" 
+                            alt="Logo" 
+                            class="logoMobile"
+                        >
+                        <img 
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/logoDeskop.svg" 
+                            alt="Logo" 
+                            class="logoDesktop"
+                        >
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
