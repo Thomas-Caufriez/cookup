@@ -40,10 +40,10 @@
                             >
                         </a>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="col-6 col-sm-6 col-md-5 d-flex align-items-center justify-content-center">
                         <?php echo get_search_form(); ?>
                     </div>
-                    <div class="col-2 col-sm-1 col-md-2 d-flex align-items-center justify-content-center">
+                    <div class="col-2 col-sm-1 col-md-2 d-flex align-items-center justify-content-center p-0">
                         <button class="btn btnRecette btn-light btn-sm  blockBtnRecetteDesktop">
                             <a 
                                 class="nav-link" 

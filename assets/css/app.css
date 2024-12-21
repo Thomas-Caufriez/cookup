@@ -43,27 +43,20 @@
     align-items: center;
 }
 
-.navbar {
-    width: 100%;
-}
-
-.container-fluid {
-    height: 100%;
-}
 
 .header .form-control {
     width: 60vw;
     height: 5vh;
     background-repeat: no-repeat; 
     background-position: left 10px center; 
-    padding-left: 40px; 
+    padding-left: 60px; 
     background-size: 20px;
     border-radius: 34px;
     border-style: none;
     opacity: 0.9;
     font-family: var(--font-roboto);
     font-weight: medium;
-    font-size: 1.5vw;
+    font-size: 15px;
 }
 
 .header img {
@@ -101,6 +94,7 @@
     width: 66px;
     height: 100%;
 }
+
 .logoDesktop {
     display: none;
 }
@@ -141,9 +135,8 @@
         background-clip: text;
         white-space: nowrap;
         font-family: var(--font-roboto);
-        font-weight: medium;
-        font-size: 1.5vw;
-        padding-left: 10px;
+        font-weight: bold;
+        font-size: 1.3vw;
         margin: 0 !important;
     }
 

@@ -21,7 +21,7 @@
     <header class="header-bis sticky-top bg-primary">
         <nav class="navbar navbar-expand">
             <div class="container-fluid">
-                <div class="col-1">
+                <div class="col-12 d-flex align-items-center">
                     <a 
                         class="navbar-brand" 
                         href="<?php echo home_url('/'); ?>"
