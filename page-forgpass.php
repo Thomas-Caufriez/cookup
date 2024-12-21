@@ -11,7 +11,7 @@ if (is_user_logged_in()) {
 get_header('bis');
 ?>
 
-<h1 class="text-center">Récupération de mot de passe</h1>
+<h2 class="text-center mb-3 mt-3 h2Salsa ">Mot de passe oublié</h2>
 
 
 
@@ -19,7 +19,7 @@ get_header('bis');
   <div class="container mb-3">
       <label 
         for="retrieve" 
-        class="form-label"
+        class="form-label pRobotoLogin"
       >
         Adresse email
       </label>
@@ -30,14 +30,21 @@ get_header('bis');
         id="retrieve" 
         placeholder="Ex : John@doe.com"
       >
+      <p class="pRobotoThinLogin">Vous allez recevoir un e-mail pour changer votre mot de passe</p>
     </div>
-    <div class="container">
+    
+    <div class="container text-center">
       <button
           type="submit"
-          class="btn btn-primary"
+          class="btn btn-light btnAllLogin"
           onclick="sendmail()"
       >
-          Envoyer un email de récupération
+        <span class="pRobotoLogin">Envoyer</span>
+        <img 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/envoyé.svg" 
+          alt="login"
+          class="iconLogin"
+        >
       </button>
     </div>
 </form>
