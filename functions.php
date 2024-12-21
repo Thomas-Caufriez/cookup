@@ -18,17 +18,22 @@ register_nav_menu('footer', 'footer');
       );
 
       wp_enqueue_script(
+        'jquery'
+      );
+
+      wp_enqueue_script(
         'bootstrap-bundle',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
         false,
         1,
         true
       );
+
       wp_enqueue_script(
         'app-js',
         get_template_directory_uri() . '/assets/js/app.js',
-        ['bootstrap-bundle'],
-        1,
+        array('jquery', 'bootstrap'),
+        null,
         true
       );
     }
