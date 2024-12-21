@@ -78,10 +78,10 @@ get_header('bis');
       <input 
         type="hidden" 
         name="redirect_to" 
-        value="<?php echo esc_url( home_url('/profil') ); ?>"
+        value="<?php echo esc_url( home_url('/') ); ?>"
       >
     </div>
   </form>
 </div>
 
-<?php get_footer('bis'); ?>
+<?php get_footer(); ?>
