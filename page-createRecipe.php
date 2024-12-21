@@ -56,24 +56,24 @@ get_header('bis');
                 ?>
                 <?php foreach ($tags as $tagcategory => $tagtab): // boucle qui parcourt le tableau tag en prenant le nom des autres tableaux. Prends aussi leur valeur (le tableau associé) ?>
                     <p><?php echo ucfirst($tagcategory); //met la première lettre en majuscule ?></p>
-                    <div class="row row-cols-3">
+                    <div class="row row-cols-3 justify-content-evenly">
                         <?php foreach ($tagtab as $tag): // boucle qui parcourt les tableaux avec les tags ?>
-                            <div class="col">
+                            <div class="col-3 d-flex align-items-center gap-2">
+                                <input 
+                                    type="radio" 
+                                    name="<?php echo $tagcategory; ?>" 
+                                    id="<?php echo $tag; ?>" 
+                                    value="<?php echo $tag; ?>" 
+                                    class="form-check-input"
+                                    required
+                                >
                                 <button
                                 type="button"
                                 class="btn btn-outline-primary w-100"
                                 >
-                                    <input 
-                                        type="radio" 
-                                        name="<?php echo $tagcategory; ?>" 
-                                        id="<?php echo $tag; ?>" 
-                                        value="<?php echo $tag; ?>" 
-                                        class="form-check-input"
-                                        required
-                                    >
                                     <label 
                                         for="<?php echo $tag; ?>" 
-                                        class="form-check-label"
+                                        class="form-check-label w-100"
                                     >
                                         <?php echo ucfirst($tag); ?>
                                     </label>
@@ -113,51 +113,37 @@ get_header('bis');
                     class="form-control"
                 ></textarea>
             </div>
-            <p>Sélectionnez les ingrédients de votre plat</p>
+            <p>Sélectionnez les types d'ingrédients de votre plat</p>
             <div class="row gap-2 justify-content-evenly text-center">
                 <?php 
-                // tableaux dans tableau
-                $ingredients = [ // je voulais faire ce tableau via mysql à la base pour donner la possibilité au client de le modifier à sa guise
-                    'Prot. animale' => ['boeuf', 'poulet', 'porc', 'saumon', 'thon'],
-                    'Légumineuses' => ['lentille', 'fève', 'haricot', 'pois', 'soja'],
-                    'Céréales' => ['quinoa', 'mais', 'riz', 'avoine', 'blé'],
-                    'Noix & Graines' => ['noisette', 'amande', 'pistache', 'graine de tournesol', 'graine de courge'],
-                    'Fruits' => ['banane', 'fraise', 'poire', 'pomme', 'ananas'],
-                    'Légumes' => ['poivron', 'salade', 'oignon', 'carrote', 'pomme de terre'],
-                    'Produits Laitiers' => ['lait', 'beurre', 'yaourt', 'crème', 'fromage'],
-                ];
+                $ingredients = ['proteine', 'legumineuse', 'cereale & grain', 'noix & graine', 'fruit', 'legume', 'produit laitier'];
                 ?>
 
-                <?php foreach ($ingredients as $category => $ingredientList): //boucle parcourant le tableau principale. Besoin de séparer le nom de la valeur car affiche array sinon ?>
-                    <div class="dropdown col-3">
-                        <button 
-                            class="btn btn-primary dropdown-toggle w-100" 
-                            type="button" 
-                            data-bs-toggle="dropdown" 
-                            aria-expanded="false"
+                <?php foreach ($ingredients as $ingredient): ?>
+                    <div class="col-3 d-flex align-items-center gap-2">
+                        <input 
+                            class="form-check-input" 
+                            type="checkbox" 
+                            role="switch" 
+                            value="<?php echo $ingredient; ?>" 
+                            id="<?php echo $ingredient; ?>"
                         >
-                            <?php echo $category; ?>
+                        <button 
+                            class="btn btn-outline-primary w-100" 
+                            type="button"
+                        >
+                            <label 
+                                class="form-check-label w-100" 
+                                for="<?php echo $ingredient; ?>"
+                            >
+                                <?php echo ucfirst($ingredient); ?>
+                            </label>
                         </button>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($ingredientList as $ingredient): //boucle parcourant les items dans les tableaux  ?>
-                                <li class="dropdown-item">
-                                    <input 
-                                        class="form-check-input" 
-                                        type="checkbox" 
-                                        value="<?php echo $ingredient; ?>"
-                                        id="<?php echo $ingredient; ?>"
-                                    >
-                                    <label class="form-check-label" for="<?php echo $ingredient; ?>">
-                                        <?php echo ucfirst($ingredient); ?>
-                                    </label>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
                     </div>
                 <?php endforeach; ?>
             </div>
             <div>
-                <label for="descingredient">Ingrédients</label> <!-- à la base, je voulais controller cette partie en ajoutant des lignes via jquery quand l'utilisateur coche une des cases du menu au dessus -->
+                <label for="descingredient">Ingrédients</label> <!-- à la base, je voulais controller cette partie en ajoutant des lignes via jquery quand l'utilisateur coche une des cases via des boutons déroulants du menu au dessus -->
                 <textarea 
                     name="descingredient" 
                     id="descingredient"
