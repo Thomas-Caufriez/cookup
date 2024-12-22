@@ -126,8 +126,13 @@ footer {
 .footer-textN1 a{
     font-family: var(--font-roboto);
     font-weight: medium;
+    text-decoration: underline;
     font-size: 9px;
     color: white;
+}
+.footer-textN1 a:hover{
+    font-weight: bold;
+    color: #5CA3FF;
 }
 
 .footer-textN2 {
@@ -157,12 +162,15 @@ footer {
 }
 
 .h2Salsa {
+    font-size: max(14px, 2vw);
     font-family: var(--font-salsa);
     font-weight: medium;
 }
 
+
 .pRobotoLogin {
     font-family: var(--font-roboto);
+    font-size: max(14px, 2vw);
     font-weight: medium;
 
 }
@@ -184,30 +192,92 @@ div.text-dark > .pRobotoLogin {
     color: black !important;
 }
 
+/*===================================================> Profil <=========================================================*/
 
+.btnRecetteProfil {
+    border-radius: 34px !important;
+    text-decoration: none !important;
+    font-family: var(--font-roboto);
+    font-size: max(13px, 2vw);;
+    font-weight: medium;
+    color: white;
+    width: auto!important;
+    background: var(--custom-gradient-background-color);
+    background-size: 150%; 
+    background-position: 30% 70%;
+}
 
+.catégorieProfil {
+    width: 196px;
+    height: 100px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 5px solid transparent;
+    border-radius: 10px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #C5C5C5 100%, #C5C5C5 100%);
+}
+.catégorieProfil:hover {
+    border: 5px solid transparent;
+    border-radius: 10px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+}
 
+.catégorieProfil div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    z-index: 2;
+    min-width: 100px;
+    border-radius: 0 0 10px 0;
+   
+}
 
+.catégorieProfil div img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
 
+.catégorieProfil div span {
+    color: black;
+    font-size: 12px;
+    font-weight: 900;
+    margin: 0;
+    white-space: nowrap;
+}
 
+.imgPublic, .imgFavoris, .imgPrivé {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MEDIAS QUERIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	*/
+.iconPublic, .iconFavoris, .iconPrivé {
+    z-index: 2;
+    width: auto;
+    height: auto;
+   
+}
 
 /* Tablette et plus */
 @media screen and (min-width: 768px) {
@@ -218,7 +288,7 @@ div.text-dark > .pRobotoLogin {
     /* HEADER / HEADERbis - Tablette*/
     .blockBtnRecetteDesktop {
         display: flex !important;
-        width: 100vw !important;
+        width:  auto !important;
         height: 100% !important;
     }
     .iconRecetteDesktop {
@@ -239,7 +309,7 @@ div.text-dark > .pRobotoLogin {
         white-space: nowrap;
         font-family: var(--font-roboto);
         font-weight: bold;
-        font-size: 1.3vw;
+        font-size: max(14px, 1.3vw);;
         margin: 0 !important;
     }
 
@@ -257,16 +327,51 @@ div.text-dark > .pRobotoLogin {
     /* FOOTER - Tablette*/
 
     .footer-textN1 a{
-        font-size: 1.5vw;
+        font-size: 1vw;
     }
     
     .footer-textN2 {
-        font-size: 1.5vw;
+        font-size: 1vw;
 
     }
-    
 
+    .catégorieProfil {
+        width: 100%;
+        height: 200px;
+    }
 
+    .catégorieProfil div {
+        padding: 8px 15px;
+        min-width: 120px; /* Largeur minimale légèrement plus grande */
+    }
+
+    .catégorieProfil div img {
+        width: 25px;
+        height: 25px;
+        margin-right: 8px;
+    }
+
+    .catégorieProfil div span {
+        font-size: 14px;
+    }
+
+    .imgPublic, .imgFavoris, .imgPrivé {
+        width: 100%;
+        height: 100%;
+    }
+
+    .iconPublic, .iconFavoris, .iconPrivé {
+        width: 50px;
+        height: 50px;
+        top: 20px;
+        left: 20px;
+    }
+
+    .catégorieProfil span {
+        bottom: 20px;
+        left: 20px;
+        font-size: 1.2em;
+    }
 }
 
 /* PC (min 1512px) */
