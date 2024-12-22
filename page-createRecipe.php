@@ -35,11 +35,11 @@ get_header('bis');
             </div>
             <div>
                 <div>
-                    <label for="thumbnail">Image de la recette</label>
+                    <label for="thumbnail">Image de la recette</label><span class="fw-lighter">  Veuillez changer la taille de votre image à 1024px/438px (21:9) avant de l'envoyer</span>
                     <input 
                         type="file" 
                         name="thumbnail" 
-                        id="thumbnail" 
+                        id="thumbnail"
                         accept="image/jpeg, image/png" 
                         required 
                         class="form-control"
@@ -49,7 +49,7 @@ get_header('bis');
             <div>
                 <?php 
                     $tags = [
-                        'temps' => ['-30m', '+30m', '+1h'],
+                        'temps' => ['-30min', '+30min', '+1h'],
                         'difficulte' => ['facile', 'moyen', 'difficile'],
                         'prix' => ['-15€', '+15€', '+30€'],
                     ]
@@ -64,20 +64,15 @@ get_header('bis');
                                     name="<?php echo $tagcategory; ?>" 
                                     id="<?php echo $tag; ?>" 
                                     value="<?php echo $tag; ?>" 
-                                    class="form-check-input"
+                                    class="btn-check"
                                     required
                                 >
-                                <button
-                                type="button"
-                                class="btn btn-outline-primary w-100"
+                                <label 
+                                    for="<?php echo $tag; ?>" 
+                                    class="btn btn-outline-primary w-100"
                                 >
-                                    <label 
-                                        for="<?php echo $tag; ?>" 
-                                        class="form-check-label w-100"
-                                    >
-                                        <?php echo ucfirst($tag); ?>
-                                    </label>
-                                </button>
+                                    <?php echo ucfirst($tag); ?>
+                                </label>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -122,23 +117,18 @@ get_header('bis');
                 <?php foreach ($ingredients as $ingredient): ?>
                     <div class="col-3 d-flex align-items-center gap-2">
                         <input 
-                            class="form-check-input" 
+                            class="btn-check" 
                             type="checkbox" 
                             role="switch" 
                             value="<?php echo $ingredient; ?>" 
                             id="<?php echo $ingredient; ?>"
                         >
-                        <button 
+                        <label 
                             class="btn btn-outline-primary w-100" 
-                            type="button"
+                            for="<?php echo $ingredient; ?>"
                         >
-                            <label 
-                                class="form-check-label w-100" 
-                                for="<?php echo $ingredient; ?>"
-                            >
-                                <?php echo ucfirst($ingredient); ?>
-                            </label>
-                        </button>
+                            <?php echo ucfirst($ingredient); ?>
+                        </label>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -226,6 +216,6 @@ get_header('bis');
             name="submit" 
             value="Publier ma recette" 
             class="btn btn-primary">
-    </div>
+    </div>    
 </form>
 <?php get_footer(); ?>
