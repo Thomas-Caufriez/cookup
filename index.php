@@ -33,6 +33,11 @@ if (get_search_query()!== ''): ?>
 					</div>
 				</div>
 			</div>
+            <div class="container">
+                <button type="submit" class="btn btn-secondary">
+                    Filtrer
+                </button>
+            </div>
 		</form>
   	</div>
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
@@ -141,18 +146,6 @@ if (get_search_query()!== ''): ?>
         </a>
     </div>
 </div>
-<script>
-	document.addEventListener('DOMContentLoaded', function () {
-  const dropdown = document.getElementById('filterDropdown');
-  const form = document.getElementById('filterform');
-
-  dropdown.addEventListener('hide.bs.dropdown', function () {
-  if (document.querySelector('input[name="filterval"]:checked')) {
-    form.submit();
-  }
-});
-});
-</script>
 <?php 
 get_footer(); 
 ?>
