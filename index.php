@@ -8,22 +8,75 @@ if (get_search_query()!== ''): ?>
 <?php endif ?>
 
 <div class="container-fluid px-2 px-md-4">
-	<div class="dropdown my-3"> <!-- Bouton de filtre -->
-    	<button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        	<img src="" alt="Icône Filtre" width="20px" height="20px">
-    	</button>
-    	<ul class="dropdown-menu" aria-labelledby="filterDropdown">
-    		<li><a class="dropdown-item filter" href="#" data-value="filterdate">Date de publication</a></li>
-        	<li><a class="dropdown-item filter" href="#" data-value="filtertime">Temps</a></li>
-        	<li><a class="dropdown-item filter" href="#" data-value="filterdifficulty">Difficulté</a></li>
-        	<li><a class="dropdown-item filter" href="#" data-value="filterprice">Prix</a></li>
-    	</ul>
+	<div class="container">
+    	<form method="get" class="d-flex align-items-center" id="filterform">
+			<div class="dropdown my-3"> <!-- Bouton de filtre -->
+				<button class="btn btn-primary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+					<img src="" alt="Icône Filtre" width="20px" height="20px">
+				</button>
+				<div class="dropdown-menu" aria-labelledby="filterDropdown">
+					<div>
+						<input type="radio" class="btn-check" name="filterval" id="filterradio1" value=1 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 1) ? 'checked' : ''; ?>>
+						<label class="btn w-100 rounded-0" for="filterradio1">Date descendant</label>
+					</div>
+					<div>
+						<input type="radio" class="btn-check" name="filterval" id="filterradio2" value=2 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 2) ? 'checked' : ''; ?>>
+						<label class="btn w-100 rounded-0" for="filterradio2">Date ascendant</label>
+					</div>
+					<div>
+						<input type="radio" class="btn-check" name="filterval" id="filterradio3" value=3 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 3) ? 'checked' : ''; ?>>
+						<label class="btn w-100 rounded-0" for="filterradio3">Difficulté</label>
+					</div>
+					<div>
+						<input type="radio" class="btn-check" name="filterval" id="filterradio4" value=4 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 4) ? 'checked' : ''; ?>>
+						<label class="btn w-100 rounded-0" for="filterradio4">Prix</label>
+					</div>
+				</div>
+			</div>
+		</form>
   	</div>
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
-    	<?php $recettes = new WP_Query([
-        	'post_type' => 'creation_recette',
-        	'post_status' => 'publish'
-      		]);
+	  <?php 
+
+        $filterval = isset($_GET['filterval']) ? intval($_GET['filterval']) : 1;
+
+        $args = [
+            'post_type' => 'creation_recette',
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+			'posts_per_page' => -1,
+        ];
+
+        switch ($filterval) {
+            case 1:
+                $args['orderby'] = 'date';
+                $args['order'] = 'DESC';
+                break;
+
+            case 2:
+                $args['orderby'] = 'date';
+                $args['order'] = 'ASC';
+                break;
+
+            case 3:
+                $args['meta_key'] = 'difficulte_recette';
+                $args['orderby'] = 'meta_value';
+                $args['order'] = 'ASC';
+                break;
+
+            case 4:
+                $args['meta_key'] = 'prix';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'ASC';
+                break;
+
+            default:
+                break;
+        }
+
+        // Exécuter la requête WP_Query
+        $recettes = new WP_Query($args);
 
       		if ($recettes->have_posts()) :
     			 while ($recettes->have_posts()) : $recettes->the_post(); ?>
@@ -88,14 +141,17 @@ if (get_search_query()!== ''): ?>
         </a>
     </div>
 </div>
-<script> // je met une balise script car mon javascript n'est pas pris en compte dans le fichier js pour une raison obscure. Permet de sortir la valeur choisie dans le filtre
-  	document.querySelectorAll('.filter').forEach(function(item) {
-  		item.addEventListener('click', function(event) {
-      		event.preventDefault();
-      		const selectedValue = this.getAttribute('data-value');
-      		console.log('Option sélectionnée :', selectedValue);
-    	});
-  	});
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+  const dropdown = document.getElementById('filterDropdown');
+  const form = document.getElementById('filterform');
+
+  dropdown.addEventListener('hide.bs.dropdown', function () {
+  if (document.querySelector('input[name="filterval"]:checked')) {
+    form.submit();
+  }
+});
+});
 </script>
 <?php 
 get_footer(); 

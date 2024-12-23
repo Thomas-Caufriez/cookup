@@ -8,12 +8,9 @@ if (have_posts()) :
         $ptime = get_post_meta(get_the_ID(), 'temps', true);
         $pdifficulty = get_post_meta(get_the_ID(), 'difficulte', true);
         $pprice = get_post_meta(get_the_ID(), 'prix', true);
-        $dishtype = get_post_meta(get_the_ID(), 'dishtype', true);
         $descingredient = get_post_meta(get_the_ID(), 'descingredient', true);
         $nbrperson = get_post_meta(get_the_ID(), 'nbrperson', true);
         $preparation = get_post_meta(get_the_ID(), 'preparation', true);
-        $status = get_post_meta(get_the_ID(), 'status', true);
-        $proteine = get_post_meta(get_the_ID(), 'proteine', true);
     ?>
         <div class="container-fluid">
             <div class="container-fluid text-center my-3">
