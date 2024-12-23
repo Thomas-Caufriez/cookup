@@ -56,7 +56,7 @@ get_header('bis');
         <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input pRobotoLogin me-2">Voir</span>
       </div>
       <div class="text-end">
-        <a class="small pRobotoLogin" href="<?php echo esc_url( home_url('/forgot-password') ); ?>">Mot de passe oublié ?</a>
+        <a class="small pUnderline" href="<?php echo esc_url( home_url('/forgot-password') ); ?>">Mot de passe oublié ?</a>
       </div>
     </div>
     <div class="text-center mt-4">

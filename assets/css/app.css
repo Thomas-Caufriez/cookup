@@ -43,10 +43,30 @@ input:focus {
     box-shadow: none !important;
 }
 
+.h2Salsa {
+    font-size: max(16px, 2.2vw);
+    font-family: var(--font-salsa);
+    font-weight: medium;
+}
+
+
+.pRobotoLogin {
+    font-family: var(--font-roboto);
+    font-size: max(14px, 1.5vw);
+    font-weight: medium;
+
+}
+
+.pUnderline {
+    font-family: var(--font-roboto);
+    font-size: max(10px, 1vw);
+    font-weight: medium;
+}
+
 /*===================================================> HEADER / HEADERbis <=========================================================*/
 .header, .header-bis {
     background: var(--custom-gradient-background-color);
-    background-size: 150%; /* Agrandit le dégradé pour dépasser le container */
+    background-size: 150%;
     background-position: 30% 70%; /* Axe de dégradé en oblique et dépasse uniformément */
     width: 100%;
     height: 10vh;
@@ -110,6 +130,7 @@ input:focus {
     display: none;
 }
 
+
 /*===================================================> FOOTER / FOOTERbis <=========================================================*/
 
 footer {
@@ -161,19 +182,6 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-.h2Salsa {
-    font-size: max(14px, 2vw);
-    font-family: var(--font-salsa);
-    font-weight: medium;
-}
-
-
-.pRobotoLogin {
-    font-family: var(--font-roboto);
-    font-size: max(14px, 2vw);
-    font-weight: medium;
-
-}
 
 .pRobotoThinLogin {
     font-family: var(--font-roboto);
@@ -201,6 +209,18 @@ div.text-dark > .pRobotoLogin {
     font-size: max(13px, 2vw);;
     font-weight: medium;
     color: white;
+    width: auto !important;
+    background: var(--custom-gradient-background-color);
+    background-size: 150%; 
+    background-position: 30% 70%;
+}
+.btnRecetteProfil:hover {
+    border-radius: 34px !important;
+    text-decoration: none !important;
+    font-family: var(--font-roboto);
+    font-size: max(13px, 2vw);;
+    font-weight: medium;
+    color: white;
     width: auto!important;
     background: var(--custom-gradient-background-color);
     background-size: 150%; 
@@ -208,7 +228,7 @@ div.text-dark > .pRobotoLogin {
 }
 
 .catégorieProfil {
-    width: 196px;
+    width: 80%;
     height: 100px;
     margin-bottom: 15px;
     display: flex;
@@ -216,8 +236,8 @@ div.text-dark > .pRobotoLogin {
     align-items: center;
     position: relative;
     overflow: hidden;
-    border: 5px solid transparent;
-    border-radius: 10px;
+    border: 2px solid transparent;
+    border-radius: 4px;
     background-origin: border-box;
     background-clip: content-box, border-box;
     background-image: 
@@ -257,9 +277,39 @@ div.text-dark > .pRobotoLogin {
 .catégorieProfil div span {
     color: black;
     font-size: 12px;
-    font-weight: 900;
+    font-weight: medium;
     margin: 0;
     white-space: nowrap;
+}
+
+.catégorieProfil:hover div span {
+    filter: brightness(1.2);
+    color: #FF62C0;
+    transition: filter 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.catégorieProfil:hover .iconPublic {
+    content: url('../img/iconPublicDégradé.svg');
+    transition: all 0.3s ease;
+}
+
+.catégorieProfil:hover .iconFavoris {
+    content: url('../img/iconFavorisDégradé.svg');
+    transition: all 0.3s ease;
+}
+
+.catégorieProfil:hover .iconPrivé {
+    content: url('../img/iconPrivéDégradé.svg');
+    transition: all 0.3s ease;
+}
+
+.catégorieProfil:hover .iconPublic,
+.catégorieProfil:hover .iconFavoris,
+.catégorieProfil:hover .iconPrivé {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .imgPublic, .imgFavoris, .imgPrivé {
@@ -276,8 +326,14 @@ div.text-dark > .pRobotoLogin {
     z-index: 2;
     width: auto;
     height: auto;
-   
 }
+
+.rounded-circle {
+   width: 150px !important;
+   height: 150px !important;
+}
+
+/* ===================================================> MEDIA QUERIES <=========================================================*/
 
 /* Tablette et plus */
 @media screen and (min-width: 768px) {
@@ -324,6 +380,7 @@ div.text-dark > .pRobotoLogin {
         height: 20vh !important;
      
     }
+
     /* FOOTER - Tablette*/
 
     .footer-textN1 a{
@@ -338,11 +395,13 @@ div.text-dark > .pRobotoLogin {
     .catégorieProfil {
         width: 100%;
         height: 200px;
+        border: 5px solid transparent;
+        border-radius: 12px;
     }
 
     .catégorieProfil div {
         padding: 8px 15px;
-        min-width: 120px; /* Largeur minimale légèrement plus grande */
+        min-width: 120px;
     }
 
     .catégorieProfil div img {
@@ -372,6 +431,11 @@ div.text-dark > .pRobotoLogin {
         left: 20px;
         font-size: 1.2em;
     }
+
+    .rounded-circle {
+        width: 100% !important;
+        height: 100% !important;
+     }
 }
 
 /* PC (min 1512px) */
@@ -392,3 +456,5 @@ div.text-dark > .pRobotoLogin {
 
 
 }
+
+    /* FOOTER - Pc */

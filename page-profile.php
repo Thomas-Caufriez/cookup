@@ -17,26 +17,26 @@ $curent_user = wp_get_current_user();
     <div class="row row-cols-1 row-cols-md-2">
         <div class="col ">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 imgProfil">
                     <?php echo get_avatar($curent_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'rounded-circle'))?>
                 </div>
                 <div class="col-6 text-start">
-                    <div class="mt-2 h2Salsa">
+                    <div class="mt-2 mt-md-3 h2Salsa">
                         <?php //au début j'ai voulu utiliser un foreach dans ma chaine et stocker le tout dans une variable pour la print mais j'ai trouvé implode
                             echo $current_user->user_login . ' - <span style="background: #FF62C0;  -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">' . implode(' ', $current_user->roles) . '</span>'; 
                         ?>
                     </div>
-                    <div class="mt-2 pRobotoLogin">
+                    <div class="mt-4 ps-1 ps-md-3 pRobotoLogin">
                         <?php echo $current_user->user_email; ?>
                     </div>
-                    <div class="mt-2">
-                        <a href="<?php echo home_url('/profil/modify-profil'); ?>" class="pRobotoLogin">Modifier le profil</a>
+                    <div class="mt-2 ps-1 ps-md-3">
+                        <a href="<?php echo home_url('/profil/modify-profil'); ?>" class="pUnderline">Modifier le profil</a>
                     </div>
-                    <div class="mt-2">
-                        <a href="<?php echo wp_logout_url('/login'); ?>"class="pRobotoLogin">Se déconnecter</a>
+                    <div class="mt-2 ps-1 ps-md-3">
+                        <a href="<?php echo wp_logout_url('/login'); ?>"class="pUnderline">Se déconnecter</a>
                     </div>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-6 text-center mt-4">
                     <a 
                         href="<?php echo home_url('/create-recipe'); ?>"
                         class="btn btnRecetteProfil"
