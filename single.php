@@ -1,6 +1,7 @@
 <?php get_header('bis') ?>
 
-<h1 class="text-center">Détail du plat</h1>
+<h1 class="text-center mt-3">Détail du plat</h1>
+
 <?php
 if (have_posts()) :
     while (have_posts()) : the_post();
@@ -15,22 +16,25 @@ if (have_posts()) :
         $proteine = get_post_meta(get_the_ID(), 'proteine', true);
     ?>
         <div class="container-fluid">
-            <h2><?php the_title(); ?></h2>
-            <div class="container-fluid text-center">
+            <div class="container-fluid text-center my-3">
                 <figure class="figure">
-                    <?php the_post_thumbnail('large', array('class' => 'figure-img img-fluid rounded')); ?>
+                    <h2 class="text-start">
+                        <?php the_title(); ?>
+                    </h2>
+                    <?php the_post_thumbnail(array(1024, 438), array('class' => 'figure-img img-fluid rounded')); ?>
                     <figcaption 
-                        class="figure-caption text-start">Publié par <em class="text-primary"><?php the_author(); ?></em></figcaption>
+                        class="figure-caption text-start">Publié par <em class="text-primary"><?php the_author(); ?></em>
+                    </figcaption>
                 </figure>
             </div>
-            <div class="d-flex justify-content-around">
-                <div class="border border-2 border-primary rounded">
+            <div class="d-flex justify-content-around mb-3">
+                <div class="border border-2 border-primary rounded p-2">
                     <?php echo esc_html($ptime); ?>
                 </div>
-                <div class="border border-2 border-primary rounded">
+                <div class="border border-2 border-primary rounded p-2">
                     <?php echo esc_html($pdifficulty); ?>
                 </div>
-                <div class="border border-2 border-primary rounded">
+                <div class="border border-2 border-primary rounded p-2">
                     <?php echo esc_html($pprice); ?>
                 </div>
             </div>

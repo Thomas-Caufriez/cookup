@@ -1,3 +1,5 @@
+console.log('test')
+
 function changepwd() {
   const hidden = document.getElementById("pwd");
   if (hidden.type === "password") {
