@@ -433,8 +433,8 @@ div.text-dark > .pRobotoLogin {
     }
 
     .rounded-circle {
-        width: 100% !important;
-        height: 100% !important;
+        width: 50px !important;
+        height: 50px !important;
      }
 }
 
