@@ -12,6 +12,7 @@
     /* Polices */
     --font-salsa: "Salsa", cursive;
     --font-roboto: "Roboto", sans-serif;
+    
 }
 
 /* Classes de police pré-définies */
@@ -54,7 +55,6 @@ input:focus {
     font-family: var(--font-roboto);
     font-size: max(14px, 1.5vw);
     font-weight: medium;
-
 }
 
 .pUnderline {
@@ -168,6 +168,10 @@ footer {
 .btnAllLogin {
     transition: all 0.3s ease;
     border-radius: 14px !important;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btnAllLogin:hover,
@@ -187,7 +191,7 @@ footer {
     font-family: var(--font-roboto);
     font-weight: 100; 
     font-style: italic;
-    font-size: 10px;
+    font-size: max(12px, 1.2vw);
 }
 
 .iconLogin {
@@ -206,7 +210,7 @@ div.text-dark > .pRobotoLogin {
     border-radius: 34px !important;
     text-decoration: none !important;
     font-family: var(--font-roboto);
-    font-size: max(13px, 2vw);;
+    font-size: max(13px, 2vw);
     font-weight: medium;
     color: white;
     width: auto !important;
@@ -328,10 +332,12 @@ div.text-dark > .pRobotoLogin {
     height: auto;
 }
 
-.rounded-circle {
-   width: 150px !important;
-   height: 150px !important;
+.imgProfil .rounded-circle {
+    width: 150px !important;
+    height: 150px !important;
 }
+
+
 
 /* ===================================================> MEDIA QUERIES <=========================================================*/
 
@@ -377,7 +383,7 @@ div.text-dark > .pRobotoLogin {
     .logoDesktop {
         display: block;
         width: 15vw !important;
-        height: 20vh !important;
+        height: auto !important;
      
     }
 
@@ -432,10 +438,10 @@ div.text-dark > .pRobotoLogin {
         font-size: 1.2em;
     }
 
-    .rounded-circle {
-        width: 50px !important;
-        height: 50px !important;
-     }
+    .imgProfil .rounded-circle {
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
 
 /* PC (min 1512px) */

@@ -18,7 +18,7 @@ $curent_user = wp_get_current_user();
         <div class="col ">
             <div class="row">
                 <div class="col-6 imgProfil">
-                    <?php echo get_avatar($curent_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'rounded-circle'))?>
+                    <?php echo get_avatar($curent_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'imgProfil rounded-circle'))?>
                 </div>
                 <div class="col-6 text-start">
                     <div class="mt-2 mt-md-3 h2Salsa">

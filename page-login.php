@@ -63,7 +63,7 @@ get_header('bis');
       <button
         type="submit" 
         name="submit" 
-        class="btn btn-light btnAllLogin"
+        class="btn btn-light btnAllLogin text-center"
       >
         <span class="pRobotoLogin">Connexion</span>
         <img 
