@@ -14,7 +14,7 @@ register_nav_menu('footer', 'footer');
     );
     wp_enqueue_style(
       'style',
-      get_template_directory_uri() . '/assets/css/app.css'
+      get_template_directory_uri() . '/assets/cssFile/app.css'
     );
 
     wp_enqueue_script(
