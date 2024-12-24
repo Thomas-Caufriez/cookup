@@ -6,33 +6,33 @@ add_theme_support('menus');
 register_nav_menu('footer', 'footer');
 
 // load bootstrap, la(les) feuille(s) css, la(les) feuille(s) js
-function styles_scripts()
-{
-  wp_enqueue_style(
-    'bootstrap',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
-  );
-  wp_enqueue_style(
-    'style',
-    get_template_directory_uri() . '/assets/css/app.css'
-  );
+  function styles_scripts()
+  {
+    wp_enqueue_style(
+      'bootstrap',
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
+    );
+    wp_enqueue_style(
+      'style',
+      get_template_directory_uri() . '/assets/cssFile/app.css'
+    );
 
-  wp_enqueue_script(
-    'bootstrap-bundle',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
-    false,
-    1,
-    true
-  );
-  wp_enqueue_script(
-    'app-js',
-    get_template_directory_uri() . '/assets/js/app.js',
-    ['bootstrap-bundle'],
-    1,
-    true
-  );
-}
-add_action('wp_enqueue_scripts', 'styles_scripts');
+    wp_enqueue_script(
+      'bootstrap-bundle',
+      'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
+      false,
+      1,
+      true
+    );
+    wp_enqueue_script(
+      'app-js',
+      get_template_directory_uri() . '/assets/js/app.js',
+      ['bootstrap-bundle'],
+      1,
+      true
+    );
+  }
+  add_action('wp_enqueue_scripts', 'styles_scripts');
 
 // ajoute la classe nav-item aux li placés par la fonction wp_nav_menu()
   function footer_menu_class($classes) {
@@ -144,9 +144,22 @@ function handle_recipe_submission() {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $post_title   = sanitize_text_field($_POST['post_title']);
+    $ptime   = sanitize_text_field($_POST['temps']); // tag 1
+    $pdifficulty   = sanitize_text_field($_POST['difficulte']); // tag 2
+    $pprice   = sanitize_text_field($_POST['prix']); // tag 3
+    $dishtype   = sanitize_text_field($_POST['dishtype']);
     $description  = sanitize_textarea_field($_POST['description']);
-    $ptime        = intval($_POST['ptime']);
-    $pdifficulty  = sanitize_text_field($_POST['pdifficulty']);
+    $proteine  = sanitize_text_field($_POST['proteine']); // ingrédient 1
+    $legumineuse   = sanitize_text_field($_POST['legumineuse']); // tag ingrédient 2
+    $cereal   = sanitize_text_field($_POST['cereale & grain']); // tag ingrédient 3
+    $noix   = sanitize_text_field($_POST['noix & graine']); // tag ingrédient 4
+    $fruit   = sanitize_text_field($_POST['fruit']); // tag ingrédient 5
+    $legume   = sanitize_text_field($_POST['legume']); // tag ingrédient 6
+    $lait   = sanitize_text_field($_POST['produit laitier']); // tag ingrédient 7
+    $descingredient  = sanitize_textarea_field($_POST['descingredient']);
+    $nbrperson        = absint($_POST['nbrperson']);
+    $preparation  = sanitize_textarea_field($_POST['preparation']);
+    $status   = sanitize_text_field($_POST['status']);
 
     // Vérifie si un fichier a été téléchargé sans erreur
     if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
@@ -170,8 +183,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             if ($post_id) {
                 set_post_thumbnail($post_id, $attachment_id);
 
-                update_post_meta($post_id, 'ptime', $ptime);
-                update_post_meta($post_id, 'pdifficulty', $pdifficulty);
+                update_post_meta($post_id, 'temps', $ptime);
+                update_post_meta($post_id, 'difficulte', $pdifficulty);
+                update_post_meta($post_id, 'prix', $pprice);
+                update_post_meta($post_id, 'dishtype', $dishtype);
+                update_post_meta($post_id, 'proteine', $proteine);
+                update_post_meta($post_id, 'legumineuse', $legumineuse);
+                update_post_meta($post_id, 'cereale & grain', $cereal);
+                update_post_meta($post_id, 'noix & graine', $noix);
+                update_post_meta($post_id, 'fruit', $fruit);
+                update_post_meta($post_id, 'legume', $legume);
+                update_post_meta($post_id, 'produit laitier', $lait);
+                update_post_meta($post_id, 'descingredient', $descingredient);
+                update_post_meta($post_id, 'nbrperson', $nbrperson);
+                update_post_meta($post_id, 'preparation', $preparation);
+                update_post_meta($post_id, 'status', $status);
+
 
                 wp_redirect(get_permalink($post_id));
                 exit;

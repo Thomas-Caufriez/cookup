@@ -10,9 +10,8 @@ if (is_user_logged_in()) {
 
 get_header('bis');
 ?>
-
-<div class="container">
-  <h2 class="text-center">Se connecter</h2>
+<div class="container mt-3 mb-3">
+  <h2 class="text-center h2Salsa ">Se connecter</h2>
 </div>
 
 <div class="container">
@@ -23,24 +22,24 @@ get_header('bis');
     <div class="container">
       <label 
         for="log" 
-        class="form-label"
+        class="form-label pRobotoLogin"
       >
         Email ou nom d'utilisateur
       </label>
       <input 
         type="text" 
         name="log"
-        class="form-control" 
+        class="form-control custom-input" 
         id="log" 
         placeholder="Ex : John@doe.com"
         required
         value="<?php echo esc_attr( $user_login ); ?>"
       >
     </div>
-    <div class="container">
+    <div class="container mt-4">
       <label 
         for="pwd" 
-        class="form-label"
+        class="form-label pRobotoLogin"
       >
         Mot de passe
       </label>
@@ -54,25 +53,23 @@ get_header('bis');
           required
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
         >
-        <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input">Voir</span>
+        <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input pRobotoLogin me-2">Voir</span>
       </div>
-      <div>
-        <a class="small" href="<?php echo esc_url( home_url('/forgot-password') ); ?>">Mot de passe oublié ?</a>
-      </div>
-      <div>
-        <a class="small" href="<?php echo esc_url( home_url('/register') ); ?>">Pas encore inscrit ?</a>
+      <div class="text-end">
+        <a class="small pUnderline" href="<?php echo esc_url( home_url('/forgot-password') ); ?>">Mot de passe oublié ?</a>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center mt-4">
       <button
         type="submit" 
         name="submit" 
-        class="btn btn-primary"
+        class="btn btn-light btnAllLogin text-center"
       >
-        <span>Connexion</span>
+        <span class="pRobotoLogin">Connexion</span>
         <img 
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/connexionEtPublier.svg" 
           alt="login"
+          class="iconLogin"
         >
       </button>
       <input 
@@ -80,6 +77,9 @@ get_header('bis');
         name="redirect_to" 
         value="<?php echo esc_url( home_url('/') ); ?>"
       >
+    </div>
+    <div class="text-center text-dark mt-4">
+        <a class="small pRobotoLogin" href="<?php echo esc_url( home_url('/register') ); ?>">Vous n’avez pas encore de compte ?</a>
     </div>
   </form>
 </div>

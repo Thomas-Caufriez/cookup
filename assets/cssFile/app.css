@@ -1,0 +1,655 @@
+/*=================================================== Variable / Global =========================================================*/
+
+/* ------ Polices Google Font -> Salsa & Roboto ------ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,400&family=Salsa&display=swap');
+
+:root {
+    /* Couleurs */
+    /* --primary-color: #FF62C0;
+    --secondary-color: #FFDC69; */
+    --custom-gradient-background-color: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+
+    /* Polices */
+    --font-salsa: "Salsa", cursive;
+    --font-roboto: "Roboto", sans-serif;
+    
+}
+
+/* Classes de police pré-définies */
+[class*="salsa-"] { font-family: var(--font-salsa); }
+[class*="roboto-"] { font-family: var(--font-roboto); }
+
+.salsa-regular { font-weight: 400; font-style: normal; }
+.roboto-regular { font-weight: 400; font-style: normal; }
+.roboto-medium { font-weight: 500; font-style: normal; }
+.roboto-bold { font-weight: 400; font-style: normal; }
+.roboto-thin-italic { font-weight: 100; font-style: italic; }
+.roboto-regular-italic { font-weight: 400; font-style: italic; }
+
+.roboto-regular-desktop { font-weight: 400; font-style: normal; }
+.salsa-regular-desktop { font-weight: 400; font-style: normal; }
+.roboto-regular-desktop { font-weight: 400; font-style: normal; }
+.roboto-bold-desktop { font-weight: 700; font-style: normal; }
+.roboto-thin-italic-desktop { font-weight: 100; font-style: italic; }
+.roboto-regular-italic-desktop { font-weight: 400; font-style: italic; }
+
+input {
+    border-color: none !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+}
+
+input:focus {
+    border-color: rgba(128, 128, 128, 0.5) !important;
+    box-shadow: none !important;
+}
+
+.h2Salsa {
+    font-size: max(16px, 2.2vw);
+    font-family: var(--font-salsa);
+    font-weight: medium;
+}
+
+
+.pRobotoLogin {
+    font-family: var(--font-roboto);
+    font-size: max(14px, 1.5vw);
+    font-weight: medium;
+}
+
+.pUnderline {
+    font-family: var(--font-roboto);
+    font-size: max(10px, 1vw);
+    font-weight: medium;
+}
+
+/*===================================================> HEADER / HEADERbis <=========================================================*/
+.header, .header-bis {
+    background: var(--custom-gradient-background-color);
+    background-size: 150%;
+    background-position: 30% 70%; /* Axe de dégradé en oblique et dépasse uniformément */
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.header .form-control {
+    width: 60vw;
+    height: 5vh;
+    background-repeat: no-repeat; 
+    background-position: left 10px center; 
+    padding-left: 60px; 
+    background-size: 20px;
+    border-radius: 34px;
+    border-style: none;
+    opacity: 0.9;
+    font-family: var(--font-roboto);
+    font-weight: medium;
+    font-size: 15px;
+}
+
+.header img {
+    width: 66px;
+    height: 100%;
+}
+
+
+.btnRecette {
+    border-radius: 34px;
+    text-decoration: var(--custom-gradient-background-color);
+    width: 100%;
+
+}
+
+.blockBtnRecetteDesktop {
+    display: none !important;
+
+}
+
+.blockBtnRecetteMobile {
+    display: block !important;
+}
+
+.iconRecetteMobile {
+    width: 40px !important;
+    height: 40px !important;
+ }
+ .iconRecetteDesktop {
+     display: block !important;
+ }
+
+
+.logoMobile {
+    width: 66px;
+    height: 100%;
+}
+
+.logoDesktop {
+    display: none;
+}
+
+
+/*===================================================> FOOTER / FOOTERbis <=========================================================*/
+
+footer {
+    /* background-image: url('../img/UnionDesktop.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    width: 100vw !important;
+    height: 100vh !important; */
+    background: var(--custom-gradient-background-color);
+    background-size: 150%;
+    background-position: 30% 70%;
+    width: 100%;
+}
+.footer-textN1 a{
+    font-family: var(--font-roboto);
+    font-weight: medium;
+    text-decoration: underline;
+    font-size: 9px;
+    color: white;
+}
+.footer-textN1 a:hover{
+    font-weight: bold;
+    color: #5CA3FF;
+}
+
+.footer-textN2 {
+    font-family: var(--font-salsa);
+    font-weight: medium;
+    font-size: 8px;
+    color: white;
+}
+
+/*===================================================> Connexion <=========================================================*/
+
+.btnAllLogin {
+    transition: all 0.3s ease;
+    border-radius: 14px !important;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnAllLogin:hover,
+.btnAllLogin:active {
+    background-color: #5B9F5B !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.btnAllLogin:hover img,
+.btnAllLogin:active img {
+    filter: brightness(0) invert(1);
+}
+
+
+.pRobotoThinLogin {
+    font-family: var(--font-roboto);
+    font-weight: 100; 
+    font-style: italic;
+    font-size: max(12px, 1.2vw);
+}
+
+.iconLogin {
+    width: 3.5vw;
+    height: 3.5vh;
+}
+
+
+div.text-dark > .pRobotoLogin {
+    color: black !important;
+}
+
+/*===================================================> Profil <=========================================================*/
+
+.btnRecetteProfil {
+    border-radius: 34px !important;
+    text-decoration: none !important;
+    font-family: var(--font-roboto);
+    font-size: max(13px, 2vw);
+    font-weight: medium;
+    color: white;
+    width: auto !important;
+    background: var(--custom-gradient-background-color);
+    background-size: 150%; 
+    background-position: 30% 70%;
+}
+.btnRecetteProfil:hover {
+    border-radius: 34px !important;
+    text-decoration: none !important;
+    font-family: var(--font-roboto);
+    font-size: max(13px, 2vw);;
+    font-weight: medium;
+    color: white;
+    width: auto!important;
+    background: var(--custom-gradient-background-color);
+    background-size: 150%; 
+    background-position: 30% 70%;
+}
+
+.catégorieProfil {
+    width: 80%;
+    height: 100px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #C5C5C5 100%, #C5C5C5 100%);
+}
+
+.catégorieProfil:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.catégorieProfil:hover {
+    border: 5px solid transparent;
+    border-radius: 10px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+}
+
+.catégorieProfil div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    z-index: 2;
+    min-width: 100px;
+    border-radius: 0 0 10px 0;
+   
+}
+
+.catégorieProfil div img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.catégorieProfil div span {
+    color: black;
+    font-size: 12px;
+    font-weight: medium;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.catégorieProfil:hover div span {
+    filter: brightness(1.2);
+    color: #FF62C0;
+    transition: filter 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.catégorieProfil:hover .iconPublic {
+    content: url('../img/iconPublicDégradé.svg');
+    transition: all 0.3s ease;
+}
+
+.catégorieProfil:hover .iconFavoris {
+    content: url('../img/iconFavorisDégradé.svg');
+    transition: all 0.3s ease;
+}
+
+.catégorieProfil:hover .iconPrivé {
+    content: url('../img/iconPrivéDégradé.svg');
+    transition: all 0.3s ease;
+}
+
+.catégorieProfil:hover .iconPublic,
+.catégorieProfil:hover .iconFavoris,
+.catégorieProfil:hover .iconPrivé {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.imgPublic, .imgFavoris, .imgPrivé {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.iconPublic, .iconFavoris, .iconPrivé {
+    z-index: 2;
+    width: auto;
+    height: auto;
+}
+
+.imgProfil .rounded-circle {
+    width: 150px !important;
+    height: 150px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------test*/
+.allCardsIngredients, .allCardsPlats {
+    width: 100%;   
+    height: auto;
+    max-width: 100%;
+}
+
+.cardsIngredients, .cardsPlats {
+    width: 100%;
+    height: 9vh;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cardsIngredients:focus,
+.cardsIngredients:active,
+.cardsIngredients:hover,
+.cardsPlats:focus,
+.cardsPlats:active,
+.cardsPlats:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+.cardsIngredientsOn, .cardsPlatsOn {
+    border: none;
+    opacity: 1;
+}
+
+.cardsIngredientsOff, .cardsPlatsOff {
+    border: none;
+    opacity: 0.4;
+}
+
+.cardsIngredients div, .cardsPlats div {
+    width: clamp(100px, 20vw, 180px); /* Commence à 90px, s'étend jusqu'à 180px */
+    white-space: nowrap;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    z-index: 2;
+    border-radius: 0 5px 5px 0;
+}
+
+.cardsIngredients div span, .cardsPlats div span {
+ font-family: var(--font-salsa);
+ font-size: max(12px, 1.5vw);
+ font-weight: medium;
+}
+
+.cardsIngredients div img, .cardsPlats div img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.imgIngredients, .imgPlats {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.bulletOff-On {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* Ajuste pour un centrage précis */
+    z-index: 2;
+    width: max(25px, 3vw);
+    height: max(25px, 3vw); 
+    transition: all 0.3s ease;
+}
+/*--------------------------------------test*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================> MEDIA QUERIES <=========================================================*/
+
+/* Tablette et plus */
+@media screen and (min-width: 768px) {
+    body {
+        background: rgba(119, 119, 212, 0.404);
+    }
+
+    /* HEADER / HEADERbis - Tablette*/
+    .blockBtnRecetteDesktop {
+        display: flex !important;
+        width:  auto !important;
+        height: 100% !important;
+    }
+    .iconRecetteDesktop {
+        width: 3vw !important;
+        height: 3vh !important;
+    }
+    
+    .blockBtnRecetteMobile {
+        display: none !important;
+        height: 5vh;
+    }
+
+    .pRecette {
+        color: transparent;
+        background: var(--custom-gradient-background-color);
+        -webkit-background-clip: text; 
+        background-clip: text;
+        white-space: nowrap;
+        font-family: var(--font-roboto);
+        font-weight: bold;
+        font-size: max(14px, 1.3vw);;
+        margin: 0 !important;
+    }
+
+
+    .logoMobile {
+        display: none;
+       
+    }
+    .logoDesktop {
+        display: block;
+        width: 15vw !important;
+        height: auto !important;
+     
+    }
+
+    /* FOOTER - Tablette*/
+
+    .footer-textN1 a{
+        font-size: 1vw;
+    }
+    
+    .footer-textN2 {
+        font-size: 1vw;
+
+    }
+
+    .catégorieProfil {
+        width: 100%;
+        height: 200px;
+        border: 5px solid transparent;
+        border-radius: 12px;
+    }
+
+    .catégorieProfil div {
+        padding: 8px 15px;
+        min-width: 120px;
+    }
+
+    .catégorieProfil div img {
+        width: 25px;
+        height: 25px;
+        margin-right: 8px;
+    }
+
+    .catégorieProfil div span {
+        font-size: 14px;
+    }
+
+    .imgPublic, .imgFavoris, .imgPrivé {
+        width: 100%;
+        height: 100%;
+    }
+
+    .iconPublic, .iconFavoris, .iconPrivé {
+        width: 50px;
+        height: 50px;
+        top: 20px;
+        left: 20px;
+    }
+
+    .catégorieProfil span {
+        bottom: 20px;
+        left: 20px;
+        font-size: 1.2em;
+    }
+
+    .imgProfil .rounded-circle {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+/* PC (min 1512px) */
+@media screen and (min-width: 1512px) {
+    body {
+        background: rgb(143, 204, 143);
+    }
+
+    /* HEADER / HEADERbis - Pc */
+    .header .form-control {
+        background-position: left 20px center; 
+        padding-left: 70px; 
+        background-size: 35px;
+        font-size: 1.5rem;
+    }
+
+    /* FOOTER - Pc */
+
+
+}
+
+    /* FOOTER - Pc */

@@ -11,8 +11,8 @@ if (is_user_logged_in()) {
 get_header('bis');
 ?>
 
-<div class="container">
-  <h2 class="text-center">S'inscrire</h2>
+<div class="container mt-3 mb-3">
+  <h2 class="text-center h2Salsa">S'inscrire</h2>
 </div>
 
 <div class="container">
@@ -21,7 +21,7 @@ get_header('bis');
       <div class="mb-3 col">
         <label 
           for="name" 
-          class="form-label"
+          class="form-label pRobotoLogin"
         >
           Nom d'utilisateur
         </label>
@@ -37,7 +37,7 @@ get_header('bis');
       <div class="mb-3 col">
         <label 
           for="email" 
-          class="form-label"
+          class="form-label pRobotoLogin"
         >
           Email
         </label>
@@ -56,7 +56,7 @@ get_header('bis');
       <div class="mb-3 col">
         <label 
           for="pwd" 
-          class="form-label"
+          class="form-label pRobotoLogin"
         >
           Mot de passe
         </label>
@@ -70,23 +70,24 @@ get_header('bis');
             required
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
             >
-            <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input">Voir</span>
+            <span class="input-group-text"><input type="checkbox" onclick="changepwd()" class="form-check-input me-2">Voir</span>
         </div>
         <div>
-          <p class="small">Le mot de passe doit contenir au minimum 6 caractères dont au moins une majuscule, une minuscule et un chiffre</p>
+          <p class="pRobotoThinLogin">Le mot de passe doit contenir au minimum 6 caractères dont au moins une majuscule, une minuscule et un chiffre</p>
         </div>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center mb-3">
       <button
         type="submit"
         name="submit"
-        class="btn btn-primary"
+        class="btn btn-light btnAllLogin"
       >
-      <span>Inscription</span>
+      <span class="pRobotoLogin ">Inscription</span>
         <img 
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/inscription.svg" 
           alt="document"
+          class="iconLogin"
         >
       </button>
       <input 
