@@ -40,6 +40,7 @@ if (get_search_query()!== ''): ?>
             </div>
 		</form>
   	</div>
+
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
 	  <?php 
 
