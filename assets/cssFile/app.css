@@ -1,4 +1,4 @@
-/*=================================================== Variable / Global =========================================================*/
+/*===================================================> Global / Variable / Import / Root <=========================================================*/
 
 /* ------ Polices Google Font -> Salsa & Roboto ------ */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,400&family=Salsa&display=swap');
@@ -163,7 +163,7 @@ footer {
     color: white;
 }
 
-/*===================================================> Connexion <=========================================================*/
+/*===================================================> All Page Connexion <=========================================================*/
 
 .btnAllLogin {
     transition: all 0.3s ease;
@@ -204,7 +204,7 @@ div.text-dark > .pRobotoLogin {
     color: black !important;
 }
 
-/*===================================================> Profil <=========================================================*/
+/*===================================================> Page Profil <=========================================================*/
 
 .btnRecetteProfil {
     border-radius: 34px !important;
@@ -344,50 +344,12 @@ div.text-dark > .pRobotoLogin {
     height: 150px !important;
 }
 
+/*===================================================> Page Index <=========================================================*/
+/*--- All Cards index ---*/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*--------------------------------------test*/
+/*--- Filtre Ingredients et Plats ---*/
 .allCardsIngredients, .allCardsPlats {
     width: 100%;   
     height: auto;
@@ -476,67 +438,19 @@ div.text-dark > .pRobotoLogin {
     height: max(25px, 3vw); 
     transition: all 0.3s ease;
 }
-/*--------------------------------------test*/
 
 
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> MEDIA QUERIES <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===================================================> MEDIA QUERIES <=========================================================*/
-
-/* Tablette et plus */
+/*--- Media Queries - Tablette et plus ---*/
 @media screen and (min-width: 768px) {
     body {
         background: rgba(119, 119, 212, 0.404);
     }
 
-    /* HEADER / HEADERbis - Tablette*/
+    /*--- HEADER / HEADERbis - Tablette ---*/
     .blockBtnRecetteDesktop {
         display: flex !important;
         width:  auto !important;
@@ -576,7 +490,7 @@ div.text-dark > .pRobotoLogin {
      
     }
 
-    /* FOOTER - Tablette*/
+    /*--- FOOTER - Tablette ---*/
 
     .footer-textN1 a{
         font-size: 1vw;
@@ -633,13 +547,13 @@ div.text-dark > .pRobotoLogin {
     }
 }
 
-/* PC (min 1512px) */
+/*--- Media Queries - PC (min 1512px) ---*/
 @media screen and (min-width: 1512px) {
     body {
         background: rgb(143, 204, 143);
     }
 
-    /* HEADER / HEADERbis - Pc */
+    /*--- HEADER / HEADERbis - Pc ---*/
     .header .form-control {
         background-position: left 20px center; 
         padding-left: 70px; 
@@ -647,9 +561,8 @@ div.text-dark > .pRobotoLogin {
         font-size: 1.5rem;
     }
 
-    /* FOOTER - Pc */
+    /*--- FOOTER - Pc ---*/
 
 
 }
 
-    /* FOOTER - Pc */
