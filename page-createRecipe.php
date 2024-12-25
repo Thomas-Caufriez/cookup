@@ -11,7 +11,7 @@ if (!is_user_logged_in()) {
 get_header('bis'); 
 ?>
 
-<div class="d-flex align-items-center justify-content-center">
+<div class="d-flex align-items-center justify-content-center mt-3 mb-3">
     <img 
         src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecetteBlack.svg" 
         alt="icon recette"
@@ -23,11 +23,12 @@ get_header('bis');
 <form 
     method="post" 
     enctype="multipart/form-data"
-    class="m-0 bg-light"
+    class="bg-light m-0 m-md-3 m-xl-5 p-0 p-md-4 p-xl-5" 
+    style="border-radius: 15px;"
 >
 
     <div class="row row-cols-1 row-cols-md-2 gx-5 m-1 m-md-3">
-        <div class="col mt-3 mt-md-5">
+        <div class="col">
             <div class="my-3">
                 <div class="d-flex align-items-center justify-content-start my-2 my-md-3">
                     <img 
@@ -158,7 +159,7 @@ get_header('bis');
             </div>
         </div>
 
-        <div class="col mt-0 mt-md-5">
+        <div class="col mt-4 mt-md-0">
             <div>
                 <div class="d-flex align-items-center justify-content-start my-2 my-md-3">
                     <img 
@@ -194,7 +195,7 @@ get_header('bis');
                 ></textarea>
             </div>
 
-            <div class="d-flex row  mt-3 mt-md-5">
+            <div class="d-flex row  mt-4 mt-md-5">
                 <div class="d-flex align-items-center justify-content-start mb-2 mb-md-3">
                     <img 
                         src="<?php echo get_template_directory_uri(); ?>/assets/img/iconTag.svg" 
@@ -293,7 +294,7 @@ get_header('bis');
                     >
                     <label 
                         for="private" 
-                        class="btn pRobotoLogin btnPageModifierCreeRecette"
+                        class="btn pRobotoLogin btnPageModifierCreeRecetteStatus"
                     >
                         Privé
                     </label>
@@ -309,7 +310,7 @@ get_header('bis');
                     >
                     <label 
                         for="public" 
-                        class="btn pRobotoLogin btnPageModifierCreeRecette"
+                        class="btn pRobotoLogin btnPageModifierCreeRecetteStatus"
                     >
                         Public
                     </label>

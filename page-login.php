@@ -14,15 +14,17 @@ get_header('bis');
   <h2 class="text-center h2Salsa ">Se connecter</h2>
 </div>
 
-<div class="container">
+<div>
   <form 
     action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>"
     method="post"
+    class="bg-light m-0 m-md-3 m-xl-5 p-2 p-md-4 p-xl-5" 
+    style="border-radius: 15px;"
   >
     <div class="container">
       <label 
         for="log" 
-        class="form-label pRobotoLogin"
+        class="form-label pRobotoLogin mt-3"
       >
         Email ou nom d'utilisateur
       </label>
@@ -78,7 +80,7 @@ get_header('bis');
         value="<?php echo esc_url( home_url('/') ); ?>"
       >
     </div>
-    <div class="text-center text-dark mt-4">
+    <div class="text-center text-dark mt-4 mb-4">
         <a class="small pRobotoLogin" href="<?php echo esc_url( home_url('/register') ); ?>">Vous n’avez pas encore de compte ?</a>
     </div>
   </form>
