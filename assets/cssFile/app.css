@@ -248,6 +248,13 @@ div.text-dark > .pRobotoLogin {
         linear-gradient(to right, white, white),
         linear-gradient(45deg, #C5C5C5 100%, #C5C5C5 100%);
 }
+
+.catégorieProfil:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .catégorieProfil:hover {
     border: 5px solid transparent;
     border-radius: 10px;
@@ -336,6 +343,188 @@ div.text-dark > .pRobotoLogin {
     width: 150px !important;
     height: 150px !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------test*/
+.allCardsIngredients, .allCardsPlats {
+    width: 100%;   
+    height: auto;
+    max-width: 100%;
+}
+
+.cardsIngredients, .cardsPlats {
+    width: 100%;
+    height: 9vh;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cardsIngredients:focus,
+.cardsIngredients:active,
+.cardsIngredients:hover,
+.cardsPlats:focus,
+.cardsPlats:active,
+.cardsPlats:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+.cardsIngredientsOn, .cardsPlatsOn {
+    border: none;
+    opacity: 1;
+}
+
+.cardsIngredientsOff, .cardsPlatsOff {
+    border: none;
+    opacity: 0.4;
+}
+
+.cardsIngredients div, .cardsPlats div {
+    width: clamp(100px, 20vw, 180px); /* Commence à 90px, s'étend jusqu'à 180px */
+    white-space: nowrap;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    z-index: 2;
+    border-radius: 0 5px 5px 0;
+}
+
+.cardsIngredients div span, .cardsPlats div span {
+ font-family: var(--font-salsa);
+ font-size: max(12px, 1.5vw);
+ font-weight: medium;
+}
+
+.cardsIngredients div img, .cardsPlats div img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.imgIngredients, .imgPlats {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.bulletOff-On {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* Ajuste pour un centrage précis */
+    z-index: 2;
+    width: max(25px, 3vw);
+    height: max(25px, 3vw); 
+    transition: all 0.3s ease;
+}
+/*--------------------------------------test*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
