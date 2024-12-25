@@ -76,9 +76,21 @@ get_header('bis');
             <div class="mt-4 mt-md-5">
                 <?php 
                     $tags = [
-                        'temps' => ['-30min', '+30min', '+1h'],
-                        'difficulte' => ['Facile', 'Moyen', 'Difficile'],
-                        'prix' => ['-15€', '+15€', '+30€'],
+                        'temps' => [
+                            1 => '-30min',
+                            2 =>  '+30min',
+                            3 => '+1h'
+                        ],
+                        'difficulte' => [
+                            1 => 'facile',
+                            2 => 'moyen',
+                            3 => 'difficile'
+                        ],
+                        'prix' => [
+                            1 => '-15€',
+                            2 =>  '+15€',
+                            3 => '+30€'
+                        ],
                     ]
                 ?>
                 <?php 
@@ -98,14 +110,14 @@ get_header('bis');
                         <p class="m-0 h3Salsa"><?php echo ucfirst($tagcategory); ?></p>
                     </div>
                     <div class="row row-cols-3 justify-content-around my-2">
-                        <?php foreach ($tagtab as $tag): ?>
-                            <div class="col-4 d-flex align-items-center  ">
+                        <?php foreach ($tagtab as $tagval => $tag): // boucle qui parcourt les tableaux avec les tags ?>
+                            <div class="col-4 d-flex align-items-center gap-2">
                                 <input 
                                     type="radio" 
                                     name="<?php echo $tagcategory; ?>" 
                                     id="<?php echo $tag; ?>" 
-                                    value="<?php echo $tag; ?>" 
-                                    class="btn-check "
+                                    value="<?php echo $tagval; ?>" 
+                                    class="btn-check"
                                     required
                                 >
                                 <label 
