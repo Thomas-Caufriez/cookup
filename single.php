@@ -5,6 +5,23 @@
 <?php
 if (have_posts()) :
     while (have_posts()) : the_post();
+        $tags = [
+            'temps' => [
+                1 => '-30min',
+                2 =>  '+30min',
+                3 => '+1h'
+            ],
+            'difficulte' => [
+                1 => 'facile',
+                2 => 'moyen',
+                3 => 'difficile'
+            ],
+            'prix' => [
+                1 => '-15€',
+                2 =>  '+15€',
+                3 => '+30€'
+            ],
+        ];
         $ptime = get_post_meta(get_the_ID(), 'temps', true);
         $pdifficulty = get_post_meta(get_the_ID(), 'difficulte', true);
         $pprice = get_post_meta(get_the_ID(), 'prix', true);
@@ -26,13 +43,13 @@ if (have_posts()) :
             </div>
             <div class="d-flex justify-content-around mb-3">
                 <div class="border border-2 border-primary rounded p-2">
-                    <?php echo esc_html($ptime); ?>
+                    <?php echo $tags['temps'][$ptime]; ?>
                 </div>
                 <div class="border border-2 border-primary rounded p-2">
-                    <?php echo esc_html($pdifficulty); ?>
+                    <?php echo $tags['difficulte'][$pdifficulty]; ?>
                 </div>
                 <div class="border border-2 border-primary rounded p-2">
-                    <?php echo esc_html($pprice); ?>
+                    <?php echo $tags['prix'][$pprice]; ?>
                 </div>
             </div>
             <div class="accordion" id="accordionrecipe">

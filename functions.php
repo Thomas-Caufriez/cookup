@@ -159,7 +159,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $descingredient  = sanitize_textarea_field($_POST['descingredient']);
     $nbrperson        = absint($_POST['nbrperson']);
     $preparation  = sanitize_textarea_field($_POST['preparation']);
-    $status   = sanitize_text_field($_POST['status']);
 
     // Vérifie si un fichier a été téléchargé sans erreur
     if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
@@ -216,10 +215,29 @@ add_action('template_redirect', 'handle_recipe_submission');
 // Action permettant de display les informations du formulaire dans le back-office pour aider le client
 add_action('add_meta_boxes', function () {
 add_meta_box('recette_details', 'Détails de la recette', function ($post) {
-    $ptime = get_post_meta($post->ID, 'ptime', true);
-    $pdifficulty = get_post_meta($post->ID, 'pdifficulty', true);
+    $ptime = get_post_meta($post->ID, 'temps', true);
+    $pdifficulty = get_post_meta($post->ID, 'difficulte', true);
+    $pprice = get_post_meta($post->ID, 'prix', true);
+    $dishtype = get_post_meta($post->ID, 'dishtype', true);
+    $nbrperson = get_post_meta($post->ID, 'nbrperson', true);
+    $status = get_post_meta($post->ID, 'status', true);
+    $preparation = get_post_meta($post->ID, 'preparation', true);
+    $descingredient = get_post_meta($post->ID, 'descingredient', true);
 
-    echo 'Difficulté : ' . $pdifficulty;
+    echo '<b>Difficulté :</b> ' . $pdifficulty . '<br>';
+    echo '<b>Prix :</b> ' . $pprice . '<br>';
+    echo '<b>Temps :</b> ' . $ptime . '<br>';
+    echo '<b>Type de plat :</b> ' . $dishtype . '<br>';
+    echo '<b>Nombre de personnes :</b> ' . $nbrperson . '<br>';
+    echo '<b>status :</b> ' . $status . '<br>';
+    echo '<b>Préparation :</b> ' . $preparation . '<br>';
+    echo '<b>Ingrédients :</b> ' . $descingredient;
 }, 'creation_recette');
 });
+
+// fonction changeant le nombre de mot de la fonction the_excerpt()
+function custom_excerpt_length($length) {
+  return 20;
+}
+add_filter('excerpt_length', 'custom_excerpt_length');
 ?>

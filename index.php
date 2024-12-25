@@ -8,45 +8,139 @@ if (get_search_query()!== ''): ?>
 <?php endif ?>
 
 <div class="container-fluid px-2 px-md-4">
-	<div class="container">
-    	<form method="get" class="d-flex align-items-center" id="filterform">
-			<div class="dropdown my-3"> <!-- Bouton de filtre -->
-				<button class="btn btn-primary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-					<img src="" alt="Icône Filtre" width="20px" height="20px">
-				</button>
-				<div class="dropdown-menu" aria-labelledby="filterDropdown">
-					<div>
-						<input type="radio" class="btn-check" name="filterval" id="filterradio1" value=1 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 1) ? 'checked' : ''; ?>>
-						<label class="btn w-100 rounded-0" for="filterradio1">Date descendant</label>
-					</div>
-					<div>
-						<input type="radio" class="btn-check" name="filterval" id="filterradio2" value=2 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 2) ? 'checked' : ''; ?>>
-						<label class="btn w-100 rounded-0" for="filterradio2">Date ascendant</label>
-					</div>
-					<div>
-						<input type="radio" class="btn-check" name="filterval" id="filterradio3" value=3 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 3) ? 'checked' : ''; ?>>
-						<label class="btn w-100 rounded-0" for="filterradio3">Difficulté</label>
-					</div>
-					<div>
-						<input type="radio" class="btn-check" name="filterval" id="filterradio4" value=4 autocomplete="off" <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 4) ? 'checked' : ''; ?>>
-						<label class="btn w-100 rounded-0" for="filterradio4">Prix</label>
-					</div>
-				</div>
-			</div>
-            <div class="container">
-                <button type="submit" class="btn btn-secondary">
-                    Filtrer
-                </button>
+    <form 
+        method="get" 
+        class="my-3"
+    >
+        <div class="btn-group">
+            <button 
+                type="submit" 
+                class="btn btn-primary"
+            >
+                Filtrer
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false"
+            >
+                <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu" >
+                <div>
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="filterval" 
+                        id="filterradio1" 
+                        value=1 
+                        autocomplete="off" 
+                        <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 1) ? 'checked' : ''; ?>
+                    >
+                    <label 
+                        class="btn w-100 rounded-0" 
+                        for="filterradio1"
+                    >
+                        Date
+                    </label>
+                </div>
+                <div>
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="filterval" 
+                        id="filterradio2" 
+                        value=2 
+                        autocomplete="off" 
+                        <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 2) ? 'checked' : ''; ?>
+                    >
+                    <label 
+                        class="btn w-100 rounded-0" 
+                        for="filterradio2"
+                    >
+                        Temps
+                    </label>
+                </div>
+                <div>
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="filterval" 
+                        id="filterradio3" 
+                        value=3 
+                        autocomplete="off" 
+                        <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 3) ? 'checked' : ''; ?>
+                    >
+                    <label 
+                        class="btn w-100 rounded-0" 
+                        for="filterradio3"
+                    >
+                        Difficulté
+                    </label>
+                </div>
+                <div>
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="filterval" 
+                        id="filterradio4" 
+                        value=4 
+                        autocomplete="off" 
+                        <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 4) ? 'checked' : ''; ?>
+                    >
+                    <label 
+                        class="btn w-100 rounded-0" 
+                        for="filterradio4"
+                    >
+                        Prix
+                    </label>
+                </div>
+                <hr class="dropdown-divider">
+                <div>
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="filterAscDesc" 
+                        id="filterAscDesc1" 
+                        value ="DESC" 
+                        autocomplete="off" 
+                        <?php echo (isset($_GET['filterAscDesc']) && $_GET['filterAscDesc'] == 'DESC') ? 'checked' : ''; ?>
+                    >
+                    <label 
+                        class="btn w-100 rounded-0" 
+                        for="filterAscDesc1"
+                    >
+                        Descendant
+                    </label> <!-- descendant = DESC = plus grand au plus petit (plus récent au plus vieux) -->
+                </div>
+                <div>
+                    <input 
+                        type="radio" 
+                        class="btn-check" 
+                        name="filterAscDesc" 
+                        id="filterAscDesc2" 
+                        value="ASC" 
+                        autocomplete="off" 
+                        <?php echo (isset($_GET['filterAscDesc']) && $_GET['filterAscDesc'] == 'ASC') ? 'checked' : ''; ?>
+                    >
+                    <label 
+                        class="btn w-100 rounded-0" 
+                        for="filterAscDesc2"
+                    >
+                        Ascendant
+                    </label> <!-- inverse note au dessus -->
+                </div>
             </div>
-		</form>
-  	</div>
-
+        </div>
+    </form>
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
 	  <?php 
 
         $filterval = isset($_GET['filterval']) ? intval($_GET['filterval']) : 1;
+        $filterAscDesc = isset($_GET['filterAscDesc']) ? $_GET['filterAscDesc'] : 'DESC';
 
-        $args = [
+        $args = [   // arguments par défaut
             'post_type' => 'creation_recette',
             'post_status' => 'publish',
             'orderby' => 'date',
@@ -57,24 +151,25 @@ if (get_search_query()!== ''): ?>
         switch ($filterval) {
             case 1:
                 $args['orderby'] = 'date';
-                $args['order'] = 'DESC';
+                $args['order'] = $filterAscDesc;
                 break;
 
             case 2:
-                $args['orderby'] = 'date';
-                $args['order'] = 'ASC';
+                $args['meta_key'] = 'temps';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = $filterAscDesc;
                 break;
 
             case 3:
-                $args['meta_key'] = 'difficulte_recette';
-                $args['orderby'] = 'meta_value';
-                $args['order'] = 'ASC';
+                $args['meta_key'] = 'difficulte';
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = $filterAscDesc;
                 break;
 
             case 4:
                 $args['meta_key'] = 'prix';
                 $args['orderby'] = 'meta_value_num';
-                $args['order'] = 'ASC';
+                $args['order'] = $filterAscDesc;
                 break;
 
             default:
