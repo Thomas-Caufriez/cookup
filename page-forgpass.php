@@ -10,13 +10,17 @@ if (is_user_logged_in()) {
 
 get_header('bis');
 ?>
+<div class="container mt-3 mb-3">
+  <h2 class="text-center mb-3 mt-3 h2Salsa ">Mot de passe oublié</h2>
+</div>
 
-<h2 class="text-center mb-3 mt-3 h2Salsa ">Mot de passe oublié</h2>
 
 
-
-<form>
-  <div class="container mb-3">
+<form 
+  class="bg-light m-0 mx-md-3 mx-xl-5 p-3 p-md-4 p-xl-5" 
+  style="border-radius: 15px;"
+>
+  <div class="mb-3 mt-3">
       <label 
         for="retrieve" 
         class="form-label pRobotoLogin"

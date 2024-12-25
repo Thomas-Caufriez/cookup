@@ -12,16 +12,19 @@ get_header('bis');
 ?>
 
 <div class="container mt-3 mb-3">
-  <h2 class="text-center h2Salsa">S'inscrire</h2>
+  <h2 class="text-center h2Salsa mt-3 mb-3">S'inscrire</h2>
 </div>
 
-<div class="container">
-  <form method="post">
+<div>
+  <form method="post"
+    class="bg-light m-0 m-md-3 m-xl-5 p-3 p-md-4 p-xl-5" 
+    style="border-radius: 15px;" 
+  >
     <div class="row row-cols-1">
       <div class="mb-3 col">
         <label 
           for="name" 
-          class="form-label pRobotoLogin"
+          class="form-label pRobotoLogin mt-3"
         >
           Nom d'utilisateur
         </label>

@@ -21,15 +21,16 @@ if ( isset( $_POST['new_password'] ) && !empty( $_POST['new_password'] ) ) {
 }
 ?>
 
-<div class="container">
-    <form method="post">
-        <div class="mb-3">
-            <label 
-                for="new_password"
-                class="from-label"
-            >
-                Nouveau mot de passe
-            </label>
+<div>
+    <div class="container">
+        <h2 class="text-center h2Salsa mt-4 mb-4">Modifier mon mot de passe</h2>
+    </div>
+
+    <form method="post"
+    class="bg-light m-0 m-md-3 m-xl-5 p-3 p-md-4 p-xl-5" 
+    style="border-radius: 15px;" 
+    >
+        <div class="text-center mb-3 mt-3">
             <div class="input-group">
                 <input 
                     type="password" 
@@ -40,31 +41,22 @@ if ( isset( $_POST['new_password'] ) && !empty( $_POST['new_password'] ) ) {
                     class="form-control"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                 >
-                <span class="input-group-text"><input type="checkbox" onclick="changepwd2()" class="form-check-input">Voir</span>
+                <span class="input-group-text"><input type="checkbox" onclick="changepwd2()" class="form-check-input me-2">Voir</span>
             </div>
         </div>
         <div>
-          <p class="small">Le mot de passe doit contenir au minimum 6 caractères dont au moins une majuscule, une minuscule et un chiffre</p>
-        </div>
-        <div class="mb-3 form-check">
-            <input 
-                type="checkbox" 
-                class="form-check-input" 
-                id="verif"
-                required
-            >
-            <label 
-                class="form-check-label" 
-                for="verif"
-            >
-                Vérification
-            </label>
+          <p class="small pRobotoThinLogin">Le mot de passe doit contenir au minimum 6 caractères dont au moins une majuscule, une minuscule et un chiffre</p>
         </div>
         <button
             type="submit"
-            class="btn btn-primary"
+            class="btn btnAllLogin d-flex align-items-center justify-content-center"
         >
-            Mettre à jour le mot de passe
+            <p class="pRobotoLogin m-0"> Mettre à jour </p>
+            <img    
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconValiderNewMdp.svg" 
+                alt="icon valider"
+                class="iconLogin"
+            >
         </button>
         <input 
             type="hidden" 
