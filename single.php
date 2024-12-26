@@ -1,6 +1,13 @@
 <?php get_header('bis') ?>
 
-<h1 class="text-center mt-3">Détail du plat</h1>
+<div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+    <img    
+        src="<?php echo get_template_directory_uri(); ?>/assets/img/iconUstensileBlack.svg" 
+        alt="icon ustensile"
+        class="iconLogin me-2"
+    >
+    <h1 class="text-center mt-3 mb-3 h2Salsa">Détail du plat</h1>
+</div>
 
 <?php
 if (have_posts()) :
@@ -12,9 +19,9 @@ if (have_posts()) :
                 3 => '+1h'
             ],
             'difficulte' => [
-                1 => 'facile',
-                2 => 'moyen',
-                3 => 'difficile'
+                1 => 'Facile',
+                2 => 'Moyen',
+                3 => 'Difficile'
             ],
             'prix' => [
                 1 => '-15€',
@@ -30,25 +37,29 @@ if (have_posts()) :
         $preparation = get_post_meta(get_the_ID(), 'preparation', true);
     ?>
         <div class="container-fluid">
-            <div class="container-fluid text-center my-3">
+            <div class="container-fluid text-center my-3 p-0">
                 <figure class="figure">
-                    <h2 class="text-start">
+                    <h2 class="text-start" 
+                    style="font-weight: medium; font-family: var(--font-salsa); font-size: max(15px, 1.2vw);" >
                         <?php the_title(); ?>
                     </h2>
                     <?php the_post_thumbnail(array(1024, 438), array('class' => 'figure-img img-fluid rounded')); ?>
                     <figcaption 
-                        class="figure-caption text-start">Publié par <em class="text-primary"><?php the_author(); ?></em>
+                        class="figure-caption text-start pRobotoThinLogin" style="font-weight: 400 ;">Publié par <em style= "background: var(--custom-gradient-background-color); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold"><?php the_author(); ?></em>
                     </figcaption>
                 </figure>
             </div>
-            <div class="d-flex justify-content-around mb-3">
-                <div class="border border-2 border-primary rounded p-2">
+            <div class="d-flex justify-content-around align-items-center mb-4 mb-md-5">
+                <div class="py-2 px-2 border-gradient pRobotoLogin" style="font-weight: bold;">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/iconTemps.svg" alt="icon temps" class="iconLogin me-2">
                     <?php echo $tags['temps'][$ptime]; ?>
                 </div>
-                <div class="border border-2 border-primary rounded p-2">
+                <div class="py-2 px-2 border-gradient pRobotoLogin" style="font-weight: bold;">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/iconDifficulté.svg" alt="icon difficulte" class="iconLogin me-2">
                     <?php echo $tags['difficulte'][$pdifficulty]; ?>
                 </div>
-                <div class="border border-2 border-primary rounded p-2">
+                <div class="py-2 px-2 border-gradient pRobotoLogin" style="font-weight: bold;">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/iconEuro.svg" alt="icon prix" class="iconLogin me-2">
                     <?php echo $tags['prix'][$pprice]; ?>
                 </div>
             </div>
