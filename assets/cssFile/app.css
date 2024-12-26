@@ -575,6 +575,51 @@ div.text-dark > .pRobotoLogin {
     overflow-wrap: break-word;
 }
 
+/*===================================================> All Page footer <=========================================================*/
+.blockAllFooterSection {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espace entre les blocs */
+}
+.blockN2 {
+    max-width: 90%; /* Limite la largeur maximale */
+    width: 100%; /* Utilise toute la largeur disponible */
+    margin: 0 auto; /* Centre le contenu */
+}
+
+.blockN2 p {
+    word-wrap: break-word; /* Assure que les mots longs ne dépassent pas */
+    overflow-wrap: break-word;
+    max-width: 100%; /* S'assure que le paragraphe ne dépasse pas */
+}
+.blockN1, .blockN2 {
+    display: flex;
+    align-items: center;
+}
+
+.titleAllFooter {
+    background: var(--custom-gradient-background-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 150%;
+    background-position: 30% 70%;
+    font-weight: bold;
+}
+
+.rectVerticalAllFooter {
+    width: 1.5vw; /* Largeur du rectangle */
+    height: 20vh; /* Hauteur du rectangle */
+    background: var(--custom-gradient-background-color);
+    opacity: 0.5;
+    background-size: 150%;
+    background-position: 30% 70%;
+    border-radius: 12px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> MEDIA QUERIES <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 

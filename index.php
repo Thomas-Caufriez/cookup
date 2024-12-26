@@ -365,7 +365,7 @@ if (get_search_query()!== ''): ?>
 </div>
 
 <!-- Navbar en version mobile -->
-<div class="container-fluid text-center sticky-bottom p-0 z-3 d-md-none bg-primary">
+<div class="container-fluid text-center mt-auto sticky-bottom p-0 z-3 d-md-none bg-primary">
     <div class="d-flex row-cols-3">
         <button
             class="btn btn-primary col"
@@ -549,6 +549,7 @@ btnIngredients.addEventListener('click', function () {
     }
   });
 </script>
-<?php 
-get_footer(); 
-?>
+
+    <?php wp_footer(); ?>
+</body>
+</html>
