@@ -53,7 +53,7 @@ get_header('bis');
                 </br>
                     <b>Code de conduite ?</b>   </br>
                     "Ne jamais lécher la cuillère quand quelqu'un regarde."  
-                    </br><span class="pRobotoThinLogin"> Pour consulter une vrai page “mentions légales” chiante et moche à lire rendez-vous sur : <span class="link">https://www.marmiton.org/spaide/mentionslegales.html</span></span>  
+                    </br><span class="pRobotoThinLogin"> Pour consulter une vrai page “mentions légales” chiante et moche à lire rendez-vous sur : <a href="https://www.marmiton.org/sp/aide/mentions-legales.html" target="_blank">https://www.marmiton.org/sp/aide/mentions-legales.html</a>
                 </br>
             </p>
         </div>

@@ -620,6 +620,16 @@ div.text-dark > .pRobotoLogin {
     border-radius: 12px;
 }
 
+/*===================================================> Page 404<=========================================================*/
+.text404N1 {
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.text404N2 {
+    font-size: 20px;
+    font-weight: bold;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> MEDIA QUERIES <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 
@@ -741,6 +751,16 @@ div.text-dark > .pRobotoLogin {
         border: 4px solid transparent !important;
         border-radius: 8px !important;
 
+    }
+    /*--- Page 404 ---*/
+    .text404N1 {
+        font-size: 200px;
+        font-weight: bold;
+    }
+
+    .text404N2 {
+        font-size: 50px;
+        font-weight: bold;
     }
 
     /*--- Page Créer / Modifier une recette ---*/
