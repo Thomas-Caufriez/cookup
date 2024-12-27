@@ -9,10 +9,10 @@ if (get_search_query()!== ''): ?>
     </h2>
 <?php endif ?>
 <!-- Navbar en version desktop -->
-<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-md-block bg-primary">
+<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-md-block bgLightPerso">
     <div class="d-flex row-cols-3">
         <button
-            class="btn btn-primary col"
+            class="btn col animationBarDesktop"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#filterIngredients"
@@ -20,15 +20,15 @@ if (get_search_query()!== ''): ?>
             aria-controls="filterIngredients"
         >
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconIngrédients.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Ingrédients</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Ingrédients <hr class="hrDesktop"></p>
+           
         </button>
         <button
-            class="btn btn-primary col"
+            class="btn col animationBarDesktop"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#filterPlats"
@@ -36,24 +36,23 @@ if (get_search_query()!== ''): ?>
             aria-controls="filterPlats"
         >
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconPlats.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Plats</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Plats<hr class="hrDesktop"></p>
         </button>
         <a
-            class="btn btn-primary col" 
+            class="btn col animationBarDesktop" 
             href="<?php echo home_url('/login'); ?>"
         >
-            <p class="navbar-text">
+            <p class="navbar-text h2Salsa m-0 p-0">
                 <?php 
                     if (is_user_logged_in()) {
-                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
+                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex  rounded-circle')) . '<br>' . ("Profil"). '<hr class="hrDesktop">';
                         }
                     else {
-                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
+                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Se connecter"). '<hr class="hrDesktop">';
                         }
                 ?>
             </p>
@@ -253,23 +252,29 @@ if (get_search_query()!== ''): ?>
 <!-- Deuxième barre de navigation -->
 
 <!-- Ingredients -->
-<div class="row position-absolute p-0 m-0 vw-100">
+<div class="row position-absolute p-0 m-0 vw-100 filtreDesktop">
     <div 
-        class="collapse z-2 bg-white col-sm-4 col-12"
+        class="collapse z-2 bg-white col-md-4 col-12"
         id="filterIngredients"
     >
-        <div class="text-center d-flex w-100">
+        <div class="container text-center d-flex justify-content-start align-items-center w-100 my-3 mx-md-0 ">
             <button
-                class="btn btn-primary"
+                class="btn pRobotoLogin bg-light"
+                style="border: none; background: var(--custom-gradient-background-color);
+                background-size: 150%; 
+                background-position: 30% 70%;
+                color: white;
+                font-weight: bold;
+                opacity: 0.8;"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#filterIngredients"
                 aria-expanded="false"
                 aria-controls="filterIngredients"
             >
-                fermer
+                Fermer
             </button>
-            <h2>Filtrer par ingrédients</h2>
+            <h2 class="h2Salsa mx-4 my-auto">Filtrer par ingrédients</h2>
         </div>
         <div class="col container-fluid allCardsIngredients">
             <?php
@@ -310,21 +315,27 @@ if (get_search_query()!== ''): ?>
 
     <!-- Plats -->
     <div 
-        class="collapse z-2 bg-white col-sm-4 col-12 mx-auto"
+        class="collapse z-2 bg-white col-md-4 col-12 mx-auto"
         id="filterPlats"
     >
-        <div class="text-center d-flex w-100">
+        <div class="container text-center d-flex justify-content-start align-items-center w-100 my-3 mx-md-0 ">
             <button
-                class="btn btn-primary"
+                class="btn pRobotoLogin bg-light"
+                style="border: none; background: var(--custom-gradient-background-color);
+                background-size: 150%; 
+                background-position: 30% 70%;
+                color: white;
+                font-weight: bold;
+                opacity: 0.8;"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#filterPlats"
                 aria-expanded="false"
                 aria-controls="filterPlats"
             >
-                fermer
+                Fermer
             </button>
-            <h2>Filtrer par plats</h2>
+            <h2 class="h2Salsa mx-4 my-auto">Filtrer par plats</h2>
         </div>
         <div class="col container-fluid allCardsPlats">
             <?php
@@ -365,51 +376,52 @@ if (get_search_query()!== ''): ?>
 </div>
 
 <!-- Navbar en version mobile -->
-<div class="container-fluid text-center mt-auto sticky-bottom p-0 z-3 d-md-none bg-primary">
+<div class="container-fluid text-center mt-auto sticky-bottom p-0 z-3 d-md-none bgLightPerso">
     <div class="d-flex row-cols-3">
         <button
-            class="btn btn-primary col"
-            type="button"
+            class="btn col animationBarMobile"
+            type="button "
             data-bs-toggle="collapse"
             data-bs-target="#filterIngredients"
             aria-expanded="false"
             aria-controls="filterIngredients"
         >
+        <hr class="hrMobile">
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconIngrédients.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Ingrédients</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Ingrédients</p>
         </button>
         <button
-            class="btn btn-primary col"
+            class="btn col animationBarMobile"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#filterPlats"
             aria-expanded="false"
             aria-controls="filterPlats"
         >
+        <hr class="hrMobile">
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconPlats.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Plats</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Plats</p>
         </button>
         <a
-            class="btn btn-primary col" 
+            class="btn col animationBarMobile" 
             href="<?php echo home_url('/login'); ?>"
         >
-            <p class="navbar-text">
+        <hr class="hrMobile">
+            <p class="navbar-text h2Salsa m-0 p-0">
                 <?php 
                     if (is_user_logged_in()) {
-                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
+                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Profil");
                         }
                     else {
-                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
+                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Se connecter");
                         }
                 ?>
             </p>

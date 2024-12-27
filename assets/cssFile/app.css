@@ -83,6 +83,10 @@ input:focus {
     margin-left: 10px !important;
 }
 
+.bgLightPerso {
+    background-color: #F8F8F8 !important;
+}
+
 /*===================================================> HEADER / HEADERbis <=========================================================*/
 .header, .header-bis {
     background: var(--custom-gradient-background-color);
@@ -364,6 +368,65 @@ div.text-dark > .pRobotoLogin {
 /*--- All Cards index ---*/
 
 
+/*--- Filtre index ---*/
+
+/* .filtreDesktop {
+
+}
+
+.filtreMobile {
+
+
+} */
+
+/*--- navBar index ---*/
+.iconIndex {
+    width: clamp(30px, 3.5vw, 45px);
+    height: clamp(30px, 3.5vw, 45px);
+}
+
+.animationBarDesktop, .animationBarMobile {
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+  }  
+  
+  .hrMobile {
+      border: 0;
+      border-top: 3px solid red;
+      border-radius: 12px;
+      width: 0;
+      position: absolute;
+      top: 3%;
+      left: 25%;
+      margin: 0;
+      transition: width 0.5s ease-out;
+      -webkit-transition: width 0.5s ease-out;
+  }
+
+.hrDesktop {
+    border: 0;
+    border-top: 5px solid red;
+    border-radius: 12px;
+    width: 0;
+    position: absolute;
+    top: 80%;
+    left: 33%;
+    margin: 0;
+    transition: width 0.5s ease-out;
+    -webkit-transition: width 0.5s ease-out;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.animationBarMobile:hover .hrMobile {
+    width: 50%;
+}
+.animationBarDesktop:hover .hrDesktop {
+    width: 34%;
+}
+
+
 
 /*--- Filtre Ingredients et Plats ---*/
 .allCardsIngredients, .allCardsPlats {
@@ -485,6 +548,8 @@ div.text-dark > .pRobotoLogin {
     opacity: 1;
     transition: opacity 0.3s ease
 }
+
+
 
 /*===================================================> Page Créer / Modifier une recette <=========================================================*/
 
@@ -768,6 +833,14 @@ div.text-dark > .pRobotoLogin {
     .border-gradient::after {
         margin: 3px;
     }
+
+    /* .filtreDesktop {
+        display: block;
+    }
+    
+    .filtreMobile {
+        display: none;
+    } */
 }
 
 /*--- Media Queries - PC (min 1512px) ---*/
