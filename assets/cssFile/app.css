@@ -57,6 +57,12 @@ input:focus {
     font-weight: medium;
 }
 
+.hSalsaNav {
+    font-family: var(--font-salsa);
+    font-size: max(15px, 1.1vw);
+    font-weight: medium;
+}
+
 
 .pRobotoLogin {
     font-family: var(--font-roboto);
@@ -78,8 +84,8 @@ input:focus {
 }
 
 .iconLogin {
-    width: clamp(20px, 3.5vw, 35px);
-    height: clamp(20px, 3.5vw, 35px);
+    width: clamp(20px, 3.5vw, 45px);
+    height: clamp(20px, 3.5vw, 45px);
     margin-left: 10px !important;
 }
 
@@ -366,18 +372,55 @@ div.text-dark > .pRobotoLogin {
 
 /*===================================================> Page Index <=========================================================*/
 /*--- All Cards index ---*/
+.allCardsIndex {
+    height: auto;
+}
 
+.card {
+    overflow: hidden !important;
+    border: 2px solid #B9B9B9 !important;
+    border-radius: 10px !important;
+}
+.card:hover {
+   padding: 2px !important;
+   overflow: hidden !important;
+   border: 2px solid transparent !important;
+   border-radius: 10px !important;
+   background-origin: border-box;
+   background-clip: content-box, border-box;
+   background-image: 
+       linear-gradient(to right, white, white),
+       linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+}
 
-/*--- Filtre index ---*/
+.card-img-top {
+    height: 50% !important;
+    border-radius: 5px 5px 0 0 !important;
+}   
 
-/* .filtreDesktop {
+.card-body {
+     height: 100px !important; 
+
+}
+.card-body h5 {
+     font-family: var(--font-salsa);
+     font-size: max(14px, 1.3vw);
+
+}
+.card-body p {
+     font-family: var(--font-roboto);
+     font-size: max(14px, 1.3vw);
+     overflow: hidden;
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 2;
+     word-wrap: break-word !important;
+     word-break: break-word !important;
 
 }
 
-.filtreMobile {
 
-
-} */
+/*--- Filtre index ---*/
 
 /*--- navBar index ---*/
 .iconIndex {
@@ -800,7 +843,7 @@ div.text-dark > .pRobotoLogin {
         height: 100% !important;
     }
 
-    /*--- Creer - Modifier une recette ---*/
+    /*--- Creer/Modifier une recette - Tablette ---*/
     .btnPageModifierCreeRecette,  .btnPageModifierCreeRecetteStatus {
         border: 4px solid #B9B9B9 !important;
         background: white;
@@ -817,7 +860,12 @@ div.text-dark > .pRobotoLogin {
         border-radius: 8px !important;
 
     }
-    /*--- Page 404 ---*/
+    
+    .border-gradient::after {
+        margin: 3px;
+    }   
+
+    /*--- Page 404 - Tablette ---*/
     .text404N1 {
         font-size: 200px;
         font-weight: bold;
@@ -828,19 +876,28 @@ div.text-dark > .pRobotoLogin {
         font-weight: bold;
     }
 
-    /*--- Page Créer / Modifier une recette ---*/
-
-    .border-gradient::after {
-        margin: 3px;
+    /*--- Filtre index - Tablette ---*/
+    .card {
+        border: 5px solid #B9B9B9 !important;
+        border-radius: 15px !important;
     }
-
-    /* .filtreDesktop {
-        display: block;
+    .card:hover {
+       padding: 2px !important;
+       overflow: hidden !important;
+       border: 5px solid transparent !important;
+       border-radius: 15px !important;
+       background-origin: border-box;
+       background-clip: content-box, border-box;
+       background-image: 
+           linear-gradient(to right, white, white),
+           linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
     }
     
-    .filtreMobile {
-        display: none;
-    } */
+    .card-img-top {
+        height: 50% !important;
+        border-radius: 10px 10px 0 0 !important;
+    }   
+
 }
 
 /*--- Media Queries - PC (min 1512px) ---*/

@@ -24,7 +24,7 @@ if (get_search_query()!== ''): ?>
                 alt="Icones carrote steak et feuille" 
                 class="iconIndex"
             >
-            <p class="navbar-text h2Salsa m-0 p-0">Ingrédients <hr class="hrDesktop"></p>
+            <p class="navbar-text hSalsaNav m-0 p-0">Ingrédients <hr class="hrDesktop"></p>
            
         </button>
         <button
@@ -40,13 +40,13 @@ if (get_search_query()!== ''): ?>
                 alt="Icones carrote steak et feuille" 
                 class="iconIndex"
             >
-            <p class="navbar-text h2Salsa m-0 p-0">Plats<hr class="hrDesktop"></p>
+            <p class="navbar-text hSalsaNav m-0 p-0">Plats<hr class="hrDesktop"></p>
         </button>
         <a
             class="btn col animationBarDesktop" 
             href="<?php echo home_url('/login'); ?>"
         >
-            <p class="navbar-text h2Salsa m-0 p-0">
+            <p class="navbar-text hSalsaNav m-0 p-0">
                 <?php 
                     if (is_user_logged_in()) {
                         echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex  rounded-circle')) . '<br>' . ("Profil"). '<hr class="hrDesktop">';
@@ -186,7 +186,7 @@ if (get_search_query()!== ''): ?>
             </div>
         </div>
     </form>
-  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
+  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
 	  <?php 
 
         $filterval = isset($_GET['filterval']) ? intval($_GET['filterval']) : 1;
@@ -233,7 +233,7 @@ if (get_search_query()!== ''): ?>
 
       		if ($recettes->have_posts()) :
     			 while ($recettes->have_posts()) : $recettes->the_post(); ?>
-          			<div class="col">
+          			<div class="col containerCard">
 					  <div class="card">
 						<a href="<?php the_permalink(); ?>" class="text-body text-decoration-none">
 							<?php the_post_thumbnail(array(512, 219), array('class' => 'card-img-top')); ?>
@@ -252,7 +252,7 @@ if (get_search_query()!== ''): ?>
 <!-- Deuxième barre de navigation -->
 
 <!-- Ingredients -->
-<div class="row position-absolute p-0 m-0 vw-100 filtreDesktop">
+<div class="row position-absolute p-0 m-0 vw-100">
     <div 
         class="collapse z-2 bg-white col-md-4 col-12"
         id="filterIngredients"
