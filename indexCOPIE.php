@@ -64,6 +64,7 @@ if (get_search_query()!== ''): ?>
     </div>
 
     <!-- Deuxième barre de navigation -->
+
     <!-- Ingredients -->
     <div class="row position-absolute p-0 m-0 vw-100">
         <div 
@@ -436,6 +437,138 @@ if (get_search_query()!== ''): ?>
     </div>
 </div>
 
+<!-- script js pour faire fonctionner les boutons + img des filtres -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fonction générique pour gérer les boutons
+    function setupButtonGroup(buttonGroupConfig) {
+        const {
+            buttons, 
+            exclusiveButtons = {}, 
+            maxSelections = null,
+            onlyOneGroup = false
+        } = buttonGroupConfig;
+
+        buttons.forEach(function(item) {
+            const toggleCheckbox = document.getElementById(item.toggleId);
+            const bulletImage = item.btn.querySelector('.bulletOff-On');
+
+            item.btn.addEventListener('click', function() {
+                // Gestion des boutons exclusifs
+                if (exclusiveButtons[item.btn.id]) {
+                    const exclusiveButtonId = exclusiveButtons[item.btn.id];
+                    const exclusiveButton = buttons.find(b => b.btn.id === exclusiveButtonId);
+                    const exclusiveCheckbox = document.getElementById(exclusiveButton.toggleId);
+                    const exclusiveBulletImage = exclusiveButton.btn.querySelector('.bulletOff-On');
+
+                    // Désactiver le bouton exclusif si actif, indépendamment de l'état actuel
+                    if (exclusiveCheckbox.checked) {
+                        exclusiveCheckbox.checked = false;
+                        exclusiveBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
+                        exclusiveButton.btn.classList.remove('cardsIngredientsOn');
+                        exclusiveButton.btn.classList.add('cardsIngredientsOff');
+                    }
+                }
+
+                // Gestion de la sélection unique par groupe
+                if (onlyOneGroup) {
+                    buttons.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherCheckbox = document.getElementById(otherItem.toggleId);
+                            const otherBulletImage = otherItem.btn.querySelector('.bulletOff-On');
+                            otherCheckbox.checked = false;
+                            otherBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
+                            otherItem.btn.classList.remove('cardsPlatsOn');
+                            otherItem.btn.classList.add('cardsPlatsOff');
+                        }
+                    });
+                }
+
+                // Gestion du nombre maximum de sélections
+                if (maxSelections !== null) {
+                    const activeButtons = buttons.filter(b => 
+                        document.getElementById(b.toggleId).checked
+                    );
+
+                    if (activeButtons.length >= maxSelections && !toggleCheckbox.checked) {
+                        // Désactiver le bouton le plus ancien si la limite est atteinte
+                        const oldestActiveButton = activeButtons[0];
+                        const oldestCheckbox = document.getElementById(oldestActiveButton.toggleId);
+                        const oldestBulletImage = oldestActiveButton.btn.querySelector('.bulletOff-On');
+                        oldestCheckbox.checked = false;
+                        oldestBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
+                        oldestActiveButton.btn.classList.remove('cardsIngredientsOn');
+                        oldestActiveButton.btn.classList.add('cardsIngredientsOff');
+                    }
+                }
+
+                // Basculement de l'état du bouton
+                toggleCheckbox.checked = !toggleCheckbox.checked;
+
+                // Mise à jour visuelle
+                if (toggleCheckbox.checked) {
+                    bulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOn.svg';
+                    item.btn.classList.add(onlyOneGroup ? 'cardsPlatsOn' : 'cardsIngredientsOn');
+                    item.btn.classList.remove(onlyOneGroup ? 'cardsPlatsOff' : 'cardsIngredientsOff');
+                } else {
+                    bulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
+                    item.btn.classList.remove(onlyOneGroup ? 'cardsPlatsOn' : 'cardsIngredientsOn');
+                    item.btn.classList.add(onlyOneGroup ? 'cardsPlatsOff' : 'cardsIngredientsOff');
+                }
+            });
+        });
+    }
+
+    // Configuration pour les ingrédients
+    setupButtonGroup({
+        buttons: [
+            <?php foreach ($buttonsIngredients as $indexIngredients => $button) { ?>
+            { 
+                btn: document.getElementById('<?php echo $button['id']; ?>'), 
+                toggleId: 'toggleBullet<?php echo ($indexIngredients + 1); ?>'
+            }<?php echo ($indexIngredients < count($buttonsIngredients) - 1 ? ',' : ''); ?>
+            <?php } ?>
+        ],
+        exclusiveButtons: {
+            'bulletToggleBtnIngredients': 'bulletToggleBtnIngredients2',
+            'bulletToggleBtnIngredients2': 'bulletToggleBtnIngredients'
+        },
+        maxSelections: null  // Pas de limite de sélection
+    });
+
+    // Configuration pour les plats
+    setupButtonGroup({
+        buttons: [
+            <?php foreach ($buttonsPlats as $indexPlats => $button) { ?>
+            { 
+                btn: document.getElementById('<?php echo $button['id']; ?>'), 
+                toggleId: 'toggleBullet<?php echo ($indexPlats + 1); ?>'
+            }<?php echo ($indexPlats < count($buttonsPlats) - 1 ? ',' : ''); ?>
+            <?php } ?>
+        ],
+        onlyOneGroup: true  // Un seul bouton actif à la fois
+    });
+});
+
+// permet de cacher un des deux menus de la navbar si l'autre est ouvert
+const collapseIngredients = document.getElementById('filterIngredients');
+const collapsePlats = document.getElementById('filterPlats');
+
+const btnIngredients = document.querySelector('[data-bs-target="#filterIngredients"]');
+const btnPlats = document.querySelector('[data-bs-target="#filterPlats"]');
+
+btnIngredients.addEventListener('click', function () {
+    if (collapsePlats.classList.contains('show')) {
+        collapsePlats.classList.remove('show');
+    }
+  });
+
+  btnPlats.addEventListener('click', function () {
+    if (collapseIngredients.classList.contains('show')) {
+        collapseIngredients.classList.remove('show');
+    }
+  });
+</script>
 
     <?php wp_footer(); ?>
 </body>

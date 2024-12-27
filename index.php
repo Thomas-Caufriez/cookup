@@ -343,7 +343,7 @@ if (get_search_query()!== ''): ?>
             </div>
         </div>
     </form>
-  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
+  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
 	  <?php 
 
         $filterval = isset($_GET['filterval']) ? intval($_GET['filterval']) : 1;
@@ -420,7 +420,7 @@ if (get_search_query()!== ''): ?>
         // Boucle des recettes
         if ($recettes->have_posts()) :
             while ($recettes->have_posts()) : $recettes->the_post(); ?>
-                <div class="col">
+                <div class="col containerCard">
                     <div class="card">
                         <a href="<?php the_permalink(); ?>" class="text-body text-decoration-none">
                             <?php the_post_thumbnail([512, 219], ['class' => 'card-img-top']); ?>
