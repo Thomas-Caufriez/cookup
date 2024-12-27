@@ -9,60 +9,59 @@ if (get_search_query()!== ''): ?>
     </h2>
 <?php endif ?>
 
-<div>
-    <!-- Navbar en version desktop -->
-    <div class="container-fluid text-center p-0 z-3 sticky-top d-none d-sm-block bg-primary">
-        <div class="d-flex row-cols-3">
-            <button
-                class="btn btn-primary col"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#filterIngredients"
-                aria-expanded="false"
-                aria-controls="filterIngredients"
+<!-- Navbar en version desktop -->
+<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-sm-block bg-primary">
+    <div class="d-flex row-cols-3">
+        <button
+            class="btn btn-primary col"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#filterIngredients"
+            aria-expanded="false"
+            aria-controls="filterIngredients"
+        >
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                alt="Icones carrote steak et feuille" 
+                width="60px"
+                height="48px"
             >
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                    alt="Icones carrote steak et feuille" 
-                    width="60px"
-                    height="48px"
-                >
-                <p class="navbar-text">Ingrédients</p>
-            </button>
-            <button
-                class="btn btn-primary col"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#filterPlats"
-                aria-expanded="false"
-                aria-controls="filterPlats"
+            <p class="navbar-text">Ingrédients</p>
+        </button>
+        <button
+            class="btn btn-primary col"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#filterPlats"
+            aria-expanded="false"
+            aria-controls="filterPlats"
+        >
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                alt="Icones carrote steak et feuille" 
+                width="60px"
+                height="48px"
             >
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
-                    alt="Icones carrote steak et feuille" 
-                    width="60px"
-                    height="48px"
-                >
-                <p class="navbar-text">Plats</p>
-            </button>
-            <a
-                class="btn btn-primary col" 
-                href="<?php echo home_url('/login'); ?>"
-            >
-                <p class="navbar-text">
-                    <?php 
-                        if (is_user_logged_in()) {
-                            echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
-                            }
-                        else {
-                            echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
-                            }
-                    ?>
-                </p>
-            </a>
-        </div>
+            <p class="navbar-text">Plats</p>
+        </button>
+        <a
+            class="btn btn-primary col" 
+            href="<?php echo home_url('/login'); ?>"
+        >
+            <p class="navbar-text">
+                <?php 
+                    if (is_user_logged_in()) {
+                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
+                        }
+                    else {
+                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
+                        }
+                ?>
+            </p>
+        </a>
     </div>
-
+</div>
+<div>
     <!-- Menus cachés -->
     <div class="row position-absolute p-0 m-0 vw-100 row-cols-1 row-cols-sm-3">
 
@@ -130,7 +129,7 @@ if (get_search_query()!== ''): ?>
                                 style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>');"
                             >
                                 <p><?php echo ucfirst($ingredient); ?></p>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOn.svg"> <!-- changer ici pour le bullet !inversé! -->
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
                             </label>
                         </div> 
                         <?php endforeach; ?>
@@ -401,7 +400,7 @@ if (get_search_query()!== ''): ?>
                 $meta_query_ingredients[] = [
                     'key' => 'ingredients',
                     'value' => $ingredient,
-                    'compare' => 'NOT EXISTS', // fait que si un post a un élément compris dans le tableau, il ne sera pas affiché
+                    'compare' => 'LIKE', // fait que si un post a un élément compris dans le tableau, il ne sera pas affiché
                 ];
             }
             $args['meta_query'][] = [
