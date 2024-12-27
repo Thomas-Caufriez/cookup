@@ -151,9 +151,11 @@ get_header('bis');
                         <option value="starter">Entrée</option>
                         <option value="maincourse" selected>Plat</option>
                         <option value="desert">Dessert</option>
+                        <option value="international">International</option>
                         <option value="drink">Boisson</option>
                         <option value="brunch">Brunch</option>
                         <option value="sidedish">Assortiment</option>
+                        <option value="snack">Snack & encas</option>
                     </select>
                 </div>
             </div>
@@ -236,6 +238,7 @@ get_header('bis');
                                 role="switch" 
                                 value="<?php echo $ingredient; ?>" 
                                 id="<?php echo $ingredient; ?>"
+                                name="ingredients[]"
                             >
                             <label 
                                 class="btn btnPageModifierCreeRecette" 
