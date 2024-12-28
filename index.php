@@ -8,58 +8,219 @@ if (get_search_query()!== ''): ?>
         <strong><?php echo get_search_query(); ?></strong>
     </h2>
 <?php endif ?>
+
+<div>
+
 <!-- Navbar en version desktop -->
-<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-md-block bg-primary">
-    <div class="d-flex row-cols-3">
-        <button
-            class="btn btn-primary col"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#filterIngredients"
-            aria-expanded="false"
-            aria-controls="filterIngredients"
-        >
-            <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-md-block bgLightPerso">
+        <div class="d-flex row-cols-3">
+            <button
+                class="btn col animationBarDesktop"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#filterIngredients"
+                aria-expanded="false"
+                aria-controls="filterIngredients"
             >
-            <p class="navbar-text">Ingrédients</p>
-        </button>
-        <button
-            class="btn btn-primary col"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#filterPlats"
-            aria-expanded="false"
-            aria-controls="filterPlats"
-        >
-            <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
-                alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                <img 
+                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconIngrédients.svg" 
+                    alt="Icones carrote steak et feuille" 
+                    class="iconIndex"
+                >
+                <p class="navbar-text hSalsaNav m-0 p-0">Ingrédients <hr class="hrDesktop"></p>
+            
+            </button>
+            <button
+                class="btn col animationBarDesktop"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#filterPlats"
+                aria-expanded="false"
+                aria-controls="filterPlats"
             >
-            <p class="navbar-text">Plats</p>
-        </button>
-        <a
-            class="btn btn-primary col" 
-            href="<?php echo home_url('/login'); ?>"
+                <img 
+                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconPlats.svg" 
+                    alt="Icones carrote steak et feuille" 
+                    class="iconIndex"
+                >
+                <p class="navbar-text hSalsaNav m-0 p-0">Plats<hr class="hrDesktop"></p>
+            </button>
+            <a
+                class="btn col animationBarDesktop" 
+                href="<?php echo home_url('/login'); ?>"
+            >
+                <p class="navbar-text hSalsaNav m-0 p-0">
+                    <?php 
+                        if (is_user_logged_in()) {
+                            echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex  rounded-circle')) . '<br>' . ("Profil"). '<hr class="hrDesktop">';
+                            }
+                        else {
+                            echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Se connecter"). '<hr class="hrDesktop">';
+                            }
+                    ?>
+                </p>
+            </a>
+        </div>
+    </div>
+    <!-- Menus cachés -->
+    <div class="row position-absolute p-0 m-0 vw-100 row-cols-1 row-cols-sm-3">
+
+        <!-- Ingredients -->
+        <div 
+            class="col z-2 collapse bg-white"
+            id="filterIngredients"
         >
-            <p class="navbar-text">
-                <?php 
-                    if (is_user_logged_in()) {
-                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
-                        }
-                    else {
-                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
-                        }
-                ?>
-            </p>
-        </a>
+            
+            <form 
+                method="GET" 
+                action="<?php echo esc_url(home_url()); ?>"
+            >
+                <div class="text-center d-flex align-items-center justify-content-center w-100">
+                    <button 
+                        class="btn-close"
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#filterIngredients" 
+                        aria-expanded="false" 
+                        aria-controls="filterIngredients"
+                    >
+                    </button>
+                    <h2 class="h2Salsa my-4 mx-4">Filtrer par ingrédients</h2>
+                </div>
+                <div class="allCardsIngredients">
+                    <?php
+                        $ingredients = [
+                            'Prot.animale' => [
+                                'background' => 'prot.Animale.webp',
+                            ],
+                            'Légumineuse' => [
+                                'background' => 'légumineuse.webp',
+                            ],
+                            'Céréale / Grain' => [
+                                'background' => 'céréaleGrain.webp',
+                            ],
+                            'Noix / Graine' => [
+                                'background' => 'noixGraine.webp',
+                            ],
+                            'Fruit' => [
+                                'background' => 'fruit.webp',
+                            ],
+                            'Légume' => [
+                                'background' => 'légume.webp',
+                            ],
+                            'Prot.laitier' => [
+                                'background' => 'prod.laitier.webp',
+                            ],
+                        ];
+                        foreach ($ingredients as $ingredient => $ingreVal): 
+                    ?>
+                        <div>
+                            <input 
+                                class="btn-check " 
+                                type="checkbox" 
+                                role="switch" 
+                                value="<?php echo $ingredient; ?>" 
+                                id="<?php echo $ingredient; ?>"
+                                name="ingredients[]"
+                            >
+                            <label 
+                                class="d-flex justify-content-between w-100 btn cardsIngredients cardsIngredientsOff" 
+                                for="<?php echo $ingredient; ?>"
+                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
+                            >
+                                <div class="px-5 d-flex align-items-center justify-content-center">
+                                    <p class="pRobotoLogin m-0"><?php echo ucfirst($ingredient); ?></p>
+                                </div>
+                                <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
+                            </label>
+                        </div> 
+                        <?php endforeach; ?>
+                </div>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par ingrédients</button>
+            </form>
+        </div>
+
+        <!-- Plats -->
+        <div 
+            class="col offset-sm-4 z-2 collapse bg-white"
+            id="filterPlats"
+        >
+            <form 
+                method="GET" 
+                action="<?php echo esc_url(home_url()); ?>"
+            >
+                <div class="text-center d-flex align-items-center justify-content-center w-100">
+                    <button 
+                        class="btn-close" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#filterPlats" 
+                        aria-expanded="false" 
+                        aria-controls="filterPlats"
+                    >
+                    </button>
+                    <h2 class="h2Salsa my-4 mx-4">Filtrer par plats</h2>
+                </div>
+                <div>
+                    <?php
+                        $dishtypes = [
+                            'Entrée' => [
+                                'background' => 'entrée.webp',
+                            ],
+                            'Principal' => [
+                                'background' => 'principal.webp',
+                            ],
+                            'International' => [
+                                'background' => 'international.webp',
+                            ],
+                            'Brunch' => [
+                                'background' => 'brunch.webp',
+                            ],
+                            'Assortiment' => [
+                                'background' => 'assortiment.webp',
+                            ],
+                            'Snack / Enca' => [
+                                'background' => 'snackEnca.webp',
+                            ],
+                            'Déssert' => [
+                                'background' => 'dessert.webp',
+                            ],
+                            'Boisson' => [
+                                'background' => 'boisson.webp',
+                            ],
+                        ];
+                        foreach ($dishtypes as $dishtype => $dishVal): 
+                    ?>
+                    <div> 
+                        <input 
+                            class="btn-check" 
+                            type="radio" 
+                            role="switch" 
+                            value="<?php echo $dishtype; ?>" 
+                            id="<?php echo $dishtype; ?>"
+                            name="dishtype"
+                        >
+                        <label 
+                            class="d-flex justify-content-between w-100 btn cardsPlats cardsPlatsOff" 
+                            for="<?php echo $dishtype; ?>"
+                            style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
+                        >
+                            <div class="px-5 d-flex align-items-center justify-content-center">
+                                <p class="pRobotoLogin m-0"><?php echo ucfirst($dishtype); ?></p>
+                            </div>
+                            <!-- L'image pour le bulletOff qui sera modifiée en bulletOn via le CSS -->
+                            <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> 
+                        </label>
+                    </div>
+                        <?php endforeach; ?>
+                </div>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par plats</button>
+            </form>
+        </div>
     </div>
 </div>
+
+<!-- Bouton de filtre -->
 <div class="container-fluid px-2 px-md-4">
     <form 
         method="get" 
@@ -187,229 +348,149 @@ if (get_search_query()!== ''): ?>
             </div>
         </div>
     </form>
-  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
+  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
 	  <?php 
 
         $filterval = isset($_GET['filterval']) ? intval($_GET['filterval']) : 1;
-        $filterAscDesc = isset($_GET['filterAscDesc']) ? $_GET['filterAscDesc'] : 'DESC';
+        $filterAscDesc = isset($_GET['filterAscDesc']) ? sanitize_text_field($_GET['filterAscDesc']) : 'DESC';
+        $dishtype = isset($_GET['dishtype']) ? sanitize_text_field($_GET['dishtype']) : '';
+        $ingredients = isset($_GET['ingredients']) ? array_map('sanitize_text_field', $_GET['ingredients']) : [];
 
-        $args = [   // arguments par défaut
+        // Arguments par défaut
+        $args = [
             'post_type' => 'creation_recette',
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
-			'posts_per_page' => -1,
+            'posts_per_page' => -1,
         ];
 
+        // Premier filtre (date, temps, prix, difficulté)
         switch ($filterval) {
             case 1:
                 $args['orderby'] = 'date';
                 $args['order'] = $filterAscDesc;
                 break;
-
             case 2:
                 $args['meta_key'] = 'temps';
                 $args['orderby'] = 'meta_value_num';
                 $args['order'] = $filterAscDesc;
                 break;
-
             case 3:
                 $args['meta_key'] = 'difficulte';
                 $args['orderby'] = 'meta_value_num';
                 $args['order'] = $filterAscDesc;
                 break;
-
             case 4:
                 $args['meta_key'] = 'prix';
                 $args['orderby'] = 'meta_value_num';
                 $args['order'] = $filterAscDesc;
                 break;
-
             default:
                 break;
         }
 
-        // Exécuter la requête WP_Query
+        if (!empty($ingredients) || !empty($dishtype)) {
+            $args['meta_query'] = [];
+        }
+
+        // Filtre par ingrédients
+        if (!empty($ingredients)) {
+            $meta_query_ingredients = [];
+            foreach ($ingredients as $ingredient) { // crée un tableau avec pour chaque ingrédient, une clé, une valeur et un comparatif
+                $meta_query_ingredients[] = [
+                    'key' => 'ingredients',
+                    'value' => $ingredient,
+                    'compare' => 'LIKE', // fait que si un post a un élément compris dans le tableau, il ne sera pas affiché
+                ];
+            }
+            $args['meta_query'][] = [
+                'relation' => 'OR',
+                ...$meta_query_ingredients, // '...' permet de décomposer le tableau
+            ];
+        }
+
+        // Filtre par type de plat
+        if (!empty($dishtype)) {
+            $args['meta_query'][] = [
+                'key' => 'dishtype',
+                'value' => $dishtype,
+                'compare' => '=',
+            ];
+        }
+
+        // Exécuter la requête
         $recettes = new WP_Query($args);
 
-      		if ($recettes->have_posts()) :
-    			 while ($recettes->have_posts()) : $recettes->the_post(); ?>
-          			<div class="col">
-					  <div class="card">
-						<a href="<?php the_permalink(); ?>" class="text-body text-decoration-none">
-							<?php the_post_thumbnail(array(512, 219), array('class' => 'card-img-top')); ?>
-							<div class="card-body">
-								<h5 class="card-title"><?php the_title(); ?></h5>
-								<p class="card-text"><?php the_excerpt() ?></p>
-							</div>
-						</a>
-					  </div>
-					</div>
-        		<?php endwhile;?>
-      		<?php endif; ?>
-  	</div>
-</div>
-
-<!-- Deuxième barre de navigation -->
-
-<!-- Ingredients -->
-<div class="row position-absolute p-0 m-0 vw-100">
-    <div 
-        class="collapse z-2 bg-white col-sm-4 col-12"
-        id="filterIngredients"
-    >
-        <div class="text-center d-flex w-100">
-            <button
-                class="btn btn-primary"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#filterIngredients"
-                aria-expanded="false"
-                aria-controls="filterIngredients"
-            >
-                fermer
-            </button>
-            <h2>Filtrer par ingrédients</h2>
-        </div>
-        <div class="col container-fluid allCardsIngredients">
-            <?php
-            $buttonsIngredients = [
-                ['id' => 'bulletToggleBtnIngredients', 'img' => 'prot.Animale.webp', 'label' => 'Prot.animale'],
-                ['id' => 'bulletToggleBtnIngredients2', 'img' => 'Végétarien.webp', 'label' => 'Végétarien'],
-                ['id' => 'bulletToggleBtnIngredients3', 'img' => 'légumineuse.webp', 'label' => 'Légumineuse'],
-                ['id' => 'bulletToggleBtnIngredients4', 'img' => 'céréaleGrain.webp', 'label' => 'Céréale / Grain'],
-                ['id' => 'bulletToggleBtnIngredients5', 'img' => 'noixGraine.webp', 'label' => 'Noix / Graine'],
-                ['id' => 'bulletToggleBtnIngredients6', 'img' => 'fruit.webp', 'label' => 'Fruit'],
-                ['id' => 'bulletToggleBtnIngredients7', 'img' => 'légume.webp', 'label' => 'Légume'],
-                ['id' => 'bulletToggleBtnIngredients8', 'img' => 'prod.laitier.webp', 'label' => 'Prot.laitier']
-            ];
-
-            foreach ($buttonsIngredients as $indexIngredients => $button) {
-                $toggleIdIngredients = 'toggleBullet' . ($indexIngredients + 1);
-            ?>
-            <input type="checkbox" id="<?php echo $toggleIdIngredients; ?>" style="display:none;">
-            <button class="container-fluid btn cardsIngredients cardsIngredientsOff" id="<?php echo $button['id']; ?>">
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $button['img']; ?>" 
-                    alt=<?php echo $button['label']; ?>
-                    class="img-fluid imgIngredients"
-                >
-                <div class="px-5 d-flex align-items-center justify-content-center">
-                    <span class="pRobotoLogin"><?php echo $button['label']; ?></span>
+        // Boucle des recettes
+        if ($recettes->have_posts()) :
+            while ($recettes->have_posts()) : $recettes->the_post(); ?>
+                <div class="col containerCard">
+                    <div class="card">
+                        <a href="<?php the_permalink(); ?>" class="text-body text-decoration-none">
+                            <?php the_post_thumbnail([512, 219], ['class' => 'card-img-top']); ?>
+                            <div class="card-body">
+                                <h5 class="card-title"><?php the_title(); ?></h5>
+                                <p class="card-text"><?php the_excerpt(); ?></p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg" 
-                    alt="bullet"
-                    class="bulletOff-On"
-                >
-            </button>
-            <?php } ?>
-        </div>
-    </div>
-
-    <!-- Plats -->
-    <div 
-        class="collapse z-2 bg-white col-sm-4 col-12 mx-auto"
-        id="filterPlats"
-    >
-        <div class="text-center d-flex w-100">
-            <button
-                class="btn btn-primary"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#filterPlats"
-                aria-expanded="false"
-                aria-controls="filterPlats"
-            >
-                fermer
-            </button>
-            <h2>Filtrer par plats</h2>
-        </div>
-        <div class="col container-fluid allCardsPlats">
-            <?php
-            $buttonsPlats = [
-                ['id' => 'bulletToggleBtnPlats', 'img' => 'entrée.webp', 'label' => 'Entrée'],
-                ['id' => 'bulletToggleBtnPlats2', 'img' => 'principal.webp', 'label' => 'Principal'],
-                ['id' => 'bulletToggleBtnPlats3', 'img' => 'international.webp', 'label' => 'International'],
-                ['id' => 'bulletToggleBtnPlats4', 'img' => 'brunch.webp', 'label' => 'Brunch'],
-                ['id' => 'bulletToggleBtnPlats5', 'img' => 'assortiment.webp', 'label' => 'Assortiment'],
-                ['id' => 'bulletToggleBtnPlats6', 'img' => 'snackEnca.webp', 'label' => 'Snack / Enca'],
-                ['id' => 'bulletToggleBtnPlats7', 'img' => 'déssert.webp', 'label' => 'Déssert'],
-                ['id' => 'bulletToggleBtnPlats8', 'img' => 'boisson.webp', 'label' => 'Boisson']
-            ];
-
-            foreach ($buttonsPlats as $indexPlats => $button) {
-                $toggleIdPlats = 'toggleBullet' . ($indexPlats + 1);
-            ?>
-            <input type="checkbox" id="<?php echo $toggleIdPlats; ?>" style="display:none;">
-            <button class="container-fluid btn cardsPlats cardsPlatsOff" id="<?php echo $button['id']; ?>">
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $button['img']; ?>" 
-                    alt=<?php echo $button['label']; ?>
-                    class="img-fluid imgPlats"
-                >
-                <div class="px-5 d-flex align-items-center justify-content-center">
-                    <span class="pRobotoLogin"><?php echo $button['label']; ?></span>
-                </div>
-
-                <img 
-                    src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg" 
-                    alt="bullet"
-                    class="bulletOff-On"
-                >
-            </button>
-            <?php } ?>
-        </div>
+            <?php endwhile;
+        else :
+            echo "<h1 class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
+        endif;
+        ?>
     </div>
 </div>
 
 <!-- Navbar en version mobile -->
-<div class="container-fluid text-center sticky-bottom p-0 z-3 d-md-none bg-primary">
+<div class="container-fluid text-center mt-auto sticky-bottom p-0 z-3 d-md-none bgLightPerso">
     <div class="d-flex row-cols-3">
         <button
-            class="btn btn-primary col"
-            type="button"
+            class="btn col animationBarMobile"
+            type="button "
             data-bs-toggle="collapse"
             data-bs-target="#filterIngredients"
             aria-expanded="false"
             aria-controls="filterIngredients"
         >
+        <hr class="hrMobile">
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconIngrédients.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Ingrédients</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Ingrédients</p>
         </button>
         <button
-            class="btn btn-primary col"
+            class="btn col animationBarMobile"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#filterPlats"
             aria-expanded="false"
             aria-controls="filterPlats"
         >
+        <hr class="hrMobile">
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconPlats.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Plats</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Plats</p>
         </button>
         <a
-            class="btn btn-primary col" 
+            class="btn col animationBarMobile" 
             href="<?php echo home_url('/login'); ?>"
         >
-            <p class="navbar-text">
+        <hr class="hrMobile">
+            <p class="navbar-text h2Salsa m-0 p-0">
                 <?php 
                     if (is_user_logged_in()) {
-                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
+                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Profil");
                         }
                     else {
-                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
+                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Se connecter");
                         }
                 ?>
             </p>
@@ -417,138 +498,6 @@ if (get_search_query()!== ''): ?>
     </div>
 </div>
 
-<!-- script js pour faire fonctionner les boutons + img des filtres -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Fonction générique pour gérer les boutons
-    function setupButtonGroup(buttonGroupConfig) {
-        const {
-            buttons, 
-            exclusiveButtons = {}, 
-            maxSelections = null,
-            onlyOneGroup = false
-        } = buttonGroupConfig;
-
-        buttons.forEach(function(item) {
-            const toggleCheckbox = document.getElementById(item.toggleId);
-            const bulletImage = item.btn.querySelector('.bulletOff-On');
-
-            item.btn.addEventListener('click', function() {
-                // Gestion des boutons exclusifs
-                if (exclusiveButtons[item.btn.id]) {
-                    const exclusiveButtonId = exclusiveButtons[item.btn.id];
-                    const exclusiveButton = buttons.find(b => b.btn.id === exclusiveButtonId);
-                    const exclusiveCheckbox = document.getElementById(exclusiveButton.toggleId);
-                    const exclusiveBulletImage = exclusiveButton.btn.querySelector('.bulletOff-On');
-
-                    // Désactiver le bouton exclusif si actif, indépendamment de l'état actuel
-                    if (exclusiveCheckbox.checked) {
-                        exclusiveCheckbox.checked = false;
-                        exclusiveBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                        exclusiveButton.btn.classList.remove('cardsIngredientsOn');
-                        exclusiveButton.btn.classList.add('cardsIngredientsOff');
-                    }
-                }
-
-                // Gestion de la sélection unique par groupe
-                if (onlyOneGroup) {
-                    buttons.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherCheckbox = document.getElementById(otherItem.toggleId);
-                            const otherBulletImage = otherItem.btn.querySelector('.bulletOff-On');
-                            otherCheckbox.checked = false;
-                            otherBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                            otherItem.btn.classList.remove('cardsPlatsOn');
-                            otherItem.btn.classList.add('cardsPlatsOff');
-                        }
-                    });
-                }
-
-                // Gestion du nombre maximum de sélections
-                if (maxSelections !== null) {
-                    const activeButtons = buttons.filter(b => 
-                        document.getElementById(b.toggleId).checked
-                    );
-
-                    if (activeButtons.length >= maxSelections && !toggleCheckbox.checked) {
-                        // Désactiver le bouton le plus ancien si la limite est atteinte
-                        const oldestActiveButton = activeButtons[0];
-                        const oldestCheckbox = document.getElementById(oldestActiveButton.toggleId);
-                        const oldestBulletImage = oldestActiveButton.btn.querySelector('.bulletOff-On');
-                        oldestCheckbox.checked = false;
-                        oldestBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                        oldestActiveButton.btn.classList.remove('cardsIngredientsOn');
-                        oldestActiveButton.btn.classList.add('cardsIngredientsOff');
-                    }
-                }
-
-                // Basculement de l'état du bouton
-                toggleCheckbox.checked = !toggleCheckbox.checked;
-
-                // Mise à jour visuelle
-                if (toggleCheckbox.checked) {
-                    bulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOn.svg';
-                    item.btn.classList.add(onlyOneGroup ? 'cardsPlatsOn' : 'cardsIngredientsOn');
-                    item.btn.classList.remove(onlyOneGroup ? 'cardsPlatsOff' : 'cardsIngredientsOff');
-                } else {
-                    bulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                    item.btn.classList.remove(onlyOneGroup ? 'cardsPlatsOn' : 'cardsIngredientsOn');
-                    item.btn.classList.add(onlyOneGroup ? 'cardsPlatsOff' : 'cardsIngredientsOff');
-                }
-            });
-        });
-    }
-
-    // Configuration pour les ingrédients
-    setupButtonGroup({
-        buttons: [
-            <?php foreach ($buttonsIngredients as $indexIngredients => $button) { ?>
-            { 
-                btn: document.getElementById('<?php echo $button['id']; ?>'), 
-                toggleId: 'toggleBullet<?php echo ($indexIngredients + 1); ?>'
-            }<?php echo ($indexIngredients < count($buttonsIngredients) - 1 ? ',' : ''); ?>
-            <?php } ?>
-        ],
-        exclusiveButtons: {
-            'bulletToggleBtnIngredients': 'bulletToggleBtnIngredients2',
-            'bulletToggleBtnIngredients2': 'bulletToggleBtnIngredients'
-        },
-        maxSelections: null  // Pas de limite de sélection
-    });
-
-    // Configuration pour les plats
-    setupButtonGroup({
-        buttons: [
-            <?php foreach ($buttonsPlats as $indexPlats => $button) { ?>
-            { 
-                btn: document.getElementById('<?php echo $button['id']; ?>'), 
-                toggleId: 'toggleBullet<?php echo ($indexPlats + 1); ?>'
-            }<?php echo ($indexPlats < count($buttonsPlats) - 1 ? ',' : ''); ?>
-            <?php } ?>
-        ],
-        onlyOneGroup: true  // Un seul bouton actif à la fois
-    });
-});
-
-// permet de cacher un des deux menus de la navbar si l'autre est ouvert
-const collapseIngredients = document.getElementById('filterIngredients');
-const collapsePlats = document.getElementById('filterPlats');
-
-const btnIngredients = document.querySelector('[data-bs-target="#filterIngredients"]');
-const btnPlats = document.querySelector('[data-bs-target="#filterPlats"]');
-
-btnIngredients.addEventListener('click', function () {
-    if (collapsePlats.classList.contains('show')) {
-        collapsePlats.classList.remove('show');
-    }
-  });
-
-  btnPlats.addEventListener('click', function () {
-    if (collapseIngredients.classList.contains('show')) {
-        collapseIngredients.classList.remove('show');
-    }
-  });
-</script>
-<?php 
-get_footer(); 
-?>
+<?php wp_footer(); ?>
+</body>
+</html>

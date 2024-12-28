@@ -129,7 +129,7 @@ if (have_posts()) :
                         class="accordion-collapse collapse" 
                         data-bs-parent="#accordionrecipe"
                     >
-                        <div class="accordion-body">
+                        <div class="accordion-body pRobotoLogin">
                             <?php echo nl2br(esc_html($preparation)); ?>
                         </div>
                     </div>
