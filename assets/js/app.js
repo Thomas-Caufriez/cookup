@@ -1,4 +1,4 @@
-console.log('test')
+console.log('app.js chargé');
 
 function changepwd() {
   const hidden = document.getElementById("pwd");
@@ -22,13 +22,21 @@ function sendmail() {
   alert("Email de récupération envoyé avec succès ! (fake)")
 }
 
-//  cette fonction était sensé venir dans la création de recette pour display une image quand elle est choisie mais cela ne fonctionne pas
-//  car il ne trouve pas la fonction => fichier app.js mal lié ? pourtant les deux premières fonctions du fichier fonctionnent
-function previewImage(event) {
-  const files = event.target.files;
-  if(files.lenght > 0) {
-    const imageUrl = URL.createObjectURL(files[0]);
-    const imageDisplay = document.getElementById("imagePreview");
-    imageDisplay.src = imageUrl;
-  }
-}
+// permet de cacher un des deux menus de la navbar dans index si l'autre est ouvert
+const collapseIngredients = document.getElementById('filterIngredients');
+const collapsePlats = document.getElementById('filterPlats');
+
+const btnIngredients = document.querySelector('[data-bs-target="#filterIngredients"]');
+const btnPlats = document.querySelector('[data-bs-target="#filterPlats"]');
+
+btnIngredients.addEventListener('click', function () {
+    if (collapsePlats.classList.contains('show')) {
+        collapsePlats.classList.remove('show');
+    }
+});
+
+btnPlats.addEventListener('click', function () {
+    if (collapseIngredients.classList.contains('show')) {
+        collapseIngredients.classList.remove('show');
+    }
+});

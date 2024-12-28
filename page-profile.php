@@ -20,13 +20,13 @@ $curent_user = wp_get_current_user();
                 <div class="col-6 imgProfil">
                     <?php echo get_avatar($curent_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'imgProfil rounded-circle'))?>
                 </div>
-                <div class="col-6 text-start">
-                    <div class="mt-2 mt-md-3 h2Salsa">
+                <div class="col-6 text-start p-0">
+                    <div class="mt-2 mt-md-3 h2Salsa hiddenText">
                         <?php //au début j'ai voulu utiliser un foreach dans ma chaine et stocker le tout dans une variable pour la print mais j'ai trouvé implode
                             echo $current_user->user_login . ' - <span style="background: #FF62C0;  -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">' . implode(' ', $current_user->roles) . '</span>'; 
                         ?>
                     </div>
-                    <div class="mt-4 ps-1 ps-md-3 pRobotoLogin">
+                    <div class="mt-4 ps-1 ps-md-3 pRobotoLogin hiddenText" >
                         <?php echo $current_user->user_email; ?>
                     </div>
                     <div class="mt-2 ps-1 ps-md-3">

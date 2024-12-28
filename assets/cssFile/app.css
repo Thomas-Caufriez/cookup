@@ -37,6 +37,7 @@ input {
     border-color: none !important;
     box-shadow: none !important;
     outline: 0 !important;
+    font-family: var(--font-roboto);
 }
 
 input:focus {
@@ -45,16 +46,35 @@ input:focus {
 }
 
 .h2Salsa {
-    font-size: max(16px, 2.2vw);
     font-family: var(--font-salsa);
+    font-size: max(16px, 2.2vw);
+    font-weight: medium;
+}
+
+.h3Salsa {
+    font-family: var(--font-salsa);
+    font-size: max(15px, 1.8vw);
+    font-weight: medium;
+}
+
+.hSalsaNav {
+    font-family: var(--font-salsa);
+    font-size: max(15px, 1.1vw);
     font-weight: medium;
 }
 
 
 .pRobotoLogin {
     font-family: var(--font-roboto);
-    font-size: max(14px, 1.5vw);
+    font-size: max(14px, 1.3vw);
     font-weight: medium;
+}
+
+.pRobotoThinLogin {
+    font-family: var(--font-roboto);
+    font-weight: 100; 
+    font-style: italic;
+    font-size: max(12px, 1.2vw);
 }
 
 .pUnderline {
@@ -63,11 +83,22 @@ input:focus {
     font-weight: medium;
 }
 
+.iconLogin {
+    width: clamp(20px, 3.5vw, 45px);
+    height: clamp(20px, 3.5vw, 45px);
+    margin-left: 10px !important;
+}
+
+.bgLightPerso {
+    background-color: #F8F8F8 !important;
+}
+
 /*===================================================> HEADER / HEADERbis <=========================================================*/
 .header, .header-bis {
     background: var(--custom-gradient-background-color);
     background-size: 150%;
     background-position: 30% 70%; /* Axe de dégradé en oblique et dépasse uniformément */
+    z-index: 1;
     width: 100%;
     height: 10vh;
     display: flex;
@@ -166,12 +197,15 @@ footer {
 /*===================================================> All Page Connexion <=========================================================*/
 
 .btnAllLogin {
+    background-color: rgba(210, 210, 210, 0.5) !important;
     transition: all 0.3s ease;
     border-radius: 14px !important;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 16px !important;
+    font-family: var(--font-roboto);
 }
 
 .btnAllLogin:hover,
@@ -185,20 +219,6 @@ footer {
 .btnAllLogin:active img {
     filter: brightness(0) invert(1);
 }
-
-
-.pRobotoThinLogin {
-    font-family: var(--font-roboto);
-    font-weight: 100; 
-    font-style: italic;
-    font-size: max(12px, 1.2vw);
-}
-
-.iconLogin {
-    width: 3.5vw;
-    height: 3.5vh;
-}
-
 
 div.text-dark > .pRobotoLogin {
     color: black !important;
@@ -344,18 +364,122 @@ div.text-dark > .pRobotoLogin {
     height: 150px !important;
 }
 
+.hiddenText {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}
+
 /*===================================================> Page Index <=========================================================*/
 /*--- All Cards index ---*/
+.allCardsIndex {
+    height: auto;
+}
+
+.card {
+    overflow: hidden !important;
+    border: 2px solid #B9B9B9 !important;
+    border-radius: 10px !important;
+}
+.card:hover {
+   padding: 2px !important;
+   overflow: hidden !important;
+   border: 2px solid transparent !important;
+   border-radius: 10px !important;
+   background-origin: border-box;
+   background-clip: content-box, border-box;
+   background-image: 
+       linear-gradient(to right, white, white),
+       linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+}
+
+.card-img-top {
+    height: 50% !important;
+    border-radius: 5px 5px 0 0 !important;
+}   
+
+.card-body {
+     height: 100px !important; 
+
+}
+.card-body h5 {
+     font-family: var(--font-salsa);
+     font-size: max(14px, 1.3vw);
+
+}
+.card-body p {
+     font-family: var(--font-roboto);
+     font-size: max(14px, 1.3vw);
+     overflow: hidden;
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 2;
+     word-wrap: break-word !important;
+     word-break: break-word !important;
+
+}
+
+
+/*--- Filtre index ---*/
+
+/*--- navBar index ---*/
+.iconIndex {
+    width: clamp(30px, 3.5vw, 45px);
+    height: clamp(30px, 3.5vw, 45px);
+}
+
+.animationBarDesktop, .animationBarMobile {
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+  }  
+  
+  .hrMobile {
+      border: 0;
+      border-top: 3px solid red;
+      border-radius: 12px;
+      width: 0;
+      position: absolute;
+      top: 3%;
+      left: 25%;
+      margin: 0;
+      transition: width 0.5s ease-out;
+      -webkit-transition: width 0.5s ease-out;
+  }
+
+.hrDesktop {
+    border: 0;
+    border-top: 5px solid red;
+    border-radius: 12px;
+    width: 0;
+    position: absolute;
+    top: 80%;
+    left: 33%;
+    margin: 0;
+    transition: width 0.5s ease-out;
+    -webkit-transition: width 0.5s ease-out;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.animationBarMobile:hover .hrMobile {
+    width: 50%;
+}
+.animationBarDesktop:hover .hrDesktop {
+    width: 34%;
+}
 
 
 
 /*--- Filtre Ingredients et Plats ---*/
+/* Conteneurs principaux */
 .allCardsIngredients, .allCardsPlats {
     width: 100%;   
     height: auto;
     max-width: 100%;
 }
 
+/* Styles de base pour les cartes */
 .cardsIngredients, .cardsPlats {
     width: 100%;
     height: 9vh;
@@ -365,33 +489,11 @@ div.text-dark > .pRobotoLogin {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
-    border: 2px solid transparent;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.cardsIngredients:focus,
-.cardsIngredients:active,
-.cardsIngredients:hover,
-.cardsPlats:focus,
-.cardsPlats:active,
-.cardsPlats:hover {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-
-.cardsIngredientsOn, .cardsPlatsOn {
-    border: none;
-    opacity: 1;
-}
-
-.cardsIngredientsOff, .cardsPlatsOff {
-    border: none;
-    opacity: 0.4;
-}
-
+/* Contenu des cartes */
 .cardsIngredients div, .cardsPlats div {
     width: clamp(100px, 20vw, 180px); /* Commence à 90px, s'étend jusqu'à 180px */
     white-space: nowrap;
@@ -406,41 +508,247 @@ div.text-dark > .pRobotoLogin {
     border-radius: 0 5px 5px 0;
 }
 
-.cardsIngredients div span, .cardsPlats div span {
- font-family: var(--font-salsa);
- font-size: max(12px, 1.5vw);
- font-weight: medium;
+/* Suppression des effets sur le focus et hover */
+.cardsIngredients:focus,
+.cardsIngredients:active,
+.cardsIngredients:hover,
+.cardsPlats:focus,
+.cardsPlats:active,
+.cardsPlats:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-.cardsIngredients div img, .cardsPlats div img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
+/* Texte à l'intérieur des cartes */
+.cardsIngredients div p, .cardsPlats div p {
+    font-family: var(--font-salsa);
+    font-size: max(12px, 1.5vw);
+    font-weight: medium;
 }
 
-.imgIngredients, .imgPlats {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
+/* État par défaut en Off */
+.cardsIngredientsOff, .cardsPlatsOff {
+    border: none;
+    opacity: 0.4;
 }
 
 .bulletOff-On {
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%); /* Ajuste pour un centrage précis */
+    transform: translateY(-50%);
     z-index: 2;
     width: max(25px, 3vw);
-    height: max(25px, 3vw); 
+    height: max(25px, 3vw);
+    content: url('../img/bulletOff.svg');
     transition: all 0.3s ease;
 }
 
 
+/*------- Gestion des radios (Plats) -------*/
+/*------- Gestion des radios (Plats) -------*/
+/* Lorsqu'un radio est sélectionné */
+input[type="radio"]:checked + label.cardsPlats {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
 
+input[type="radio"]:checked + label.cardsPlats .bulletOff-On {
+    content: url('../img/bulletOn.svg');
+    transition: all 0.3s ease;
+}
+
+
+/*------- Gestion des checkboxes (Ingrédients) -------*/
+/* Lorsqu'une checkbox est cochée */
+input[type="checkbox"]:checked + label.cardsIngredients {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
+    content: url('../img/bulletOn.svg');
+    transition: all 0.3s ease;
+}
+
+
+/*===================================================> Page Créer / Modifier une recette <=========================================================*/
+
+.btnPageModifierCreeRecette, .btnPageModifierCreeRecetteStatus {
+    padding: 4px 1px !important;
+    border: 2px solid #B9B9B9 !important;
+    background: white;
+    border-radius: 6px !important;
+    white-space: nowrap;
+    font-size: max(12px, 1.2vw);
+    width: 100% !important;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.btnPageModifierCreeRecetteStatus {
+    padding: 4px 24px !important;
+}
+
+.btn-check:checked + .btnPageModifierCreeRecette, .btn-check:checked + .btnPageModifierCreeRecetteStatus {
+    border: 2px solid transparent !important;
+    border-radius: 6px !important;
+    background: 
+    linear-gradient(to right, white, white) padding-box,
+    var(--custom-gradient-background-color) border-box !important;
+    border-image: var(--custom-gradient-background-color) 1 !important;
+    background-origin: border-box !important;
+    background-clip: padding-box, border-box !important;
+    opacity: 1;
+    transition: opacity 0.3s ease
+}
+
+
+
+/*===================================================> Page Créer / Modifier une recette <=========================================================*/
+
+.border-gradient {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
+}
+
+.border-gradient::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--custom-gradient-background-color);
+    z-index: -1;
+    border-radius: calc(0.375rem + 2px);
+}
+
+.border-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #F8F8F8;
+    z-index: -1;
+    margin: 1px;
+    border-radius: 0.375rem;
+}
+
+#accordionrecipe {
+    margin-bottom: 20px;
+    border-radius: 50px !important;
+}
+
+.accordion {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-button {
+    font-family: var(--font-roboto);
+    font-weight: bold;
+    font-size: max(14px, 1.3vw);
+    background-color: transparent !important;
+    border-radius: 20px 20px 0 0;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    background-image: var(--custom-gradient-background-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.accordion-item {
+    background-color: #F8F8F8;
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-body p {
+    font-family: var(--font-roboto);
+    font-size: max(14px, 1.3vw);
+    font-weight: medium;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/*===================================================> All Page footer <=========================================================*/
+.blockAllFooterSection {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espace entre les blocs */
+}
+.blockN2 {
+    max-width: 90%; /* Limite la largeur maximale */
+    width: 100%; /* Utilise toute la largeur disponible */
+    margin: 0 auto; /* Centre le contenu */
+}
+
+.blockN2 p {
+    word-wrap: break-word; /* Assure que les mots longs ne dépassent pas */
+    overflow-wrap: break-word;
+    max-width: 100%; /* S'assure que le paragraphe ne dépasse pas */
+}
+.blockN1, .blockN2 {
+    display: flex;
+    align-items: center;
+}
+
+.titleAllFooter {
+    background: var(--custom-gradient-background-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 150%;
+    background-position: 30% 70%;
+    font-weight: bold;
+}
+
+.rectVerticalAllFooter {
+    width: 1.5vw; /* Largeur du rectangle */
+    height: 20vh; /* Hauteur du rectangle */
+    background: var(--custom-gradient-background-color);
+    opacity: 0.5;
+    background-size: 150%;
+    background-position: 30% 70%;
+    border-radius: 12px;
+}
+
+/*===================================================> Page 404<=========================================================*/
+.text404N1 {
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.text404N2 {
+    font-size: 20px;
+    font-weight: bold;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> MEDIA QUERIES <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>*/
 
@@ -545,6 +853,62 @@ div.text-dark > .pRobotoLogin {
         width: 100% !important;
         height: 100% !important;
     }
+
+    /*--- Creer/Modifier une recette - Tablette ---*/
+    .btnPageModifierCreeRecette,  .btnPageModifierCreeRecetteStatus {
+        border: 4px solid #B9B9B9 !important;
+        background: white;
+        border-radius: 8px !important;
+
+    }
+
+    .btnPageModifierCreeRecetteStatus {
+        padding: 8px 32px !important;
+    }
+    
+    .btn-check:checked + .btnPageModifierCreeRecette, .btn-check:checked + .btnPageModifierCreeRecetteStatus {
+        border: 4px solid transparent !important;
+        border-radius: 8px !important;
+
+    }
+    
+    .border-gradient::after {
+        margin: 3px;
+    }   
+
+    /*--- Page 404 - Tablette ---*/
+    .text404N1 {
+        font-size: 200px;
+        font-weight: bold;
+    }
+
+    .text404N2 {
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    /*--- All Cards index - Tablette ---*/
+    .card {
+        border: 5px solid #B9B9B9 !important;
+        border-radius: 15px !important;
+    }
+    .card:hover {
+       padding: 2px !important;
+       overflow: hidden !important;
+       border: 5px solid transparent !important;
+       border-radius: 15px !important;
+       background-origin: border-box;
+       background-clip: content-box, border-box;
+       background-image: 
+           linear-gradient(to right, white, white),
+           linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    }
+    
+    .card-img-top {
+        height: 50% !important;
+        border-radius: 10px 10px 0 0 !important;
+    }   
+
 }
 
 /*--- Media Queries - PC (min 1512px) ---*/
@@ -565,4 +929,3 @@ div.text-dark > .pRobotoLogin {
 
 
 }
-

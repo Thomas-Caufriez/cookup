@@ -5,197 +5,57 @@ Template Name: Page rgpd
 
 get_header('bis') 
 ?>
-<h1>Politique de confidentialité</h1>
 
-
-<!-- /* pour les Ingredients*/ */ -->
-<div class="col container-fluid allCardsIngredients">
-    <?php
-    $buttonsIngredients = [
-        ['id' => 'bulletToggleBtnIngredients', 'img' => 'prot.Animale.webp', 'label' => 'Prot.animale'],
-        ['id' => 'bulletToggleBtnIngredients2', 'img' => 'Végétarien.webp', 'label' => 'Végétarien'],
-        ['id' => 'bulletToggleBtnIngredients3', 'img' => 'légumineuse.webp', 'label' => 'Légumineuse'],
-        ['id' => 'bulletToggleBtnIngredients4', 'img' => 'céréaleGrain.webp', 'label' => 'Céréale / Grain'],
-        ['id' => 'bulletToggleBtnIngredients5', 'img' => 'noixGraine.webp', 'label' => 'Noix / Graine'],
-        ['id' => 'bulletToggleBtnIngredients6', 'img' => 'fruit.webp', 'label' => 'Fruit'],
-        ['id' => 'bulletToggleBtnIngredients7', 'img' => 'légume.webp', 'label' => 'Légume'],
-        ['id' => 'bulletToggleBtnIngredients8', 'img' => 'prod.laitier.webp', 'label' => 'Prot.laitier']
-    ];
-
-    foreach ($buttonsIngredients as $indexIngredients => $button) {
-        $toggleIdIngredients = 'toggleBullet' . ($indexIngredients + 1);
-    ?>
-    <input type="checkbox" id="<?php echo $toggleIdIngredients; ?>" style="display:none;">
-    <button class="container-fluid btn cardsIngredients cardsIngredientsOff" id="<?php echo $button['id']; ?>">
-        <img 
-            src="<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $button['img']; ?>" 
-            alt=<?php echo $button['label']; ?>
-            class="img-fluid imgIngredients"
-        >
-        <div class="px-5 d-flex align-items-center justify-content-center">
-            <span class="pRobotoLogin"><?php echo $button['label']; ?></span>
-        </div>
-
-        <img 
-            src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg" 
-            alt="bullet"
-            class="bulletOff-On"
-        >
-    </button>
-    <?php } ?>
+<div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+    <h1 class="h2Salsa text-center mt-3 mb-3">Politique de Confidentialité</h1>
 </div>
 
-
-<!-- /* pour les Plats*/ */ -->
-<div class="col container-fluid allCardsPlats">
-    <?php
-    $buttonsPlats = [
-        ['id' => 'bulletToggleBtnPlats', 'img' => 'entrée.webp', 'label' => 'Entrée'],
-        ['id' => 'bulletToggleBtnPlats2', 'img' => 'principal.webp', 'label' => 'Principal'],
-        ['id' => 'bulletToggleBtnPlats3', 'img' => 'international.webp', 'label' => 'International'],
-        ['id' => 'bulletToggleBtnPlats4', 'img' => 'brunch.webp', 'label' => 'Brunch'],
-        ['id' => 'bulletToggleBtnPlats5', 'img' => 'assortiment.webp', 'label' => 'Assortiment'],
-        ['id' => 'bulletToggleBtnPlats6', 'img' => 'snackEnca.webp', 'label' => 'Snack / Enca'],
-        ['id' => 'bulletToggleBtnPlats7', 'img' => 'déssert.webp', 'label' => 'Déssert'],
-        ['id' => 'bulletToggleBtnPlats8', 'img' => 'boisson.webp', 'label' => 'Boisson']
-    ];
-
-    foreach ($buttonsPlats as $indexPlats => $button) {
-        $toggleIdPlats = 'toggleBullet' . ($indexPlats + 1);
-    ?>
-    <input type="checkbox" id="<?php echo $toggleIdPlats; ?>" style="display:none;">
-    <button class="container-fluid btn cardsPlats cardsPlatsOff" id="<?php echo $button['id']; ?>">
-        <img 
-            src="<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $button['img']; ?>" 
-            alt=<?php echo $button['label']; ?>
-            class="img-fluid imgPlats"
-        >
-        <div class="px-5 d-flex align-items-center justify-content-center">
-            <span class="pRobotoLogin"><?php echo $button['label']; ?></span>
+<div class="blockAllFooterSection container d-flex align-items-start mb-5">
+        <div class="blockN1">
+            <span class="rectVerticalAllFooter"> </span>
         </div>
-
-        <img 
-            src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg" 
-            alt="bullet"
-            class="bulletOff-On"
-        >
-    </button>
-    <?php } ?>
+        <div class="blockN2 d-flex row align-items-center m-auto pRobotoLogin">
+            <h2 class="h2Salsa titleAllFooter p-0">Politique de Confidentialité de Cook'up</h2>
+            <p class="p-0">
+                </br> 
+                <b>Dernière mise à jour : [03/12/2024]</b> </br>
+                Le site Cook'Up (cookup.be) accorde une grande importance à la protection de votre vie privée et à la sécurité de vos données personnelles. Cette Politique de Confidentialité a pour objectif de vous informer sur la manière dont nous collectons, utilisons et protégeons vos données.
+                </br> 
+                </br> 
+                <b>1. Données collectées</b> </br>
+                Lors de votre visite sur le Site, la seule donnée personnelle que nous collectons est votre adresse e-mail.
+                Aucune autre donnée personnelle n’est collectée sans votre consentement explicite.
+                </br> 
+                </br> 
+                <b>2. Finalité de la collecte</b> </br>
+                L’adresse e-mail collectée est utilisée uniquement pour :
+                Envoyer des communications liées aux activités du Site, telles que des mises à jour, des newsletters ou des informations importantes sur nos services.
+                </br> 
+                </br> 
+                <b>3. Confidentialité et sécurité</b> </br>
+                Nous nous engageons à protéger vos données personnelles et à ne jamais divulguer, vendre ou échanger votre adresse e-mail à des tiers, sauf obligation légale.
+                Toutes les mesures techniques et organisationnelles appropriées sont mises en place pour assurer la sécurité et la confidentialité de vos données.
+                </br> 
+                </br> 
+                <b>4. Responsable du traitement</b> </br>
+                Le responsable du traitement des données est :[Wassim.J].
+                En cas de question, de demande d’accès, de rectification ou de suppression de vos données personnelles, vous pouvez contacter la personne en charge de la protection des données :232171@student.isfsc.be.
+                </br> 
+                </br> 
+                <b>5. Vos droits</b> </br>
+                Conformément au Règlement Général sur la Protection des Données (RGPD), vous avez le droit :
+                D'accéder à vos données personnelles.
+                De demander la rectification ou la suppression de vos données.
+                De vous opposer à leur traitement ou d’en demander la limitation.
+                Pour exercer vos droits, merci d'envoyer votre demande à l’adresse e-mail : 232171@student.isfsc.be.
+                </br> 
+                </br> 
+                <b>6. Modifications de la Politique de Confidentialité</b> </br>
+                Cette Politique de Confidentialité peut être modifiée à tout moment pour refléter les évolutions légales ou les changements dans nos services. Toute modification sera publiée sur cette page. Nous vous encourageons à la consulter régulièrement.
+                En utilisant le site Cook'up, vous acceptez les termes de cette Politique de Confidentialité. Si vous avez des préoccupations concernant la manière dont vos données sont traitées, n’hésitez pas à nous contacter.
+                Merci de votre confiance.
+            </p>
+        </div>
 </div>
-
-
-<!-- script js pour faire fonctionner les boutons + img -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Fonction générique pour gérer les boutons
-    function setupButtonGroup(buttonGroupConfig) {
-        const {
-            buttons, 
-            exclusiveButtons = {}, 
-            maxSelections = null,
-            onlyOneGroup = false
-        } = buttonGroupConfig;
-
-        buttons.forEach(function(item) {
-            const toggleCheckbox = document.getElementById(item.toggleId);
-            const bulletImage = item.btn.querySelector('.bulletOff-On');
-
-            item.btn.addEventListener('click', function() {
-                // Gestion des boutons exclusifs
-                if (exclusiveButtons[item.btn.id]) {
-                    const exclusiveButtonId = exclusiveButtons[item.btn.id];
-                    const exclusiveButton = buttons.find(b => b.btn.id === exclusiveButtonId);
-                    const exclusiveCheckbox = document.getElementById(exclusiveButton.toggleId);
-                    const exclusiveBulletImage = exclusiveButton.btn.querySelector('.bulletOff-On');
-
-                    // Désactiver le bouton exclusif si actif, indépendamment de l'état actuel
-                    if (exclusiveCheckbox.checked) {
-                        exclusiveCheckbox.checked = false;
-                        exclusiveBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                        exclusiveButton.btn.classList.remove('cardsIngredientsOn');
-                        exclusiveButton.btn.classList.add('cardsIngredientsOff');
-                    }
-                }
-
-                // Gestion de la sélection unique par groupe
-                if (onlyOneGroup) {
-                    buttons.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherCheckbox = document.getElementById(otherItem.toggleId);
-                            const otherBulletImage = otherItem.btn.querySelector('.bulletOff-On');
-                            otherCheckbox.checked = false;
-                            otherBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                            otherItem.btn.classList.remove('cardsPlatsOn');
-                            otherItem.btn.classList.add('cardsPlatsOff');
-                        }
-                    });
-                }
-
-                // Gestion du nombre maximum de sélections
-                if (maxSelections !== null) {
-                    const activeButtons = buttons.filter(b => 
-                        document.getElementById(b.toggleId).checked
-                    );
-
-                    if (activeButtons.length >= maxSelections && !toggleCheckbox.checked) {
-                        // Désactiver le bouton le plus ancien si la limite est atteinte
-                        const oldestActiveButton = activeButtons[0];
-                        const oldestCheckbox = document.getElementById(oldestActiveButton.toggleId);
-                        const oldestBulletImage = oldestActiveButton.btn.querySelector('.bulletOff-On');
-                        oldestCheckbox.checked = false;
-                        oldestBulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                        oldestActiveButton.btn.classList.remove('cardsIngredientsOn');
-                        oldestActiveButton.btn.classList.add('cardsIngredientsOff');
-                    }
-                }
-
-                // Basculement de l'état du bouton
-                toggleCheckbox.checked = !toggleCheckbox.checked;
-
-                // Mise à jour visuelle
-                if (toggleCheckbox.checked) {
-                    bulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOn.svg';
-                    item.btn.classList.add(onlyOneGroup ? 'cardsPlatsOn' : 'cardsIngredientsOn');
-                    item.btn.classList.remove(onlyOneGroup ? 'cardsPlatsOff' : 'cardsIngredientsOff');
-                } else {
-                    bulletImage.src = '<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg';
-                    item.btn.classList.remove(onlyOneGroup ? 'cardsPlatsOn' : 'cardsIngredientsOn');
-                    item.btn.classList.add(onlyOneGroup ? 'cardsPlatsOff' : 'cardsIngredientsOff');
-                }
-            });
-        });
-    }
-
-    // Configuration pour les ingrédients
-    setupButtonGroup({
-        buttons: [
-            <?php foreach ($buttonsIngredients as $indexIngredients => $button) { ?>
-            { 
-                btn: document.getElementById('<?php echo $button['id']; ?>'), 
-                toggleId: 'toggleBullet<?php echo ($indexIngredients + 1); ?>'
-            }<?php echo ($indexIngredients < count($buttonsIngredients) - 1 ? ',' : ''); ?>
-            <?php } ?>
-        ],
-        exclusiveButtons: {
-            'bulletToggleBtnIngredients': 'bulletToggleBtnIngredients2',
-            'bulletToggleBtnIngredients2': 'bulletToggleBtnIngredients'
-        },
-        maxSelections: null  // Pas de limite de sélection
-    });
-
-    // Configuration pour les plats
-    setupButtonGroup({
-        buttons: [
-            <?php foreach ($buttonsPlats as $indexPlats => $button) { ?>
-            { 
-                btn: document.getElementById('<?php echo $button['id']; ?>'), 
-                toggleId: 'toggleBullet<?php echo ($indexPlats + 1); ?>'
-            }<?php echo ($indexPlats < count($buttonsPlats) - 1 ? ',' : ''); ?>
-            <?php } ?>
-        ],
-        onlyOneGroup: true  // Un seul bouton actif à la fois
-    });
-});
-</script>
 
 <?php get_footer() ?>

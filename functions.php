@@ -141,85 +141,97 @@ add_action('init', 'custom_creation_recette');
 
 // Création d'un hook pour permettre de récupérer les informations du formulaire acf et de l'enregistrer dans recette, je fais cela afin de pouvoir custom le placement du form comme je le souhaite
 function handle_recipe_submission() {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+      // Récupérer les champs classiques
+      $post_title   = sanitize_text_field($_POST['post_title']);
+      $ptime        = sanitize_text_field($_POST['temps']); // tag 1
+      $pdifficulty  = sanitize_text_field($_POST['difficulte']); // tag 2
+      $pprice       = sanitize_text_field($_POST['prix']); // tag 3
+      $dishtype     = sanitize_text_field($_POST['dishtype']);
+      $description  = sanitize_textarea_field($_POST['description']);
+      $descingredient = sanitize_textarea_field($_POST['descingredient']);
+      $nbrperson    = absint($_POST['nbrperson']);
+      $preparation  = sanitize_textarea_field($_POST['preparation']);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    $post_title   = sanitize_text_field($_POST['post_title']);
-    $ptime   = sanitize_text_field($_POST['temps']); // tag 1
-    $pdifficulty   = sanitize_text_field($_POST['difficulte']); // tag 2
-    $pprice   = sanitize_text_field($_POST['prix']); // tag 3
-    $dishtype   = sanitize_text_field($_POST['dishtype']);
-    $description  = sanitize_textarea_field($_POST['description']);
-    $proteine  = sanitize_text_field($_POST['proteine']); // ingrédient 1
-    $legumineuse   = sanitize_text_field($_POST['legumineuse']); // tag ingrédient 2
-    $cereal   = sanitize_text_field($_POST['cereale & grain']); // tag ingrédient 3
-    $noix   = sanitize_text_field($_POST['noix & graine']); // tag ingrédient 4
-    $fruit   = sanitize_text_field($_POST['fruit']); // tag ingrédient 5
-    $legume   = sanitize_text_field($_POST['legume']); // tag ingrédient 6
-    $lait   = sanitize_text_field($_POST['produit laitier']); // tag ingrédient 7
-    $descingredient  = sanitize_textarea_field($_POST['descingredient']);
-    $nbrperson        = absint($_POST['nbrperson']);
-    $preparation  = sanitize_textarea_field($_POST['preparation']);
-    $status   = sanitize_text_field($_POST['status']);
+      // Récupérer les ingrédients sélectionnés
+      if (isset($_POST['ingredients']) && is_array($_POST['ingredients'])) {
+          $ingredients = $_POST['ingredients']; // Traite le tableau avec les ingrédients généré plus tot lors de la création de la recette
+      } else {
+          $ingredients = array(); // Aucun ingrédient sélectionné
+      }
 
-    // Vérifie si un fichier a été téléchargé sans erreur
-    if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
-        require_once ABSPATH . 'wp-admin/includes/image.php';
-        require_once ABSPATH . 'wp-admin/includes/file.php';
-        require_once ABSPATH . 'wp-admin/includes/media.php';
+      // Vérifie si un fichier a été téléchargé sans erreur
+      if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
+          require_once ABSPATH . 'wp-admin/includes/image.php';
+          require_once ABSPATH . 'wp-admin/includes/file.php';
+          require_once ABSPATH . 'wp-admin/includes/media.php';
 
-        $attachment_id = media_handle_upload('thumbnail', 0);
+          $attachment_id = media_handle_upload('thumbnail', 0);
 
-        // Vérifie s'il n'y a pas d'erreur lors du téléchargement
-        if (is_wp_error($attachment_id)) {
-            echo 'Erreur lors du téléchargement de l\'image : ' . $attachment_id->get_error_message();
-        } else {
-            $post_id = wp_insert_post(array(
-                'post_type'    => 'creation_recette',
-                'post_title'   => $post_title,
-                'post_content' => $description,
-                'post_status'  => 'publish',
-            ));
+          // Vérifie s'il n'y a pas d'erreur lors du téléchargement
+          if (is_wp_error($attachment_id)) {
+              echo 'Erreur lors du téléchargement de l\'image : ' . $attachment_id->get_error_message();
+          } else {
+              $post_id = wp_insert_post(array(
+                  'post_type'    => 'creation_recette',
+                  'post_title'   => $post_title,
+                  'post_content' => $description,
+                  'post_status'  => 'publish',
+              ));
 
-            if ($post_id) {
-                set_post_thumbnail($post_id, $attachment_id);
+              if ($post_id) {
+                  set_post_thumbnail($post_id, $attachment_id);
 
-                update_post_meta($post_id, 'temps', $ptime);
-                update_post_meta($post_id, 'difficulte', $pdifficulty);
-                update_post_meta($post_id, 'prix', $pprice);
-                update_post_meta($post_id, 'dishtype', $dishtype);
-                update_post_meta($post_id, 'proteine', $proteine);
-                update_post_meta($post_id, 'legumineuse', $legumineuse);
-                update_post_meta($post_id, 'cereale & grain', $cereal);
-                update_post_meta($post_id, 'noix & graine', $noix);
-                update_post_meta($post_id, 'fruit', $fruit);
-                update_post_meta($post_id, 'legume', $legume);
-                update_post_meta($post_id, 'produit laitier', $lait);
-                update_post_meta($post_id, 'descingredient', $descingredient);
-                update_post_meta($post_id, 'nbrperson', $nbrperson);
-                update_post_meta($post_id, 'preparation', $preparation);
-                update_post_meta($post_id, 'status', $status);
+                  // Mettre à jour les métadonnées de la recette
+                  update_post_meta($post_id, 'temps', $ptime);
+                  update_post_meta($post_id, 'difficulte', $pdifficulty);
+                  update_post_meta($post_id, 'prix', $pprice);
+                  update_post_meta($post_id, 'dishtype', $dishtype);
+                  update_post_meta($post_id, 'descingredient', $descingredient);
+                  update_post_meta($post_id, 'nbrperson', $nbrperson);
+                  update_post_meta($post_id, 'preparation', $preparation);
+                  update_post_meta($post_id, 'ingredients', $ingredients);
 
-
-                wp_redirect(get_permalink($post_id));
-                exit;
-            } else {
-                echo 'Erreur lors de la création de la publication.';
-            }
-        }
-    } else {
-        echo 'Veuillez télécharger une image valide.';
-    }
-}
+                  wp_redirect(get_permalink($post_id));
+                  exit;
+              } else {
+                  echo 'Erreur lors de la création de la publication.';
+              }
+          }
+      } else {
+          echo 'Veuillez télécharger une image valide.';
+      }
+  }
 }
 add_action('template_redirect', 'handle_recipe_submission');
+
 
 // Action permettant de display les informations du formulaire dans le back-office pour aider le client
 add_action('add_meta_boxes', function () {
 add_meta_box('recette_details', 'Détails de la recette', function ($post) {
-    $ptime = get_post_meta($post->ID, 'ptime', true);
-    $pdifficulty = get_post_meta($post->ID, 'pdifficulty', true);
+    $ptime = get_post_meta($post->ID, 'temps', true);
+    $pdifficulty = get_post_meta($post->ID, 'difficulte', true);
+    $pprice = get_post_meta($post->ID, 'prix', true);
+    $dishtype = get_post_meta($post->ID, 'dishtype', true);
+    $nbrperson = get_post_meta($post->ID, 'nbrperson', true);
+    $status = get_post_meta($post->ID, 'status', true);
+    $preparation = get_post_meta($post->ID, 'preparation', true);
+    $descingredient = get_post_meta($post->ID, 'descingredient', true);
 
-    echo 'Difficulté : ' . $pdifficulty;
+    echo '<b>Difficulté :</b> ' . $pdifficulty . '<br>';
+    echo '<b>Prix :</b> ' . $pprice . '<br>';
+    echo '<b>Temps :</b> ' . $ptime . '<br>';
+    echo '<b>Type de plat :</b> ' . $dishtype . '<br>';
+    echo '<b>Nombre de personnes :</b> ' . $nbrperson . '<br>';
+    echo '<b>status :</b> ' . $status . '<br>';
+    echo '<b>Préparation :</b> ' . $preparation . '<br>';
+    echo '<b>Ingrédients :</b> ' . $descingredient;
 }, 'creation_recette');
 });
+
+// fonction changeant le nombre de mot de la fonction the_excerpt()
+function custom_excerpt_length($length) {
+  return 20;
+}
+add_filter('excerpt_length', 'custom_excerpt_length');
 ?>
