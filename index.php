@@ -1,13 +1,6 @@
 <?php get_header(); 
-
 $current_user = wp_get_current_user();
-
-if (get_search_query()!== ''): ?>
-    <h2>
-        Recherche pour :
-        <strong><?php echo get_search_query(); ?></strong>
-    </h2>
-<?php endif ?>
+?>
 
 <div>
 
@@ -348,6 +341,14 @@ if (get_search_query()!== ''): ?>
             </div>
         </div>
     </form>
+
+    <?php if (get_search_query()!== ''): ?>
+    <h2>
+        Recherche pour :
+        <strong><?php echo get_search_query(); ?></strong>
+    </h2>
+    <?php endif ?>
+
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
 	  <?php 
 
@@ -362,6 +363,7 @@ if (get_search_query()!== ''): ?>
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
+            's' => get_search_query(),
             'posts_per_page' => -1,
         ];
 
