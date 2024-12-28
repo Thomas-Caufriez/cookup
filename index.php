@@ -2,7 +2,14 @@
 
 $current_user = wp_get_current_user();
 
-?>
+if (get_search_query()!== ''): ?>
+    <h2>
+        Recherche pour :
+        <strong><?php echo get_search_query(); ?></strong>
+    </h2>
+<?php endif ?>
+
+<div>
 
 <!-- Navbar en version desktop -->
 <div class="container-fluid text-center p-0  d-none d-md-block bgLightPerso">
@@ -341,15 +348,6 @@ $current_user = wp_get_current_user();
             </div>
         </div>
     </form>
-    <?php
-    // Affiche l'argument de la recherche
-    if (get_search_query()!== ''): 
-    ?>
-        <h2>
-            Recherche pour :
-            <strong><?php echo get_search_query(); ?></strong>
-        </h2>
-    <?php endif; ?>
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
 	  <?php 
 
@@ -364,7 +362,6 @@ $current_user = wp_get_current_user();
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
-            's' => get_search_query(),
             'posts_per_page' => -1,
         ];
 
