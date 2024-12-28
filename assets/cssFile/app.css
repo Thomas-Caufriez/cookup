@@ -472,12 +472,14 @@ div.text-dark > .pRobotoLogin {
 
 
 /*--- Filtre Ingredients et Plats ---*/
+/* Conteneurs principaux */
 .allCardsIngredients, .allCardsPlats {
     width: 100%;   
     height: auto;
     max-width: 100%;
 }
 
+/* Styles de base pour les cartes */
 .cardsIngredients, .cardsPlats {
     width: 100%;
     height: 9vh;
@@ -487,33 +489,11 @@ div.text-dark > .pRobotoLogin {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
-    border: 2px solid transparent;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.cardsIngredients:focus,
-.cardsIngredients:active,
-.cardsIngredients:hover,
-.cardsPlats:focus,
-.cardsPlats:active,
-.cardsPlats:hover {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-
-.cardsIngredientsOn, .cardsPlatsOn {
-    border: none;
-    opacity: 1;
-}
-
-.cardsIngredientsOff, .cardsPlatsOff {
-    border: none;
-    opacity: 0.4;
-}
-
+/* Contenu des cartes */
 .cardsIngredients div, .cardsPlats div {
     width: clamp(100px, 20vw, 180px); /* Commence à 90px, s'étend jusqu'à 180px */
     white-space: nowrap;
@@ -528,38 +508,69 @@ div.text-dark > .pRobotoLogin {
     border-radius: 0 5px 5px 0;
 }
 
-.cardsIngredients div span, .cardsPlats div span {
+/* Suppression des effets sur le focus et hover */
+.cardsIngredients:focus,
+.cardsIngredients:active,
+.cardsIngredients:hover,
+.cardsPlats:focus,
+.cardsPlats:active,
+.cardsPlats:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Texte à l'intérieur des cartes */
+.cardsIngredients div p, .cardsPlats div p {
     font-family: var(--font-salsa);
     font-size: max(12px, 1.5vw);
     font-weight: medium;
 }
 
-.cardsIngredients div img, .cardsPlats div img {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
-
-.imgIngredients, .imgPlats {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
+/* État par défaut en Off */
+.cardsIngredientsOff, .cardsPlatsOff {
+    border: none;
+    opacity: 0.4;
 }
 
 .bulletOff-On {
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%); /* Ajuste pour un centrage précis */
+    transform: translateY(-50%);
     z-index: 2;
     width: max(25px, 3vw);
-    height: max(25px, 3vw); 
+    height: max(25px, 3vw);
+    content: url('../img/bulletOff.svg');
     transition: all 0.3s ease;
 }
+
+
+/*------- Gestion des radios (Plats) -------*/
+/*------- Gestion des radios (Plats) -------*/
+/* Lorsqu'un radio est sélectionné */
+input[type="radio"]:checked + label.cardsPlats {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked + label.cardsPlats .bulletOff-On {
+    content: url('../img/bulletOn.svg');
+    transition: all 0.3s ease;
+}
+
+
+/*------- Gestion des checkboxes (Ingrédients) -------*/
+/* Lorsqu'une checkbox est cochée */
+input[type="checkbox"]:checked + label.cardsIngredients {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
+    content: url('../img/bulletOn.svg');
+    transition: all 0.3s ease;
+}
+
 
 /*===================================================> Page Créer / Modifier une recette <=========================================================*/
 

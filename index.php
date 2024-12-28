@@ -75,9 +75,9 @@ if (get_search_query()!== ''): ?>
                 method="GET" 
                 action="<?php echo esc_url(home_url()); ?>"
             >
-                <div class="text-center d-flex w-100">
+                <div class="text-center d-flex align-items-center justify-content-center w-100">
                     <button 
-                        class="btn-close" 
+                        class="btn-close"
                         type="button" 
                         data-bs-toggle="collapse" 
                         data-bs-target="#filterIngredients" 
@@ -85,30 +85,30 @@ if (get_search_query()!== ''): ?>
                         aria-controls="filterIngredients"
                     >
                     </button>
-                    <h2>Filtrer par ingrédients</h2>
+                    <h2 class="h2Salsa my-4 mx-4">Filtrer par ingrédients</h2>
                 </div>
-                <div>
+                <div class="allCardsIngredients">
                     <?php
                         $ingredients = [
-                            'proteine' => [
+                            'Prot.animale' => [
                                 'background' => 'prot.Animale.webp',
                             ],
-                            'legumineuse' => [
+                            'Légumineuse' => [
                                 'background' => 'légumineuse.webp',
                             ],
-                            'cereal & grain' => [
+                            'Céréale / Grain' => [
                                 'background' => 'céréaleGrain.webp',
                             ],
-                            'noix & graine' => [
+                            'Noix / Graine' => [
                                 'background' => 'noixGraine.webp',
                             ],
-                            'fruit' => [
+                            'Fruit' => [
                                 'background' => 'fruit.webp',
                             ],
-                            'legume' => [
+                            'Légume' => [
                                 'background' => 'légume.webp',
                             ],
-                            'produit laitier' => [
+                            'Prot.laitier' => [
                                 'background' => 'prod.laitier.webp',
                             ],
                         ];
@@ -116,7 +116,7 @@ if (get_search_query()!== ''): ?>
                     ?>
                         <div>
                             <input 
-                                class="btn-check" 
+                                class="btn-check " 
                                 type="checkbox" 
                                 role="switch" 
                                 value="<?php echo $ingredient; ?>" 
@@ -124,17 +124,19 @@ if (get_search_query()!== ''): ?>
                                 name="ingredients[]"
                             >
                             <label 
-                                class="d-flex justify-content-between w-100 btn" 
+                                class="d-flex justify-content-between w-100 btn cardsIngredients cardsIngredientsOff" 
                                 for="<?php echo $ingredient; ?>"
-                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>');"
+                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
                             >
-                                <p><?php echo ucfirst($ingredient); ?></p>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
+                                <div class="px-5 d-flex align-items-center justify-content-center">
+                                    <p class="pRobotoLogin m-0"><?php echo ucfirst($ingredient); ?></p>
+                                </div>
+                                <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
                             </label>
                         </div> 
                         <?php endforeach; ?>
                 </div>
-                <button type="submit" class="btn btn-primary mt-4">Filtrer par ingrédients</button>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par ingrédients</button>
             </form>
         </div>
 
@@ -147,7 +149,7 @@ if (get_search_query()!== ''): ?>
                 method="GET" 
                 action="<?php echo esc_url(home_url()); ?>"
             >
-                <div class="text-center d-flex w-100">
+                <div class="text-center d-flex align-items-center justify-content-center w-100">
                     <button 
                         class="btn-close" 
                         type="button" 
@@ -157,59 +159,62 @@ if (get_search_query()!== ''): ?>
                         aria-controls="filterPlats"
                     >
                     </button>
-                    <h2>Filtrer par plats</h2>
+                    <h2 class="h2Salsa my-4 mx-4">Filtrer par plats</h2>
                 </div>
                 <div>
                     <?php
                         $dishtypes = [
-                            'starter' => [
+                            'Entrée' => [
                                 'background' => 'entrée.webp',
                             ],
-                            'maincourse' => [
+                            'Principal' => [
                                 'background' => 'principal.webp',
                             ],
-                            'desert' => [
-                                'background' => 'dessert.webp',
-                            ],
-                            'international' => [
+                            'International' => [
                                 'background' => 'international.webp',
                             ],
-                            'drink' => [
-                                'background' => 'boisson.webp',
-                            ],
-                            'brunch' => [
+                            'Brunch' => [
                                 'background' => 'brunch.webp',
                             ],
-                            'sidedish' => [
+                            'Assortiment' => [
                                 'background' => 'assortiment.webp',
                             ],
-                            'snack' => [
+                            'Snack / Enca' => [
                                 'background' => 'snackEnca.webp',
+                            ],
+                            'Déssert' => [
+                                'background' => 'dessert.webp',
+                            ],
+                            'Boisson' => [
+                                'background' => 'boisson.webp',
                             ],
                         ];
                         foreach ($dishtypes as $dishtype => $dishVal): 
                     ?>
-                        <div>
-                            <input 
-                                class="btn-check" 
-                                type="radio" 
-                                role="switch" 
-                                value="<?php echo $dishtype; ?>" 
-                                id="<?php echo $dishtype; ?>"
-                                name="dishtype"
-                            >
-                            <label 
-                                class="d-flex justify-content-between w-100 btn" 
-                                for="<?php echo $dishtype; ?>"
-                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>');"
-                            >
-                                <p><?php echo ucfirst($dishtype); ?></p>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet -->
-                            </label>
-                        </div> 
+                    <div> 
+                        <input 
+                            class="btn-check" 
+                            type="radio" 
+                            role="switch" 
+                            value="<?php echo $dishtype; ?>" 
+                            id="<?php echo $dishtype; ?>"
+                            name="dishtype"
+                        >
+                        <label 
+                            class="d-flex justify-content-between w-100 btn cardsPlats cardsPlatsOff" 
+                            for="<?php echo $dishtype; ?>"
+                            style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
+                        >
+                            <div class="px-5 d-flex align-items-center justify-content-center">
+                                <p class="pRobotoLogin m-0"><?php echo ucfirst($dishtype); ?></p>
+                            </div>
+                            <!-- L'image pour le bulletOff qui sera modifiée en bulletOn via le CSS -->
+                            <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> 
+                        </label>
+                    </div>
                         <?php endforeach; ?>
                 </div>
-                <button type="submit" class="btn btn-primary mt-4">Filtrer par plats</button>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par plats</button>
             </form>
         </div>
     </div>
@@ -433,7 +438,7 @@ if (get_search_query()!== ''): ?>
                 </div>
             <?php endwhile;
         else :
-            echo "<h1 class='text-center w-100'>Aucune recette trouvée.<h1>";
+            echo "<h1 class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
         endif;
         ?>
     </div>
