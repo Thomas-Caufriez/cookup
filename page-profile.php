@@ -44,6 +44,7 @@ $curent_user = wp_get_current_user();
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecette.svg" 
                             alt="icone créer"
+                            class="iconLogin"
                         >
                         <span class="pRobotoLogin">Crée une recette</span>
                     </a>
@@ -51,7 +52,7 @@ $curent_user = wp_get_current_user();
             </div>
         </div>
         <div class="col mt-3">
-            <button class="container-fluid btn mt-2 catégorieProfil">
+            <a class="container-fluid btn mt-2 catégorieProfil" href="#">
                 <img 
                     src="<?php echo get_template_directory_uri(); ?>/assets/img/imgPublic.jpg" 
                     alt="personne entrain de se filmer pendant qu'elle cuisine"
@@ -65,8 +66,8 @@ $curent_user = wp_get_current_user();
                     >
                     <span class="pRobotoLogin">Public</span>
                 </div>
-            </button>
-            <button class="container-fluid btn mt-2 catégorieProfil">
+            </a>
+            <a class="container-fluid btn mt-2 catégorieProfil" href="#">
                 <img 
                     src="<?php echo get_template_directory_uri(); ?>/assets/img/imgFavoris.jpg" 
                     alt="table avec des dessert dessus"
@@ -80,8 +81,8 @@ $curent_user = wp_get_current_user();
                     >
                     <span class="pRobotoLogin">Favoris</span>
                 </div>
-            </button>
-            <button class="container-fluid btn mt-2 catégorieProfil">
+            </a>
+            <a class="container-fluid btn mt-2 catégorieProfil" href="#">
                 <img 
                     src="<?php echo get_template_directory_uri(); ?>/assets/img/imgPrivé.jpg" 
                     alt="tablette avec un recette de cuisine affichée"
@@ -95,7 +96,7 @@ $curent_user = wp_get_current_user();
                     >
                     <span class="pRobotoLogin">Privé</span>
                 </div>
-            </button>
+            </a>
         </div>
     </div>
 </div>

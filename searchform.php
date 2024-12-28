@@ -2,17 +2,13 @@
     class="d-flex" 
     role="search" 
     action="<?php echo esc_url(home_url('/')); ?>"
+    method="get"
 >
-    <!-- <button 
-        class="btn" 
-        type="submit"
-    >
-     <img 
-            src="<?php echo get_template_directory_uri(); ?>/assets/img/" 
-            alt="Rechercher" 
-            class="img-fluid"
-        > 
-    </button> -->
+    <input 
+        type="hidden" 
+        name="post_type" 
+        value="creation_recette" 
+    />
     <input 
         class="form-control" 
         type="search" 
