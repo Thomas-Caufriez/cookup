@@ -9,59 +9,59 @@ if (get_search_query()!== ''): ?>
     </h2>
 <?php endif ?>
 
-<!-- Navbar en version desktop -->
-<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-sm-block bg-primary">
-    <div class="d-flex row-cols-3">
-        <button
-            class="btn btn-primary col"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#filterIngredients"
-            aria-expanded="false"
-            aria-controls="filterIngredients"
-        >
-            <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
-                alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
-            >
-            <p class="navbar-text">Ingrédients</p>
-        </button>
-        <button
-            class="btn btn-primary col"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#filterPlats"
-            aria-expanded="false"
-            aria-controls="filterPlats"
-        >
-            <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
-                alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
-            >
-            <p class="navbar-text">Plats</p>
-        </button>
-        <a
-            class="btn btn-primary col" 
-            href="<?php echo home_url('/login'); ?>"
-        >
-            <p class="navbar-text">
-                <?php 
-                    if (is_user_logged_in()) {
-                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
-                        }
-                    else {
-                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
-                        }
-                ?>
-            </p>
-        </a>
-    </div>
-</div>
 <div>
+
+<!-- Navbar en version desktop -->
+<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-md-block bgLightPerso">
+        <div class="d-flex row-cols-3">
+            <button
+                class="btn col animationBarDesktop"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#filterIngredients"
+                aria-expanded="false"
+                aria-controls="filterIngredients"
+            >
+                <img 
+                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconIngrédients.svg" 
+                    alt="Icones carrote steak et feuille" 
+                    class="iconIndex"
+                >
+                <p class="navbar-text hSalsaNav m-0 p-0">Ingrédients <hr class="hrDesktop"></p>
+            
+            </button>
+            <button
+                class="btn col animationBarDesktop"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#filterPlats"
+                aria-expanded="false"
+                aria-controls="filterPlats"
+            >
+                <img 
+                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconPlats.svg" 
+                    alt="Icones carrote steak et feuille" 
+                    class="iconIndex"
+                >
+                <p class="navbar-text hSalsaNav m-0 p-0">Plats<hr class="hrDesktop"></p>
+            </button>
+            <a
+                class="btn col animationBarDesktop" 
+                href="<?php echo home_url('/login'); ?>"
+            >
+                <p class="navbar-text hSalsaNav m-0 p-0">
+                    <?php 
+                        if (is_user_logged_in()) {
+                            echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex  rounded-circle')) . '<br>' . ("Profil"). '<hr class="hrDesktop">';
+                            }
+                        else {
+                            echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Se connecter"). '<hr class="hrDesktop">';
+                            }
+                    ?>
+                </p>
+            </a>
+        </div>
+    </div>
     <!-- Menus cachés -->
     <div class="row position-absolute p-0 m-0 vw-100 row-cols-1 row-cols-sm-3">
 
@@ -75,9 +75,9 @@ if (get_search_query()!== ''): ?>
                 method="GET" 
                 action="<?php echo esc_url(home_url()); ?>"
             >
-                <div class="text-center d-flex w-100">
+                <div class="text-center d-flex align-items-center justify-content-center w-100">
                     <button 
-                        class="btn-close" 
+                        class="btn-close"
                         type="button" 
                         data-bs-toggle="collapse" 
                         data-bs-target="#filterIngredients" 
@@ -85,30 +85,30 @@ if (get_search_query()!== ''): ?>
                         aria-controls="filterIngredients"
                     >
                     </button>
-                    <h2>Filtrer par ingrédients</h2>
+                    <h2 class="h2Salsa my-4 mx-4">Filtrer par ingrédients</h2>
                 </div>
-                <div>
+                <div class="allCardsIngredients">
                     <?php
                         $ingredients = [
-                            'proteine' => [
+                            'Prot.animale' => [
                                 'background' => 'prot.Animale.webp',
                             ],
-                            'legumineuse' => [
+                            'Légumineuse' => [
                                 'background' => 'légumineuse.webp',
                             ],
-                            'cereal & grain' => [
+                            'Céréale / Grain' => [
                                 'background' => 'céréaleGrain.webp',
                             ],
-                            'noix & graine' => [
+                            'Noix / Graine' => [
                                 'background' => 'noixGraine.webp',
                             ],
-                            'fruit' => [
+                            'Fruit' => [
                                 'background' => 'fruit.webp',
                             ],
-                            'legume' => [
+                            'Légume' => [
                                 'background' => 'légume.webp',
                             ],
-                            'produit laitier' => [
+                            'Prot.laitier' => [
                                 'background' => 'prod.laitier.webp',
                             ],
                         ];
@@ -116,7 +116,7 @@ if (get_search_query()!== ''): ?>
                     ?>
                         <div>
                             <input 
-                                class="btn-check" 
+                                class="btn-check " 
                                 type="checkbox" 
                                 role="switch" 
                                 value="<?php echo $ingredient; ?>" 
@@ -124,17 +124,19 @@ if (get_search_query()!== ''): ?>
                                 name="ingredients[]"
                             >
                             <label 
-                                class="d-flex justify-content-between w-100 btn" 
+                                class="d-flex justify-content-between w-100 btn cardsIngredients cardsIngredientsOff" 
                                 for="<?php echo $ingredient; ?>"
-                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>');"
+                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
                             >
-                                <p><?php echo ucfirst($ingredient); ?></p>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
+                                <div class="px-5 d-flex align-items-center justify-content-center">
+                                    <p class="pRobotoLogin m-0"><?php echo ucfirst($ingredient); ?></p>
+                                </div>
+                                <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
                             </label>
                         </div> 
                         <?php endforeach; ?>
                 </div>
-                <button type="submit" class="btn btn-primary mt-4">Filtrer par ingrédients</button>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par ingrédients</button>
             </form>
         </div>
 
@@ -147,7 +149,7 @@ if (get_search_query()!== ''): ?>
                 method="GET" 
                 action="<?php echo esc_url(home_url()); ?>"
             >
-                <div class="text-center d-flex w-100">
+                <div class="text-center d-flex align-items-center justify-content-center w-100">
                     <button 
                         class="btn-close" 
                         type="button" 
@@ -157,59 +159,62 @@ if (get_search_query()!== ''): ?>
                         aria-controls="filterPlats"
                     >
                     </button>
-                    <h2>Filtrer par plats</h2>
+                    <h2 class="h2Salsa my-4 mx-4">Filtrer par plats</h2>
                 </div>
                 <div>
                     <?php
                         $dishtypes = [
-                            'starter' => [
+                            'Entrée' => [
                                 'background' => 'entrée.webp',
                             ],
-                            'maincourse' => [
+                            'Principal' => [
                                 'background' => 'principal.webp',
                             ],
-                            'desert' => [
-                                'background' => 'dessert.webp',
-                            ],
-                            'international' => [
+                            'International' => [
                                 'background' => 'international.webp',
                             ],
-                            'drink' => [
-                                'background' => 'boisson.webp',
-                            ],
-                            'brunch' => [
+                            'Brunch' => [
                                 'background' => 'brunch.webp',
                             ],
-                            'sidedish' => [
+                            'Assortiment' => [
                                 'background' => 'assortiment.webp',
                             ],
-                            'snack' => [
+                            'Snack / Enca' => [
                                 'background' => 'snackEnca.webp',
+                            ],
+                            'Déssert' => [
+                                'background' => 'dessert.webp',
+                            ],
+                            'Boisson' => [
+                                'background' => 'boisson.webp',
                             ],
                         ];
                         foreach ($dishtypes as $dishtype => $dishVal): 
                     ?>
-                        <div>
-                            <input 
-                                class="btn-check" 
-                                type="radio" 
-                                role="switch" 
-                                value="<?php echo $dishtype; ?>" 
-                                id="<?php echo $dishtype; ?>"
-                                name="dishtype"
-                            >
-                            <label 
-                                class="d-flex justify-content-between w-100 btn" 
-                                for="<?php echo $dishtype; ?>"
-                                style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>');"
-                            >
-                                <p><?php echo ucfirst($dishtype); ?></p>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet -->
-                            </label>
-                        </div> 
+                    <div> 
+                        <input 
+                            class="btn-check" 
+                            type="radio" 
+                            role="switch" 
+                            value="<?php echo $dishtype; ?>" 
+                            id="<?php echo $dishtype; ?>"
+                            name="dishtype"
+                        >
+                        <label 
+                            class="d-flex justify-content-between w-100 btn cardsPlats cardsPlatsOff" 
+                            for="<?php echo $dishtype; ?>"
+                            style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
+                        >
+                            <div class="px-5 d-flex align-items-center justify-content-center">
+                                <p class="pRobotoLogin m-0"><?php echo ucfirst($dishtype); ?></p>
+                            </div>
+                            <!-- L'image pour le bulletOff qui sera modifiée en bulletOn via le CSS -->
+                            <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> 
+                        </label>
+                    </div>
                         <?php endforeach; ?>
                 </div>
-                <button type="submit" class="btn btn-primary mt-4">Filtrer par plats</button>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par plats</button>
             </form>
         </div>
     </div>
@@ -343,13 +348,9 @@ if (get_search_query()!== ''): ?>
             </div>
         </div>
     </form>
-</div>
+  	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
+	  <?php 
 
-<!-- Paramètres liés au filtage et à la création des posts -->
-<div class="container-fluid px-2 px-md-4">
-    <div class="row row-cols-2 row-cols-md-4 g-2 g-md-4">
-        <?php 
-        // Récupérer les paramètres du filtre dans l'URL
         $filterval = isset($_GET['filterval']) ? intval($_GET['filterval']) : 1;
         $filterAscDesc = isset($_GET['filterAscDesc']) ? sanitize_text_field($_GET['filterAscDesc']) : 'DESC';
         $dishtype = isset($_GET['dishtype']) ? sanitize_text_field($_GET['dishtype']) : '';
@@ -424,7 +425,7 @@ if (get_search_query()!== ''): ?>
         // Boucle des recettes
         if ($recettes->have_posts()) :
             while ($recettes->have_posts()) : $recettes->the_post(); ?>
-                <div class="col">
+                <div class="col containerCard">
                     <div class="card">
                         <a href="<?php the_permalink(); ?>" class="text-body text-decoration-none">
                             <?php the_post_thumbnail([512, 219], ['class' => 'card-img-top']); ?>
@@ -437,58 +438,59 @@ if (get_search_query()!== ''): ?>
                 </div>
             <?php endwhile;
         else :
-            echo "<h1 class='text-center w-100'>Aucune recette trouvée.<h1>";
+            echo "<h1 class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
         endif;
         ?>
     </div>
 </div>
 
 <!-- Navbar en version mobile -->
-<div class="container-fluid text-center mt-auto sticky-bottom p-0 z-3 d-sm-none bg-primary">
+<div class="container-fluid text-center mt-auto sticky-bottom p-0 z-3 d-md-none bgLightPerso">
     <div class="d-flex row-cols-3">
         <button
-            class="btn btn-primary col"
-            type="button"
+            class="btn col animationBarMobile"
+            type="button "
             data-bs-toggle="collapse"
             data-bs-target="#filterIngredients"
             aria-expanded="false"
             aria-controls="filterIngredients"
         >
+        <hr class="hrMobile">
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_light.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconIngrédients.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Ingrédients</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Ingrédients</p>
         </button>
         <button
-            class="btn btn-primary col"
+            class="btn col animationBarMobile"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#filterPlats"
             aria-expanded="false"
             aria-controls="filterPlats"
         >
+        <hr class="hrMobile">
             <img 
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_dark.svg" 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconPlats.svg" 
                 alt="Icones carrote steak et feuille" 
-                width="60px"
-                height="48px"
+                class="iconIndex"
             >
-            <p class="navbar-text">Plats</p>
+            <p class="navbar-text h2Salsa m-0 p-0">Plats</p>
         </button>
         <a
-            class="btn btn-primary col" 
+            class="btn col animationBarMobile" 
             href="<?php echo home_url('/login'); ?>"
         >
-            <p class="navbar-text">
+        <hr class="hrMobile">
+            <p class="navbar-text h2Salsa m-0 p-0">
                 <?php 
                     if (is_user_logged_in()) {
-                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'rounded-circle')) . '<br>' . ("profil");
+                        echo get_avatar($current_user->ID, 48, 'identicon', 'photo de profil', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Profil");
                         }
                     else {
-                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'rounded-circle')) . '<br>' . ("Se connecter");
+                        echo get_avatar('', 48, 'mystery', 'photo de profil pas connecté', array('class' => 'iconIndex rounded-circle')) . '<br>' . ("Se connecter");
                         }
                 ?>
             </p>
