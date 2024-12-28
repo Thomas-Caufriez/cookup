@@ -213,6 +213,8 @@ get_header('bis');
                         required
                         name="nbrperson"
                         id="nbrperson"
+                        min=1
+                        max=10
                     >
                 </div>
             </div>
@@ -289,7 +291,7 @@ get_header('bis');
             <div class="d-flex justify-content-start  my-2 mb-3 mb-md-5">
                 <div class="d-flex align-items-center ">
                     <input 
-                        type="radio" 
+                        type="#" 
                         name="status" 
                         id="private" 
                         value="private" 
@@ -304,7 +306,7 @@ get_header('bis');
                 </div>
                 <div class="d-flex align-items-center  ms-3">
                     <input 
-                        type="radio" 
+                        type="#" 
                         name="status" 
                         id="public" 
                         value="public" 
