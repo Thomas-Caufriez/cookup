@@ -1,18 +1,11 @@
 <?php get_header(); 
-
 $current_user = wp_get_current_user();
-
-if (get_search_query()!== ''): ?>
-    <h2>
-        Recherche pour :
-        <strong><?php echo get_search_query(); ?></strong>
-    </h2>
-<?php endif ?>
+?>
 
 <div>
 
 <!-- Navbar en version desktop -->
-<div class="container-fluid text-center p-0 z-3 sticky-top d-none d-md-block bgLightPerso">
+<div class="container-fluid text-center p-0  d-none d-md-block bgLightPerso">
         <div class="d-flex row-cols-3">
             <button
                 class="btn col animationBarDesktop"
@@ -63,11 +56,11 @@ if (get_search_query()!== ''): ?>
         </div>
     </div>
     <!-- Menus cachés -->
-    <div class="row position-absolute p-0 m-0 vw-100 row-cols-1 row-cols-sm-3">
+    <div class="row position-absolute p-0 m-0 vw-100 row-cols-1 row-cols-md-3">
 
         <!-- Ingredients -->
         <div 
-            class="col z-2 collapse bg-white"
+            class="col z-2 collapse bgLightPerso"
             id="filterIngredients"
         >
             
@@ -116,7 +109,7 @@ if (get_search_query()!== ''): ?>
                     ?>
                         <div>
                             <input 
-                                class="btn-check " 
+                                class="btn-check inputAnimation" 
                                 type="checkbox" 
                                 role="switch" 
                                 value="<?php echo $ingredient; ?>" 
@@ -129,20 +122,20 @@ if (get_search_query()!== ''): ?>
                                 style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
                             >
                                 <div class="px-5 d-flex align-items-center justify-content-center">
-                                    <p class="pRobotoLogin m-0"><?php echo ucfirst($ingredient); ?></p>
+                                    <p class="m-0"><?php echo ucfirst($ingredient); ?></p>
                                 </div>
                                 <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
                             </label>
                         </div> 
                         <?php endforeach; ?>
                 </div>
-                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par ingrédients</button>
+                <button type="submit" class="btn btn-success d-flex justify-content-center align-items-center my-4 mx-auto bgFiltreBtnIngredient h3Salsa">Valider les ingrédients</button>
             </form>
         </div>
 
         <!-- Plats -->
         <div 
-            class="col offset-sm-4 z-2 collapse bg-white"
+            class="col offset-md-4 z-2 collapse bgLightPerso"
             id="filterPlats"
         >
             <form 
@@ -151,7 +144,7 @@ if (get_search_query()!== ''): ?>
             >
                 <div class="text-center d-flex align-items-center justify-content-center w-100">
                     <button 
-                        class="btn-close" 
+                        class="btn-close " 
                         type="button" 
                         data-bs-toggle="collapse" 
                         data-bs-target="#filterPlats" 
@@ -193,7 +186,7 @@ if (get_search_query()!== ''): ?>
                     ?>
                     <div> 
                         <input 
-                            class="btn-check" 
+                            class="btn-check inputAnimation" 
                             type="radio" 
                             role="switch" 
                             value="<?php echo $dishtype; ?>" 
@@ -206,7 +199,7 @@ if (get_search_query()!== ''): ?>
                             style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
                         >
                             <div class="px-5 d-flex align-items-center justify-content-center">
-                                <p class="pRobotoLogin m-0"><?php echo ucfirst($dishtype); ?></p>
+                                <p class="m-0"><?php echo ucfirst($dishtype); ?></p>
                             </div>
                             <!-- L'image pour le bulletOff qui sera modifiée en bulletOn via le CSS -->
                             <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> 
@@ -214,7 +207,7 @@ if (get_search_query()!== ''): ?>
                     </div>
                         <?php endforeach; ?>
                 </div>
-                <button type="submit" class="btn btn-primary d-flex justify-content-center align-items-center my-4 mx-auto">Filtrer par plats</button>
+                <button type="submit" class="btn btn-success d-flex justify-content-center align-items-center my-4 mx-auto bgFiltreBtnPlats h3Salsa">Valider le plat</button>
             </form>
         </div>
     </div>
@@ -229,23 +222,29 @@ if (get_search_query()!== ''): ?>
         <div class="btn-group">
             <button 
                 type="submit" 
-                class="btn btn-primary"
+                class="btn btn-light pRobotoLogin clicFiltreIndex"
             >
-                Filtrer
+                <!-- <p class="m-0 p-0">Filtrer</p> -->
+                <img 
+                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconFiltre.svg" 
+                    alt="Icones carrote steak et feuille" 
+                    class="iconLogin"
+                    style="margin: 0px !important;"
+                >
             </button>
             <button 
                 type="button" 
-                class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+                class="btn btn-light dropdown-toggle dropdown-toggle-split" 
                 data-bs-toggle="dropdown" 
                 aria-expanded="false"
             >
                 <span class="visually-hidden">Toggle Dropdown</span>
             </button>
-            <div class="dropdown-menu" >
+            <div class="dropdown-menu bgLightPerso" >
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio1" 
                         value=1 
@@ -253,16 +252,16 @@ if (get_search_query()!== ''): ?>
                         <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 1) ? 'checked' : ''; ?>
                     >
                     <label 
-                        class="btn w-100 rounded-0" 
+                        class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterradio1"
                     >
-                        Date
+                        <p class="m-0 p-0">Date</p>   
                     </label>
                 </div>
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio2" 
                         value=2 
@@ -270,16 +269,16 @@ if (get_search_query()!== ''): ?>
                         <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 2) ? 'checked' : ''; ?>
                     >
                     <label 
-                        class="btn w-100 rounded-0" 
+                        class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterradio2"
                     >
-                        Temps
+                    <p class="m-0 p-0">Temps</p>
                     </label>
                 </div>
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio3" 
                         value=3 
@@ -287,16 +286,16 @@ if (get_search_query()!== ''): ?>
                         <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 3) ? 'checked' : ''; ?>
                     >
                     <label 
-                        class="btn w-100 rounded-0" 
+                        class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterradio3"
                     >
-                        Difficulté
+                    <p class="m-0 p-0">Difficulté</p>
                     </label>
                 </div>
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio4" 
                         value=4 
@@ -304,17 +303,17 @@ if (get_search_query()!== ''): ?>
                         <?php echo (isset($_GET['filterval']) && $_GET['filterval'] == 4) ? 'checked' : ''; ?>
                     >
                     <label 
-                        class="btn w-100 rounded-0" 
+                        class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterradio4"
                     >
-                        Prix
+                    <p class="m-0 p-0">Prix</p>
                     </label>
                 </div>
                 <hr class="dropdown-divider">
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterAscDesc" 
                         id="filterAscDesc1" 
                         value ="DESC" 
@@ -322,16 +321,16 @@ if (get_search_query()!== ''): ?>
                         <?php echo (isset($_GET['filterAscDesc']) && $_GET['filterAscDesc'] == 'DESC') ? 'checked' : ''; ?>
                     >
                     <label 
-                        class="btn w-100 rounded-0" 
+                        class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterAscDesc1"
                     >
-                        Décroissant
+                    <p class="m-0 p-0">Décroissant</p>
                     </label> <!-- descendant = DESC = plus grand au plus petit (plus récent au plus vieux) -->
                 </div>
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterAscDesc" 
                         id="filterAscDesc2" 
                         value="ASC" 
@@ -339,15 +338,31 @@ if (get_search_query()!== ''): ?>
                         <?php echo (isset($_GET['filterAscDesc']) && $_GET['filterAscDesc'] == 'ASC') ? 'checked' : ''; ?>
                     >
                     <label 
-                        class="btn w-100 rounded-0" 
+                        class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterAscDesc2"
                     >
-                        Croissant
+                    <p class="m-0 p-0">Croissant</p>
                     </label> <!-- inverse note au dessus -->
                 </div>
             </div>
         </div>
     </form>
+
+    <?php if (get_search_query()!== ''): ?>
+    <h2 class="h3Salsa text-start mt-4 p-0">
+        <div class="d-flex align-items-center justify-content-start w-100 h-100">
+            <p class="m-0 pe-2">Recherche :</p>
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecherche.svg" 
+                alt="Icone loupe" 
+                class="iconLogin pe-2 me-2"
+                style="margin: 0px !important;"
+            >
+            <strong class="pRobotoLogin"><?php echo get_search_query(); ?></strong>
+        </div> 
+    </h2>
+    <?php endif ?>
+
   	<div class="row row-cols-2 row-cols-md-4 g-2 g-md-4 allCardsIndex">
 	  <?php 
 
@@ -362,6 +377,7 @@ if (get_search_query()!== ''): ?>
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
+            's' => get_search_query(),
             'posts_per_page' => -1,
         ];
 
@@ -430,15 +446,21 @@ if (get_search_query()!== ''): ?>
                         <a href="<?php the_permalink(); ?>" class="text-body text-decoration-none">
                             <?php the_post_thumbnail([512, 219], ['class' => 'card-img-top']); ?>
                             <div class="card-body">
-                                <h5 class="card-title"><?php the_title(); ?></h5>
-                                <p class="card-text"><?php the_excerpt(); ?></p>
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title"><?php the_title(); ?></h5>
+                                    <img 
+                                        src="<?php echo get_template_directory_uri(); ?>/assets/img/iconFavoris.svg" 
+                                        alt="Coeur like"
+                                    >
+                                </div>
+                                <p class="text-end mb-0 mt-1 pRoboto">0 likes</p>
                             </div>
                         </a>
                     </div>
                 </div>
             <?php endwhile;
         else :
-            echo "<h1 class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
+            echo "<h1 style='margin-top: 25vh !important;' class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
         endif;
         ?>
     </div>

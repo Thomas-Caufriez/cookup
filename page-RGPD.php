@@ -6,11 +6,7 @@ Template Name: Page rgpd
 get_header('bis') 
 ?>
 
-<div class="d-flex align-items-center justify-content-center mt-3 mb-3">
-    <h1 class="h2Salsa text-center mt-3 mb-3">Politique de Confidentialité</h1>
-</div>
-
-<div class="blockAllFooterSection container d-flex align-items-start mb-5">
+<div class="blockAllFooterSection container d-flex align-items-start mt-5 mb-5">
         <div class="blockN1">
             <span class="rectVerticalAllFooter"> </span>
         </div>
@@ -19,7 +15,7 @@ get_header('bis')
             <p class="p-0">
                 </br> 
                 <b>Dernière mise à jour : [03/12/2024]</b> </br>
-                Le site Cook'Up (cookup.be) accorde une grande importance à la protection de votre vie privée et à la sécurité de vos données personnelles. Cette Politique de Confidentialité a pour objectif de vous informer sur la manière dont nous collectons, utilisons et protégeons vos données.
+                Le site Cook'up (cookup.be) accorde une grande importance à la protection de votre vie privée et à la sécurité de vos données personnelles. Cette Politique de Confidentialité a pour objectif de vous informer sur la manière dont nous collectons, utilisons et protégeons vos données.
                 </br> 
                 </br> 
                 <b>1. Données collectées</b> </br>

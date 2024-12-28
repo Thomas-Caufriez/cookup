@@ -176,7 +176,7 @@ function handle_recipe_submission() {
                   'post_type'    => 'creation_recette',
                   'post_title'   => $post_title,
                   'post_content' => $description,
-                  'post_status'  => 'publish',
+                  'post_status'  => 'pending',
               ));
 
               if ($post_id) {
@@ -234,4 +234,17 @@ function custom_excerpt_length($length) {
   return 20;
 }
 add_filter('excerpt_length', 'custom_excerpt_length');
+
+function filter_search_query($query) {
+  // Vérifiez que nous sommes sur une page de recherche et non dans l'admin
+  if ($query->is_search && !is_admin()) {
+      // Vérifiez si le paramètre "post_type" est défini dans la requête
+      if (isset($_GET['post_type']) && $_GET['post_type'] === 'creation_recette') {
+          $query->set('post_type', 'creation_recette'); // Définir le type de post
+      }
+  }
+  return $query;
+}
+add_filter('pre_get_posts', 'filter_search_query');
+
 ?>

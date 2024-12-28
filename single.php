@@ -129,7 +129,8 @@ if (have_posts()) :
                         class="accordion-collapse collapse" 
                         data-bs-parent="#accordionrecipe"
                     >
-                        <div class="accordion-body pRobotoLogin">
+                        <div class="accordion-body" style="font-family: var(--font-roboto);
+                        font-size: max(14px, 1.3vw); font-weight: medium;">
                             <?php echo nl2br(esc_html($preparation)); ?>
                         </div>
                     </div>
