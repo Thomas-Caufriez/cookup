@@ -431,7 +431,11 @@ if (get_search_query()!== ''): ?>
                             <?php the_post_thumbnail([512, 219], ['class' => 'card-img-top']); ?>
                             <div class="card-body">
                                 <h5 class="card-title"><?php the_title(); ?></h5>
-                                <p class="card-text"><?php the_excerpt(); ?></p>
+                                <img 
+                                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconFavoris.svg" 
+                                    alt="Coeur like"
+                                >
+                                <p class="text-end">0 likes</p>
                             </div>
                         </a>
                     </div>
