@@ -374,13 +374,16 @@ div.text-dark > .pRobotoLogin {
 }
 
 .card {
-     padding: 2px !important;
     overflow: hidden !important;
     border: 2px solid #B9B9B9 !important;
     border-radius: 10px !important;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
 }
 .card:hover {
-   padding: 2px !important;
    overflow: hidden !important;
    border: 2px solid transparent !important;
    border-radius: 10px !important;
@@ -431,12 +434,6 @@ div.text-dark > .pRobotoLogin {
     outline: none !important;
     box-shadow: none !important;
     border-radius: 4px !important;
-    /* background: linear-gradient(to right, white, white) !important
-    border-color: var(--custom-gradient-background-color) !important;
-    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; */
-
     transition: all 0.3s ease;
 }
 
@@ -945,20 +942,12 @@ input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
         border-radius: 15px !important;
     }
     .card:hover {
-       padding: 2px !important;
-       overflow: hidden !important;
        border: 5px solid transparent !important;
        border-radius: 15px !important;
-       background-origin: border-box;
-       background-clip: content-box, border-box;
-       background-image: 
-           linear-gradient(to right, white, white),
-           linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
     }
     
     .card-img-top {
         height: 50% !important;
-        border-radius: 10px 10px 0 0 !important;
     }   
 
 }
