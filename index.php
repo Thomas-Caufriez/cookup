@@ -109,7 +109,7 @@ $current_user = wp_get_current_user();
                     ?>
                         <div>
                             <input 
-                                class="btn-check " 
+                                class="btn-check inputAnimation" 
                                 type="checkbox" 
                                 role="switch" 
                                 value="<?php echo $ingredient; ?>" 
@@ -122,7 +122,7 @@ $current_user = wp_get_current_user();
                                 style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $ingreVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
                             >
                                 <div class="px-5 d-flex align-items-center justify-content-center">
-                                    <p class="pRobotoLogin m-0"><?php echo ucfirst($ingredient); ?></p>
+                                    <p class="m-0"><?php echo ucfirst($ingredient); ?></p>
                                 </div>
                                 <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> <!-- changer ici pour le bullet !inversé! -->
                             </label>
@@ -144,7 +144,7 @@ $current_user = wp_get_current_user();
             >
                 <div class="text-center d-flex align-items-center justify-content-center w-100">
                     <button 
-                        class="btn-close" 
+                        class="btn-close " 
                         type="button" 
                         data-bs-toggle="collapse" 
                         data-bs-target="#filterPlats" 
@@ -186,7 +186,7 @@ $current_user = wp_get_current_user();
                     ?>
                     <div> 
                         <input 
-                            class="btn-check" 
+                            class="btn-check inputAnimation" 
                             type="radio" 
                             role="switch" 
                             value="<?php echo $dishtype; ?>" 
@@ -199,7 +199,7 @@ $current_user = wp_get_current_user();
                             style="background-image: url('<?php echo get_template_directory_uri() . '/assets/img/' . $dishVal['background']; ?>'); background-size: cover; object-fit: cover; background-position: center;"
                         >
                             <div class="px-5 d-flex align-items-center justify-content-center">
-                                <p class="pRobotoLogin m-0"><?php echo ucfirst($dishtype); ?></p>
+                                <p class="m-0"><?php echo ucfirst($dishtype); ?></p>
                             </div>
                             <!-- L'image pour le bulletOff qui sera modifiée en bulletOn via le CSS -->
                             <img class="bulletOff-On" src="<?php echo get_template_directory_uri(); ?>/assets/img/bulletOff.svg"> 
@@ -224,7 +224,13 @@ $current_user = wp_get_current_user();
                 type="submit" 
                 class="btn btn-light pRobotoLogin clicFiltreIndex"
             >
-                <p class="m-0 p-0">Filtrer</p>
+                <!-- <p class="m-0 p-0">Filtrer</p> -->
+                <img 
+                    src="<?php echo get_template_directory_uri(); ?>/assets/img/iconFiltre.svg" 
+                    alt="Icones carrote steak et feuille" 
+                    class="iconLogin"
+                    style="margin: 0px !important;"
+                >
             </button>
             <button 
                 type="button" 
@@ -238,7 +244,7 @@ $current_user = wp_get_current_user();
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio1" 
                         value=1 
@@ -255,7 +261,7 @@ $current_user = wp_get_current_user();
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio2" 
                         value=2 
@@ -266,13 +272,13 @@ $current_user = wp_get_current_user();
                         class="btn w-100 rounded-0 miniFiltreIndexBtn pRobotoLogin" 
                         for="filterradio2"
                     >
-                    <p class="m-0 p-0">Temp</p>
+                    <p class="m-0 p-0">Temps</p>
                     </label>
                 </div>
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check " 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio3" 
                         value=3 
@@ -289,7 +295,7 @@ $current_user = wp_get_current_user();
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterval" 
                         id="filterradio4" 
                         value=4 
@@ -307,7 +313,7 @@ $current_user = wp_get_current_user();
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterAscDesc" 
                         id="filterAscDesc1" 
                         value ="DESC" 
@@ -324,7 +330,7 @@ $current_user = wp_get_current_user();
                 <div>
                     <input 
                         type="radio" 
-                        class="btn-check" 
+                        class="btn-check inputAnimation" 
                         name="filterAscDesc" 
                         id="filterAscDesc2" 
                         value="ASC" 
@@ -343,9 +349,17 @@ $current_user = wp_get_current_user();
     </form>
 
     <?php if (get_search_query()!== ''): ?>
-    <h2>
-        Recherche pour :
-        <strong><?php echo get_search_query(); ?></strong>
+    <h2 class="h3Salsa text-start mt-4 p-0">
+        <div class="d-flex align-items-center justify-content-start w-100 h-100">
+            <p class="m-0 pe-2">Recherche :</p>
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecherche.svg" 
+                alt="Icone loupe" 
+                class="iconLogin pe-2 me-2"
+                style="margin: 0px !important;"
+            >
+            <strong class="pRobotoLogin"><?php echo get_search_query(); ?></strong>
+        </div> 
     </h2>
     <?php endif ?>
 
@@ -446,7 +460,7 @@ $current_user = wp_get_current_user();
                 </div>
             <?php endwhile;
         else :
-            echo "<h1 class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
+            echo "<h1 style='margin-top: 25vh !important;' class='text-center w-100 h2Salsa'>Aucune recette trouvée.<h1>";
         endif;
         ?>
     </div>

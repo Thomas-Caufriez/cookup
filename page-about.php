@@ -6,11 +6,7 @@ Template Name: Page about
 get_header('bis'); 
 ?>
 
-<div class="d-flex align-items-center justify-content-center mt-3 mb-3">
-    <h1 class="h2Salsa text-center mt-3 mb-3">À propos</h1>
-</div>
-
-<div class="blockAllFooterSection container d-flex align-items-start mb-5">
+<div class="blockAllFooterSection container d-flex align-items-start mt-5 mb-5">
         <div class="blockN1">
             <span class="rectVerticalAllFooter"> </span>
         </div>

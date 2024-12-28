@@ -33,6 +33,11 @@ input:focus, textarea:focus {
 }
 .btn-close {
     box-shadow: none !important;
+    transition: rotate 0.3s ease-in-out;
+}
+.btn-close:hover{
+    rotate: 90deg;
+    transition: rotate 0.3s ease-in-out;
 }
 
 .h2Salsa {
@@ -124,6 +129,45 @@ input:focus, textarea:focus {
     background-color: white !important;
 
 }
+
+.btnRecetteAnimation {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 34px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btnRecetteAnimation:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: #f1f3f5;
+}
+
+.btnRecetteAnimation i, 
+.btnRecetteAnimation span {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btnRecetteAnimation:hover i {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.btnRecetteAnimation:hover span {
+    transform: translateX(5px);
+}
+
+.btnRecetteAnimation:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 .blockBtnRecetteDesktop {
     display: none !important;
@@ -440,36 +484,32 @@ div.text-dark > .pRobotoLogin {
 /* couleur du texte label en hover */
 .miniFiltreIndexBtn:hover p{
     background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
-    -webkit-background-clip: text; /* S'applique au texte */
-    -webkit-text-fill-color: transparent; /* Rend le texte transparent pour afficher le fond */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
     font-weight: bold;
     transition: all 0.3s ease;
     
 }
 
-/* couleur du texte label */
-input[type="radio"]:checked + label p {
-    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
-    -webkit-background-clip: text; /* S'applique au texte */
-    -webkit-text-fill-color: transparent; /* Rend le texte transparent pour afficher le fond */
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
 /* Bordure transp pour les radios validés */
-input[type="radio"]:checked + label {
+.inputAnimation[type="radio"]:checked + label, .inputAnimation[type="checkbox"]:checked + label{
     padding: 1px !important;
     border: 1px solid transparent !important;
-    border-radius: 20px !important;
+    border-radius: 10px !important;
     background-origin: border-box;
     background-clip: content-box, border-box;
     background-image: 
         linear-gradient(to right, white, white),
         linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
 }
-
-
-
+/* couleur du texte label */
+.inputAnimation[type="radio"]:checked + label p, .inputAnimation[type="checkbox"]:checked + label p{
+    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
 
 /*--- navBar index ---*/
 .iconIndex {
@@ -572,7 +612,7 @@ input[type="radio"]:checked + label {
 /* Texte à l'intérieur des cartes */
 .cardsIngredients div p, .cardsPlats div p {
     font-family: var(--font-salsa);
-    font-size: max(12px, 1.5vw);
+    font-size: max(12px, 1.25vw);
     font-weight: medium;
 }
 
@@ -595,9 +635,9 @@ input[type="radio"]:checked + label {
 }
 
 
-/*------- Gestion des radios (Plats) -------*/
-/*------- Gestion des radios (Plats) -------*/
-/* Lorsqu'un radio est sélectionné */
+
+/*------- radios (Plats) -------*/
+/* radio sélectionné */
 input[type="radio"]:checked + label.cardsPlats {
     opacity: 1;
     transition: all 0.3s ease;
@@ -609,8 +649,8 @@ input[type="radio"]:checked + label.cardsPlats .bulletOff-On {
 }
 
 
-/*------- Gestion des checkboxes (Ingrédients) -------*/
-/* Lorsqu'une checkbox est cochée */
+/*------- checkboxes (Ingrédients) -------*/
+/* checkbox cochée */
 input[type="checkbox"]:checked + label.cardsIngredients {
     opacity: 1;
     transition: all 0.3s ease;
@@ -961,4 +1001,49 @@ input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
     /*--- FOOTER - Pc ---*/
 
 
+}
+
+
+/*--------------------------- scrollbar -------------------------------*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    border: 30px none linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(85, 107, 206);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(85, 107, 206);
+}
+
+::-webkit-scrollbar-track {
+    background: #B9B9B9;
+    border: 1px solid #B9B9B9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #B9B9B9;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #B9B9B9;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
