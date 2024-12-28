@@ -44,6 +44,7 @@ $curent_user = wp_get_current_user();
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecette.svg" 
                             alt="icone créer"
+                            class="iconLogin"
                         >
                         <span class="pRobotoLogin">Crée une recette</span>
                     </a>
