@@ -29,12 +29,12 @@
                         >   
                             <img 
                                 src="<?php echo get_template_directory_uri(); ?>/assets/img/logoMobile.svg" 
-                                alt="Logo" 
+                                alt="Logo du site en mobile" 
                                 class="logoMobile"
                             >
                             <img 
                                 src="<?php echo get_template_directory_uri(); ?>/assets/img/logoDeskop.svg" 
-                                alt="Logo" 
+                                alt="Logo du site en desktop" 
                                 class="logoDesktop"
                             >
                         </a>
