@@ -205,11 +205,6 @@ input:focus, textarea:focus {
 /*===================================================> FOOTER / FOOTERbis <=========================================================*/
 
 footer {
-    /* background-image: url('../img/UnionDesktop.svg') !important;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
-    width: 100vw !important;
-    height: 100vh !important; */
     background: var(--custom-gradient-background-color);
     background-size: 150%;
     background-position: 30% 70%;
@@ -412,9 +407,12 @@ div.text-dark > .pRobotoLogin {
 }
 
 /*===================================================> Page Index <=========================================================*/
+
+
 /*--- All Cards index ---*/
 .allCardsIndex {
     height: auto;
+ 
 }
 
 .card {
@@ -512,6 +510,10 @@ div.text-dark > .pRobotoLogin {
 }
 
 /*--- navBar index ---*/
+.navBarTaille {
+    height: 10vh;
+}
+
 .iconIndex {
     width: clamp(30px, 3.5vw, 45px);
     height: clamp(30px, 3.5vw, 45px);
@@ -997,17 +999,12 @@ input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
         background-size: 35px;
         font-size: 1.5rem;
     }
-
-    /*--- FOOTER - Pc ---*/
-
-
 }
-
 
 /*--------------------------- scrollbar -------------------------------*/
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
 
 }
 

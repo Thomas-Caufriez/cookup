@@ -5,7 +5,7 @@ $current_user = wp_get_current_user();
 <div>
 
 <!-- Navbar en version desktop -->
-<div class="container-fluid text-center p-0  d-none d-md-block bgLightPerso">
+<div class="container-fluid text-center p-0 d-none d-md-block bgLightPerso navBarTaille">
         <div class="d-flex row-cols-3">
             <button
                 class="btn col animationBarDesktop"
@@ -60,7 +60,7 @@ $current_user = wp_get_current_user();
 
         <!-- Ingredients -->
         <div 
-            class="col z-2 collapse bgLightPerso"
+            class="col z-2 collapse bgLightPerso " 
             id="filterIngredients"
         >
             
@@ -78,7 +78,7 @@ $current_user = wp_get_current_user();
                         aria-controls="filterIngredients"
                     >
                     </button>
-                    <h2 class="h2Salsa my-4 mx-4">Filtrer par ingrédients</h2>
+                    <h2 class="h2Salsa my-4 mx-4 " style="white-space: nowrap;">Filtrer par ingrédients</h2>
                 </div>
                 <div class="allCardsIngredients">
                     <?php
@@ -214,7 +214,7 @@ $current_user = wp_get_current_user();
 </div>
 
 <!-- Bouton de filtre -->
-<div class="container-fluid px-2 px-md-4">
+<div class="container-fluid px-2 px-md-4 contentIndex">
     <form 
         method="get" 
         class="my-3"

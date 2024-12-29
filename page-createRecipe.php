@@ -148,14 +148,14 @@ get_header('bis');
                         id="dishtype" 
                         name="dishtype"
                     >
-                        <option value="starter">Entrée</option>
-                        <option value="maincourse" selected>Plat</option>
-                        <option value="desert">Dessert</option>
-                        <option value="international">International</option>
-                        <option value="drink">Boisson</option>
-                        <option value="brunch">Brunch</option>
-                        <option value="sidedish">Assortiment</option>
-                        <option value="snack">Snack & encas</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Principal" selected>Plat</option>
+                        <option value="International">International</option>
+                        <option value="Brunch">Brunch</option>
+                        <option value="Assortiment">Assortiment</option>
+                        <option value="Snack / Enca">Snack & encas</option>
+                        <option value="Déssert">Dessert</option>
+                        <option value="Boisson">Boisson</option>
                     </select>
                 </div>
             </div>
@@ -230,7 +230,7 @@ get_header('bis');
                 </div>
                 <div class="row row-cols-3 justify-content-start text-center">
                     <?php 
-                    $ingredients = ['proteine', 'legumineuse', 'cereale & grain', 'noix & graine', 'fruit', 'legume', 'produit laitier'];
+                    $ingredients = ['Prot.animale', 'Légumineuse', 'Céréale / Grain', 'Noix / Graine', 'Fruit', 'Légume', 'Prot.laitier'];
                     ?>
                     <?php foreach ($ingredients as $ingredient): ?>
                         <div class="col d-flex align-items-center my-1 pRobotoLogin">
