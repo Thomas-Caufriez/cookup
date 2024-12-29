@@ -148,19 +148,19 @@ get_header('bis');
                         id="dishtype" 
                         name="dishtype"
                     >
-                        <option value="starter">Entrée</option>
-                        <option value="maincourse" selected>Plat</option>
-                        <option value="desert">Dessert</option>
-                        <option value="international">International</option>
-                        <option value="drink">Boisson</option>
-                        <option value="brunch">Brunch</option>
-                        <option value="sidedish">Assortiment</option>
-                        <option value="snack">Snack & encas</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Principal" selected>Plat</option>
+                        <option value="International">International</option>
+                        <option value="Brunch">Brunch</option>
+                        <option value="Assortiment">Assortiment</option>
+                        <option value="Snack / Enca">Snack & encas</option>
+                        <option value="Déssert">Dessert</option>
+                        <option value="Boisson">Boisson</option>
                     </select>
                 </div>
             </div>
         </div>
-
+        
         <div class="col mt-4 mt-md-0">
             <div>
                 <div class="d-flex align-items-center justify-content-start my-2 my-md-3">
