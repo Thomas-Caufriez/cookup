@@ -240,7 +240,7 @@ $current_user = wp_get_current_user();
             >
                 <span class="visually-hidden">Toggle Dropdown</span>
             </button>
-            <div class="dropdown-menu bgLightPerso" >
+            <div class="dropdown-menu bgLightPerso" style="z-index: 1 !important; position: relative; width: 20vw;">
                 <div>
                     <input 
                         type="radio" 
