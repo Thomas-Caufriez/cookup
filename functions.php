@@ -224,8 +224,8 @@ add_meta_box('recette_details', 'Détails de la recette', function ($post) {
     echo '<b>Type de plat :</b> ' . $dishtype . '<br>';
     echo '<b>Nombre de personnes :</b> ' . $nbrperson . '<br>';
     echo '<b>status :</b> ' . $status . '<br>';
-    echo '<b>Préparation :</b> ' . $preparation . '<br>';
-    echo '<b>Ingrédients :</b> ' . $descingredient;
+    echo '<b>Préparation :</b> ' . nl2br($preparation) . '<br>';
+    echo '<b>Ingrédients :</b> ' . nl2br($descingredient);
 }, 'creation_recette');
 });
 
