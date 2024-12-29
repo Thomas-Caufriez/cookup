@@ -12,7 +12,7 @@ get_header('bis');
 ?>
 
 <div class="container mt-3 mb-3">
-  <h2 class="text-center h2Salsa mt-3 mb-3">S'inscrire</h2>
+  <h1 class="text-center h2Salsa mt-3 mb-3">S'inscrire</h1>
 </div>
 
 <div>

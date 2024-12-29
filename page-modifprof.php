@@ -23,7 +23,7 @@ if ( isset( $_POST['new_password'] ) && !empty( $_POST['new_password'] ) ) {
 
 <div>
     <div class="container">
-        <h2 class="text-center h2Salsa mt-4 mb-4">Modifier mon mot de passe</h2>
+        <h1 class="text-center h2Salsa mt-4 mb-4">Modifier mon compte</h1>
     </div>
 
     <form method="post"
