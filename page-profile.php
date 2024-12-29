@@ -33,7 +33,7 @@ $curent_user = wp_get_current_user();
                         <a href="<?php echo home_url('/profil/modify-profil'); ?>" class="pUnderline">Modifier le profil</a>
                     </div>
                     <div class="mt-2 ps-1 ps-md-3">
-                        <a href="<?php echo wp_logout_url('/login'); ?>"class="pUnderline">Se déconnecter</a>
+                        <a href="<?php echo wp_logout_url('/login'); ?>"class="pUnderline">Se déconnecter ?</a>
                     </div>
                 </div>
                 <div class="col-6 text-center mt-4">
@@ -44,8 +44,10 @@ $curent_user = wp_get_current_user();
                         <img 
                             src="<?php echo get_template_directory_uri(); ?>/assets/img/iconRecette.svg" 
                             alt="icone créer"
+                            class="iconLogin"
+                            style="margin: 0px !important;"
                         >
-                        <span class="pRobotoLogin">Crée une recette</span>
+                        <span class="pRobotoLogin ">Créer une recette</span>
                     </a>
                 </div>
             </div>

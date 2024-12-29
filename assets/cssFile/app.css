@@ -5,8 +5,6 @@
 
 :root {
     /* Couleurs */
-    /* --primary-color: #FF62C0;
-    --secondary-color: #FFDC69; */
     --custom-gradient-background-color: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
 
     /* Polices */
@@ -15,23 +13,9 @@
     
 }
 
-/* Classes de police pré-définies */
-[class*="salsa-"] { font-family: var(--font-salsa); }
-[class*="roboto-"] { font-family: var(--font-roboto); }
-
-.salsa-regular { font-weight: 400; font-style: normal; }
-.roboto-regular { font-weight: 400; font-style: normal; }
-.roboto-medium { font-weight: 500; font-style: normal; }
-.roboto-bold { font-weight: 400; font-style: normal; }
-.roboto-thin-italic { font-weight: 100; font-style: italic; }
-.roboto-regular-italic { font-weight: 400; font-style: italic; }
-
-.roboto-regular-desktop { font-weight: 400; font-style: normal; }
-.salsa-regular-desktop { font-weight: 400; font-style: normal; }
-.roboto-regular-desktop { font-weight: 400; font-style: normal; }
-.roboto-bold-desktop { font-weight: 700; font-style: normal; }
-.roboto-thin-italic-desktop { font-weight: 100; font-style: italic; }
-.roboto-regular-italic-desktop { font-weight: 400; font-style: italic; }
+.bg-light, .btn-light {
+    background-color: #F8F8F8 !important;
+}
 
 input {
     border-color: none !important;
@@ -40,9 +24,20 @@ input {
     font-family: var(--font-roboto);
 }
 
-input:focus {
+input:focus, textarea:focus {
     border-color: rgba(128, 128, 128, 0.5) !important;
     box-shadow: none !important;
+    outline: 0 !important;
+
+    
+}
+.btn-close {
+    box-shadow: none !important;
+    transition: rotate 0.3s ease-in-out;
+}
+.btn-close:hover{
+    rotate: 90deg;
+    transition: rotate 0.3s ease-in-out;
 }
 
 .h2Salsa {
@@ -66,7 +61,7 @@ input:focus {
 
 .pRobotoLogin {
     font-family: var(--font-roboto);
-    font-size: max(14px, 1.3vw);
+    font-size: max(14px, 1.6vw);
     font-weight: medium;
 }
 
@@ -84,8 +79,8 @@ input:focus {
 }
 
 .iconLogin {
-    width: clamp(20px, 3.5vw, 45px);
-    height: clamp(20px, 3.5vw, 45px);
+    width: clamp(20px, 2.5vw, 35px);
+    height: clamp(20px, 2.5vw, 35px);
     margin-left: 10px !important;
 }
 
@@ -102,7 +97,7 @@ input:focus {
     width: 100%;
     height: 10vh;
     display: flex;
-    align-items: center;
+    align-items: center; 
 }
 
 
@@ -131,11 +126,56 @@ input:focus {
     border-radius: 34px;
     text-decoration: var(--custom-gradient-background-color);
     width: 100%;
+    background-color: white !important;
 
 }
 
+.btnRecetteAnimation {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 34px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btnRecetteAnimation:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: #f1f3f5;
+}
+
+.btnRecetteAnimation i, 
+.btnRecetteAnimation span {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btnRecetteAnimation:hover i {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.btnRecetteAnimation:hover span {
+    transform: translateX(5px);
+}
+
+.btnRecetteAnimation:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
 .blockBtnRecetteDesktop {
     display: none !important;
+
+}
+.blockBtnRecetteDesktop:hover {
+   background-color: white !important;
+
 
 }
 
@@ -233,6 +273,7 @@ div.text-dark > .pRobotoLogin {
     font-size: max(13px, 2vw);
     font-weight: medium;
     color: white;
+    height: auto !important;
     width: auto !important;
     background: var(--custom-gradient-background-color);
     background-size: 150%; 
@@ -380,9 +421,13 @@ div.text-dark > .pRobotoLogin {
     overflow: hidden !important;
     border: 2px solid #B9B9B9 !important;
     border-radius: 10px !important;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
 }
 .card:hover {
-   padding: 2px !important;
    overflow: hidden !important;
    border: 2px solid transparent !important;
    border-radius: 10px !important;
@@ -399,28 +444,72 @@ div.text-dark > .pRobotoLogin {
 }   
 
 .card-body {
-     height: 100px !important; 
+    height: 100% !important; 
 
 }
 .card-body h5 {
      font-family: var(--font-salsa);
-     font-size: max(14px, 1.3vw);
+     font-size: max(14px, 1.4vw);
+     overflow: hidden;
+     word-wrap: break-word !important;
+     word-break: break-word !important;
+     white-space: nowrap;
 
 }
 .card-body p {
      font-family: var(--font-roboto);
      font-size: max(14px, 1.3vw);
      overflow: hidden;
-     display: -webkit-box;
-     -webkit-box-orient: vertical;
-     -webkit-line-clamp: 2;
      word-wrap: break-word !important;
      word-break: break-word !important;
+
+}
+.card-body img {
+    width: clamp(20px, 3.5vw, 30px);
+    height: clamp(20px, 3.5vw, 30px);
+    margin-left: 10px !important;
 
 }
 
 
 /*--- Filtre index ---*/
+.miniFiltreIndexBtn:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease;
+}
+
+/* couleur du texte label en hover */
+.miniFiltreIndexBtn:hover p{
+    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-weight: bold;
+    transition: all 0.3s ease;
+    
+}
+
+/* Bordure transp pour les radios validés */
+.inputAnimation[type="radio"]:checked + label, .inputAnimation[type="checkbox"]:checked + label{
+    padding: 1px !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px !important;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: 
+        linear-gradient(to right, white, white),
+        linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+}
+/* couleur du texte label */
+.inputAnimation[type="radio"]:checked + label p, .inputAnimation[type="checkbox"]:checked + label p{
+    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
 
 /*--- navBar index ---*/
 .iconIndex {
@@ -523,7 +612,7 @@ div.text-dark > .pRobotoLogin {
 /* Texte à l'intérieur des cartes */
 .cardsIngredients div p, .cardsPlats div p {
     font-family: var(--font-salsa);
-    font-size: max(12px, 1.5vw);
+    font-size: max(12px, 1.25vw);
     font-weight: medium;
 }
 
@@ -546,9 +635,9 @@ div.text-dark > .pRobotoLogin {
 }
 
 
-/*------- Gestion des radios (Plats) -------*/
-/*------- Gestion des radios (Plats) -------*/
-/* Lorsqu'un radio est sélectionné */
+
+/*------- radios (Plats) -------*/
+/* radio sélectionné */
 input[type="radio"]:checked + label.cardsPlats {
     opacity: 1;
     transition: all 0.3s ease;
@@ -560,8 +649,8 @@ input[type="radio"]:checked + label.cardsPlats .bulletOff-On {
 }
 
 
-/*------- Gestion des checkboxes (Ingrédients) -------*/
-/* Lorsqu'une checkbox est cochée */
+/*------- checkboxes (Ingrédients) -------*/
+/* checkbox cochée */
 input[type="checkbox"]:checked + label.cardsIngredients {
     opacity: 1;
     transition: all 0.3s ease;
@@ -754,10 +843,6 @@ input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
 
 /*--- Media Queries - Tablette et plus ---*/
 @media screen and (min-width: 768px) {
-    body {
-        background: rgba(119, 119, 212, 0.404);
-    }
-
     /*--- HEADER / HEADERbis - Tablette ---*/
     .blockBtnRecetteDesktop {
         display: flex !important;
@@ -893,30 +978,18 @@ input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
         border-radius: 15px !important;
     }
     .card:hover {
-       padding: 2px !important;
-       overflow: hidden !important;
        border: 5px solid transparent !important;
        border-radius: 15px !important;
-       background-origin: border-box;
-       background-clip: content-box, border-box;
-       background-image: 
-           linear-gradient(to right, white, white),
-           linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
     }
     
     .card-img-top {
         height: 50% !important;
-        border-radius: 10px 10px 0 0 !important;
     }   
 
 }
 
 /*--- Media Queries - PC (min 1512px) ---*/
 @media screen and (min-width: 1512px) {
-    body {
-        background: rgb(143, 204, 143);
-    }
-
     /*--- HEADER / HEADERbis - Pc ---*/
     .header .form-control {
         background-position: left 20px center; 
@@ -928,4 +1001,49 @@ input[type="checkbox"]:checked + label.cardsIngredients .bulletOff-On {
     /*--- FOOTER - Pc ---*/
 
 
+}
+
+
+/*--------------------------- scrollbar -------------------------------*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    border: 30px none linear-gradient(45deg, #FF62C0 3%, #FFDC69 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(85, 107, 206);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(85, 107, 206);
+}
+
+::-webkit-scrollbar-track {
+    background: #B9B9B9;
+    border: 1px solid #B9B9B9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #B9B9B9;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #B9B9B9;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
