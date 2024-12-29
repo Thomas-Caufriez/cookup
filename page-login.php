@@ -11,7 +11,7 @@ if (is_user_logged_in()) {
 get_header('bis');
 ?>
 <div class="container mt-3 mb-3">
-  <h2 class="text-center h2Salsa ">Se connecter</h2>
+  <h1 class="text-center h2Salsa ">Se connecter</h1>
 </div>
 
 <div>

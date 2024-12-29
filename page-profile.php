@@ -10,7 +10,7 @@ if (!is_user_logged_in()) {
 
 get_header('bis'); 
 
-$curent_user = wp_get_current_user();
+$current_user = wp_get_current_user();
 ?>
 
 <div class="container-fluid text-center mt-4">
@@ -18,7 +18,7 @@ $curent_user = wp_get_current_user();
         <div class="col ">
             <div class="row">
                 <div class="col-6 imgProfil">
-                    <?php echo get_avatar($curent_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'imgProfil rounded-circle'))?>
+                    <?php echo get_avatar($current_user->ID, 96, 'identicon', 'photo de profil', array('class' => 'imgProfil rounded-circle'))?>
                 </div>
                 <div class="col-6 text-start p-0">
                     <div class="mt-2 mt-md-3 h2Salsa hiddenText">
